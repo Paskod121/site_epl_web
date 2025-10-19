@@ -1,4 +1,177 @@
 <!DOCTYPE html>
+<html lang="fr data-theme="clair"">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actualités - École Polytechnique de Lomé</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    body {
+      background-color: #f8fafc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    main {
+        margin-left: 280px;
+      }
+      
+    .section-title {
+      text-align: left;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .section-subtitle {
+      color: #475569;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+    .news-card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .news-card img {
+      height: 230px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .badge-custom {
+      background-color: #e0e7ff;
+      color: #1d4ed8;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-weight: 600;
+    }
+    .card-date {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-left: 8px;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 10px;
+      color: #1e293b;
+    }
+    .card-text {
+      color: #475569;
+      font-size: 0.95rem;
+      margin-top: 5px;
+    }
+    .card-link {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .card-link:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+    .card-link i {
+      margin-left: 5px;
+    }
+    footer {
+      background-color: #f1f5f9;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 60px;
+      border-top: 1px solid #e2e8f0;
+    }
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+    <main>
+  <div class="container py-5">
+    <h2 class="section-title">Actualités</h2>
+    <p class="section-subtitle">Les dernières nouvelles de l’École Polytechnique de Lomé</p>
+
+    <div class="row g-4">
+      <!-- Carte 1 -->
+      <div class="col-md-6">
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1604604953907-3ed4d83f5e5f?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Remise de diplômes">
+          <div class="card-body">
+            <span class="badge-custom">Événement</span>
+            <span class="card-date"><i class="bi bi-calendar"></i> 15 Septembre 2024</span>
+            <h5 class="card-title">Cérémonie de Remise des Diplômes 2024</h5>
+            <p class="card-text">Plus de 450 nouveaux ingénieurs ont reçu leur diplôme lors d'une cérémonie grandiose.</p>
+            <a href="#" class="card-link">Lire plus <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 2 -->
+      <div class="col-md-6">
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Laboratoire de robotique">
+          <div class="card-body">
+            <span class="badge-custom" style="background-color:#dbeafe;color:#1e40af;">Infrastructure</span>
+            <span class="card-date"><i class="bi bi-calendar"></i> 10 Août 2024</span>
+            <h5 class="card-title">Nouveau Laboratoire de Robotique</h5>
+            <p class="card-text">L’EPL inaugure un laboratoire de robotique ultramoderne équipé des dernières technologies.</p>
+            <a href="#" class="card-link">Lire plus <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 3 -->
+      <div class="col-md-6">
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1581093806997-124204d9fa8f?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Université de Grenoble">
+          <div class="card-body">
+            <span class="badge-custom" style="background-color:#dbeafe;color:#1d4ed8;">Partenariat</span>
+            <span class="card-date"><i class="bi bi-calendar"></i> 5 Juillet 2024</span>
+            <h5 class="card-title">Partenariat avec l’Université de Grenoble</h5>
+            <p class="card-text">Signature d'un accord de coopération pour les échanges d'étudiants et de professeurs.</p>
+            <a href="#" class="card-link">Lire plus <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 4 -->
+      <div class="col-md-6">
+        <div class="card news-card">
+          <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Compétition de Programmation">
+          <div class="card-body">
+            <span class="badge-custom" style="background-color:#e0f2fe;color:#0369a1;">Compétition</span>
+            <span class="card-date"><i class="bi bi-calendar"></i> 20 Juin 2024</span>
+            <h5 class="card-title">Compétition de Programmation 2024</h5>
+            <p class="card-text">L’équipe de l’EPL remporte la première place au hackathon national des écoles d’ingénieurs.</p>
+            <a href="#" class="card-link">Lire plus <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+=======
 <html lang="fr" data-theme="clair">
 
 <head>
@@ -19,6 +192,7 @@
     <link rel="stylesheet" href="/css/components/buttons.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
     <link rel="stylesheet" href="/css/layouts/main.css">
     <link rel="stylesheet" href="/css/pages/dashboard.css">
 </head>
@@ -27,71 +201,21 @@
     <!-- Skip link pour l'accessibilité -->
     <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
 
+    <!-- Navbar (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb -->
+    <div id="breadcrumb-container"></div>
+
     <!-- Sidebar -->
     <div id="sidebar-container">
         <!-- Le contenu du sidebar sera chargé ici par JavaScript -->
     </div>
 
     <!-- Contenu principal -->
-    <main id="contenu-principal" class="contenu-principal">
+    <!-- <main id="contenu-principal" class="contenu-principal">
 
         <!-- Section En développement -->
-        <section class="dev-section" role="region">
-            <div class="container">
-                <div class="dev-content">
-                    <div class="dev-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <path d="M8 6h8M8 10h8M8 14h5" />
-                        </svg>
-                    </div>
-                    <h1 class="dev-titre">Page en développement</h1>
-                    <p class="dev-description">
-                        Cette page est actuellement en cours de développement par l'équipe EPL.
-                        Le contenu sera bientôt disponible.
-                    </p>
-                    <div class="dev-info">
-                        <p><strong>Équipe responsable :</strong> Développement Web EPL</p>
-                        <p><strong>Statut :</strong> En cours de développement</p>
-                        <p><strong>Date prévue :</strong> Bientôt disponible</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section CTA -->
-        <section class="cta-section" role="region">
-            <div class="container">
-                <div class="cta-contenu">
-                    <h2 class="cta-titre">Prêt à rejoindre l'excellence ?</h2>
-                    <p class="cta-description">
-                        Découvrez nos formations et commencez votre parcours d'ingénieur dès maintenant.
-                    </p>
-                    <div class="cta-actions">
-                        <a href="/pages/formations/index.html" class="bouton bouton-primaire bouton-large">
-                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-                                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                                <path d="M10 9H8" />
-                                <path d="M16 13H8" />
-                                <path d="M16 17H8" />
-                            </svg>
-                            <span>Découvrir nos formations</span>
-                        </a>
-                        <a href="/pages/contact.html" class="bouton bouton-secondaire bouton-large">
-                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
-                            </svg>
-                            <span>Nous contacter</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
     <!-- Footer -->
     <footer class="footer-principal" role="contentinfo">
@@ -112,42 +236,36 @@
     <!-- Scripts JavaScript -->
     <script src="/js/utils/themes.js"></script>
     <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
     <script src="/js/components/sidebar.js"></script>
     <script src="/js/components/cta.js"></script>
     <script src="/js/pages/dashboard.js"></script>
     <script src="/js/main.js"></script>
 
-    <!-- Script de gestion du sidebar pour actualites -->
+    <!-- Script de gestion de la page Actualités -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log('🚀 Page Actualités chargée');
 
-            // Charger le composant sidebar
-            fetch('/components/sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-container').innerHTML = html;
+            // Initialiser le système de pages avec breadcrumb
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('actualites');
+            }
 
-                    // Marquer le lien Actualités comme actif
-                    const actualitesLink = document.querySelector('a[href="/pages/actualites.html"]');
-                    if (actualitesLink) {
-                        actualitesLink.classList.add('actif');
-                        actualitesLink.setAttribute('aria-current', 'page');
-                    }
+            // Forcer la synchronisation de la navigation
+            if (typeof gestionnaireNavigation !== 'undefined') {
+                setTimeout(() => {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }, 100);
+            }
 
-                    // Initialiser le gestionnaire de sidebar
-                    if (typeof SidebarManager !== 'undefined') {
-                        window.sidebarManager = new SidebarManager();
-                        console.log('✅ Gestionnaire de sidebar initialisé');
-                    }
-
-                    console.log('✅ Page Actualités initialisée avec succès');
-                })
-                .catch(error => {
-                    console.error('❌ Erreur lors du chargement du sidebar:', error);
-                });
+            console.log('✅ Page Actualités initialisée avec succès');
         });
     </script>
 </body>
 
 </html>
+>>>>>>> 38b9b1bad4572c351cb0d45de19078787c80dfd5

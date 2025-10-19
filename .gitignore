@@ -1,15 +1,16 @@
-# Dependencies
-node_modules/
-vendor/
-
-# Configuration sensible
-config/database.php
-.env
-
 # Fichiers système
 .DS_Store
 Thumbs.db
+*.tmp
+*.temp
+
+# Logs
 *.log
+logs/
+
+# Cache
+.cache/
+*.cache
 
 # IDE
 .vscode/
@@ -17,13 +18,22 @@ Thumbs.db
 *.swp
 *.swo
 
-# Cache
-*.cache
-.sass-cache/
+# Node modules (si ajoutés plus tard)
+node_modules/
+npm-debug.log*
 
-# Build
-dist/
-build/
+# Fichiers de développement
+.env
+.env.local
+.env.development
+.env.production
 
-# Uploads (si nécessaire)
-assets/uploads/
+# Backup files
+*.bak
+*.backup
+*~
+
+# OS generated files
+.DS_Store?
+ehthumbs.db
+Icon?

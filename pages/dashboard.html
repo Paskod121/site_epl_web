@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/cta.css">
     <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
     <link rel="stylesheet" href="/css/pages/dashboard.css">
 
     <!-- Chart.js pour les graphiques -->
@@ -43,6 +44,12 @@
 <body>
     <!-- Skip link pour l'accessibilité -->
     <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar principale (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb navigation -->
+    <div id="breadcrumb-container"></div>
 
     <!-- Overlay pour sidebar mobile -->
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
@@ -472,6 +479,10 @@
 
     <!-- Scripts JavaScript -->
     <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
     <script src="/js/components/sidebar.js"></script>
     <script src="/js/components/cta.js"></script>
     <script src="/js/pages/dashboard.js"></script>
@@ -481,6 +492,15 @@
     <script>
         // Chargement du dashboard au chargement de la page
         document.addEventListener('DOMContentLoaded', async () => {
+            // Initialise les composants pour la page dashboard
+            chargeurPages.initialiser('dashboard');
+            
+            // Force la synchronisation de la navigation
+            setTimeout(() => {
+                if (typeof gestionnaireNavigation !== 'undefined') {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }
+            }, 500);
             try {
                 // Initialise le dashboard
                 if (window.DashboardEPL) {

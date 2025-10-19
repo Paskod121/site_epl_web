@@ -1,14 +1,212 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="clair">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - École Polytechnique de Lomé</title>
+    <meta name="description" content="Formulaire d'inscription aux admissions de l'École Polytechnique de Lomé">
+
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/inscription.css">
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/dashboard.css">
+    <link rel="stylesheet" href="/css/pages/admission.css">
 </head>
 
 <body>
-    <!-- Contenu à développer -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <div id="sidebar-container"></div>
+
+    <main id="contenu-principal" class="contenu-principal">
+        <div class="dashboard__content">
+            <div class="container">
+                <header class="admissions-header">
+                    <h1>Inscription</h1>
+                    <p>Remplissez le formulaire ci-dessous pour créer votre dossier de candidature. Les champs marqués d'une * sont obligatoires</p>
+                </header>
+
+                <section class="inscription-card">
+                    <form id="inscription-form" class="form-grid" novalidate>
+                        <fieldset>
+                            <legend>Informations personnelles</legend>
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="prenom">Prénom *</label>
+                                    <input id="prenom" name="prenom" type="text" placeholder="Votre prénom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Nom *</label>
+                                    <input id="nom" name="nom" type="text" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input id="email" name="email" type="email" placeholder="exemple@domaine.tg" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone">Téléphone</label>
+                                    <input id="telephone" name="telephone" type="tel" placeholder="+228 90 00 00 00">
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="date_naissance">Date de naissance *</label>
+                                    <input id="date_naissance" name="date_naissance" type="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bac">Série du Baccalauréat *</label>
+                                    <select id="bac" name="bac" required>
+                                        <option value="">Sélectionnez</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                        <!-- champ qui apparaît si l'utilisateur choisit 'Autre' -->
+                                        <div class="form-group hidden" id="bac-autre-group">
+                                            <label for="bac_autre">Précisez la série</label>
+                                            <input id="bac_autre" name="bac_autre" type="text" placeholder="Indiquez votre série">
+                                        </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Détails académiques</legend>
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="annee_bac">Année d'obtention du Bac *</label>
+                                    <select id="annee_bac" name="annee_bac" required class="select-control">
+                                        <option value="">Sélectionnez</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2002">2002</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2000">2000</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="moyenne">Moyenne générale (Bac)</label>
+                                    <input id="moyenne" name="moyenne" type="number" step="0.01" min="0" max="20">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="filiere">Filière souhaitée *</label>
+                                <select id="filiere" name="filiere" required>
+                                    <option value="">Sélectionnez une filière</option>
+                                    <option value="genie-civil">Génie Civil</option>
+                                    <option value="genie-electrique">Génie Electrique</option>
+                                    <option value="genie-mecanique">Génie Mécanique</option>
+                                    <option value="genie-informatique">Génie Informatique</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Pièces à joindre</legend>
+
+                            <div class="form-group">
+                                <label for="files_upload">Documents (PDF, JPG, PNG) — plusieurs fichiers autorisés</label>
+                                <div class="file-chooser">
+                                    <label for="files_upload" class="file-chooser-button">Choisir des fichiers</label>
+                                    <span id="file-chooser-text" class="file-chooser-text">Aucun fichier sélectionné</span>
+                                    <input id="files_upload" name="files_upload" class="file-input file-input-hidden" type="file" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                                </div>
+                                <div class="upload-hint">Taille max recommandée par fichier : 10 MB.</div>
+                                <div id="file-list" class="file-list" aria-live="polite"></div>
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset class="actions-row">
+                            <button type="submit" class="bouton bouton-primaire">Soumettre ma candidature</button>
+                            <button type="button" id="preview-btn" class="bouton bouton-secondaire">Voir le récapitulatif</button>
+                        </fieldset>
+                    </form>
+
+                    <aside id="inscription-summary" class="inscription-summary" aria-live="polite" hidden>
+                        <h3>Récapitulatif</h3>
+                        <div id="summary-content"></div>
+                        <div class="summary-actions">
+                            <button id="close-summary" class="bouton bouton-ghost">Fermer</button>
+                        </div>
+                    </aside>
+                </section>
+            </div>
+        </div>
+
+        <section class="cta-section" role="region">
+            <div class="container">
+                <div class="cta-contenu">
+                    <h2 class="cta-titre">Besoin d'aide pour compléter votre dossier ?</h2>
+                    <p class="cta-description">Consultez la documentation d'admission ou contactez le service des admissions pour assistance.</p>
+                    <div class="cta-actions">
+                        <a href="/pages/admissions.html" class="bouton bouton-primaire bouton-large">Retour Admissions</a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire bouton-large">Contacter</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/pages/mentions-legales.html" class="footer-link">Mentions légales</a>
+                    <a href="/pages/politique-confidentialite.html" class="footer-link">Politique de confidentialité</a>
+                    <a href="/pages/plan-du-site.html" class="footer-link">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/pages/inscription.js"></script>
 </body>
 
 </html>

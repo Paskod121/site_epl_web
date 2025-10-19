@@ -217,25 +217,32 @@ site_epl_web/
 
 ###  Fonctionnalités Implémentées
 - ✅ **Système de thèmes** : Clair/Sombre avec persistance
-- ✅ **Navigation responsive** : Sidebar avec menu hamburger
-- ✅ **Composants réutilisables** : Sidebar, Footer, CTA
-- ✅ **Pages complètes** : Accueil, Dashboard, Formations, About, Contact
-- ✅ **Architecture modulaire** : CSS et JS organisés
-- ✅ **Documentation complète** : Guide de développement
+- ✅ **Navigation responsive** : Sidebar + Navbar mobile + Breadcrumb
+- ✅ **Composants réutilisables** : Sidebar, Footer, CTA, Navbar, Breadcrumb, Modal
+- ✅ **Pages complètes** : Accueil, Dashboard, Formations, About, Contact, Actualités, Admissions
+- ✅ **Architecture modulaire** : CSS et JS organisés avec gestion d'erreurs
+- ✅ **Performance optimisée** : Cache, chargement parallèle, fallbacks
+- ✅ **Documentation complète** : Guide de développement et composants
 
 ###  Pour les Développeurs
 ```bash
 # Guide de développement complet
-📚 docs/DEVELOPPEMENT.md
+📚 docs/GUIDE-EQUIPES.md      # Guide pour les équipes
+📚 docs/COMPOSANTS.md         # Documentation des composants
 
 # Composants disponibles
 📁 components/sidebar.html    # Navigation + thème
-📁 components/footer.html     # Footer standardisé
-📁 components/cta.html        # Call-to-action
+📁 components/footer.html      # Footer standardisé
+📁 components/cta.html         # Call-to-action
+📁 components/navbar.html      # Navbar mobile
+📁 components/breadcrumb.html  # Fil d'Ariane
+📁 components/modal.html       # Modales
 
 # Scripts utilitaires
 📁 js/utils/themes.js         # Gestion des thèmes
-📁 js/utils/theme-global.js   # Script global
+📁 js/utils/chargeur-composants.js # Chargement composants
+📁 js/utils/chargeur-pages.js     # Chargement pages
+📁 js/utils/gestionnaire-navigation.js # Navigation
 ```
 
 ### 🔧 Technologies Utilisées

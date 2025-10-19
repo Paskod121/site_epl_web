@@ -1,0 +1,56 @@
+<!--
+    NAVBAR RESPONSIVE EPL
+    Navigation principale avec menu mobile
+-->
+<nav class="navbar-epl" id="navbar-container">
+    <div class="navbar-conteneur">
+        <!-- Logo EPL -->
+        <div class="navbar-logo">
+            <a href="/" class="logo-lien">
+                <span class="logo-texte">EPL</span>
+                <span class="logo-sous-texte">École Polytechnique</span>
+            </a>
+        </div>
+
+        <!-- Menu Desktop -->
+        <div class="navbar-menu-desktop">
+            <a href="/" class="lien-nav-epl">Accueil</a>
+            <a href="/formations" class="lien-nav-epl">Formations</a>
+            <a href="/dashboard" class="lien-nav-epl">Dashboard</a>
+            <a href="/contact" class="lien-nav-epl">Contact</a>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="navbar-actions">
+            <button class="bouton-theme-epl" data-theme-cible="toggle" title="Changer le thème">
+                <span class="icone-theme">🌙</span>
+            </button>
+            <button class="bouton-menu-mobile" id="bouton-menu-mobile" title="Menu mobile">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="navbar-menu-mobile" id="menu-mobile">
+        <a href="/" class="lien-mobile">Accueil</a>
+        <a href="/formations" class="lien-mobile">Formations</a>
+        <a href="/dashboard" class="lien-mobile">Dashboard</a>
+        <a href="/contact" class="lien-mobile">Contact</a>
+    </div>
+</nav>
+
+<script>
+// Initialisation de la navbar
+document.addEventListener('DOMContentLoaded', function() {
+    const boutonMobile = document.getElementById('bouton-menu-mobile');
+    const menuMobile = document.getElementById('menu-mobile');
+    
+    if (boutonMobile && menuMobile) {
+        boutonMobile.addEventListener('click', function() {
+            menuMobile.classList.toggle('ouvert');
+            boutonMobile.classList.toggle('actif');
+        });
+    }
+});
+</script>

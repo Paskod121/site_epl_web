@@ -19,13 +19,21 @@
     <link rel="stylesheet" href="/css/components/buttons.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
     <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/about.css">
     <link rel="stylesheet" href="/css/pages/dashboard.css">
 </head>
 
 <body>
     <!-- Skip link pour l'accessibilité -->
     <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb -->
+    <div id="breadcrumb-container"></div>
 
     <!-- Sidebar -->
     <div id="sidebar-container">
@@ -36,7 +44,7 @@
     <main id="contenu-principal" class="contenu-principal">
 
         <!-- Section En développement -->
-        <section class="dev-section" role="region">
+        <!-- <section class="dev-section" role="region">
             <div class="container">
                 <div class="dev-content">
                     <div class="dev-icon">
@@ -57,7 +65,77 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+        <main class="dashboard__content">
+			<header class="about-header">
+				<h1>À propos de l'EPL</h1>
+				<p>L'École Polytechnique de Lomé, une institution d'excellence depuis 1970, forme des ingénieurs de haut niveau pour répondre aux enjeux technologiques et économiques du Togo et du continent africain.</p>
+			</header>
+
+			<section class="about-layout" aria-label="Présentation et valeurs de l'EPL">
+				<article class="about-hero">
+					<div class="about-hero__media" aria-label="Zone image à personnaliser">
+						<img src="../assets/EPL_face.webp" alt="">
+					</div>
+					<h2 class="about-hero__title">Notre Histoire</h2>
+					<p class="about-hero__text">Fondée en 1970, l'École Polytechnique de Lomé est la première institution d'enseignement supérieur technique du Togo. Nous formons des ingénieurs de haut niveau capables de relever les défis du développement.</p>
+					<p class="about-hero__text">Avec plus de 50 ans d'expérience, l'EPL s'est imposée comme un centre d'excellence en Afrique de l'Ouest, formant des milliers d'ingénieurs qui contribuent au développement du continent.</p>
+				</article>
+
+				<div class="about-pill-columns">
+					<article class="about-pill">
+						<h3 class="about-pill__title">
+							<span class="about-pill__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="M12 19l-7 3 7-18 7 18-7-3z" />
+								</svg>
+							</span>
+							Notre Mission
+						</h3>
+						<p class="about-pill__description">Former des ingénieurs compétents et innovants, capables de contribuer au développement technologique et économique du Togo et de l'Afrique.</p>
+					</article>
+
+					<article class="about-pill">
+						<h3 class="about-pill__title">
+							<span class="about-pill__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<circle cx="12" cy="12" r="2" />
+									<path d="M22 12c-2.4 4.5-6 7-10 7s-7.6-2.5-10-7c2.4-4.5 6-7 10-7s7.6 2.5 10 7z" />
+								</svg>
+							</span>
+							Notre Vision
+						</h3>
+						<p class="about-pill__description">Devenir un pôle d'excellence reconnu internationalement pour la qualité de ses formations et de sa recherche en ingénierie.</p>
+					</article>
+
+					<article class="about-pill">
+						<h3 class="about-pill__title">
+							<span class="about-pill__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="M12 21c-6-4-10-7-10-11a6 6 0 0 1 12 0 6 6 0 0 1 12 0c0 4-4 7-10 11z" />
+								</svg>
+							</span>
+							Nos Valeurs
+						</h3>
+						<p class="about-pill__description">Excellence académique, innovation, intégrité, responsabilité sociale et engagement envers le développement durable.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="about-highlight" aria-label="Reconnaissance internationale">
+				<h2 class="about-highlight__title">
+					<span class="about-pill__icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M9 12l2 2 4-4" />
+							<path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+						</svg>
+					</span>
+					Reconnaissance Internationale
+				</h2>
+				<p class="about-highlight__text">L'EPL est membre de plusieurs réseaux internationaux d'écoles d'ingénieurs et entretient des partenariats avec des universités prestigieuses en Europe, en Amérique et en Asie. Nos diplômes sont reconnus par la CTI (Commission des Titres d'Ingénieur).</p>
+			</section>
+		</main>
 
         <!-- Section CTA -->
         <section class="cta-section" role="region">
@@ -112,40 +190,33 @@
     <!-- Scripts JavaScript -->
     <script src="/js/utils/themes.js"></script>
     <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
     <script src="/js/components/sidebar.js"></script>
     <script src="/js/components/cta.js"></script>
     <script src="/js/pages/dashboard.js"></script>
     <script src="/js/main.js"></script>
 
-    <!-- Script de gestion du sidebar pour about -->
+    <!-- Script de gestion de la page À propos -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log('🚀 Page À propos chargée');
 
-            // Charger le composant sidebar
-            fetch('/components/sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-container').innerHTML = html;
+            // Initialiser le système de pages avec breadcrumb
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('about');
+            }
 
-                    // Marquer le lien À propos comme actif
-                    const aboutLink = document.querySelector('a[href="/pages/about.html"]');
-                    if (aboutLink) {
-                        aboutLink.classList.add('actif');
-                        aboutLink.setAttribute('aria-current', 'page');
-                    }
+            // Forcer la synchronisation de la navigation
+            if (typeof gestionnaireNavigation !== 'undefined') {
+                setTimeout(() => {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }, 100);
+            }
 
-                    // Initialiser le gestionnaire de sidebar
-                    if (typeof SidebarManager !== 'undefined') {
-                        window.sidebarManager = new SidebarManager();
-                        console.log('✅ Gestionnaire de sidebar initialisé');
-                    }
-
-                    console.log('✅ Page À propos initialisée avec succès');
-                })
-                .catch(error => {
-                    console.error('❌ Erreur lors du chargement du sidebar:', error);
-                });
+            console.log('✅ Page À propos initialisée avec succès');
         });
     </script>
 </body>

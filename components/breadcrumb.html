@@ -1,0 +1,215 @@
+<!--
+    BREADCRUMB EPL - Design Élégant
+    Navigation hiérarchique avec icônes SVG professionnelles
+-->
+<nav class="breadcrumb-epl" id="breadcrumb-container" aria-label="Navigation hiérarchique">
+    <div class="breadcrumb-conteneur">
+        <ol class="breadcrumb-liste">
+            <li class="breadcrumb-item">
+                <a href="/" class="breadcrumb-lien">
+                    <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9,22 9,12 15,12 15,22"/>
+                    </svg>
+                    <span class="breadcrumb-texte">Accueil</span>
+                </a>
+            </li>
+            <!-- Les éléments seront ajoutés dynamiquement -->
+        </ol>
+    </div>
+</nav>
+
+<script>
+// Gestionnaire de breadcrumb
+class GestionnaireBreadcrumb {
+    constructor() {
+        this.initialiser();
+        this.gererNavigation();
+    }
+
+    initialiser() {
+        this.creerBreadcrumb();
+    }
+
+    gererNavigation() {
+        // Réinitialise le breadcrumb lors des changements de page
+        window.addEventListener('popstate', () => {
+            setTimeout(() => this.creerBreadcrumb(), 100);
+        });
+        
+        // Réinitialise le breadcrumb lors des clics sur les liens
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href]')) {
+                setTimeout(() => this.creerBreadcrumb(), 100);
+            }
+        });
+    }
+
+    creerBreadcrumb() {
+        const chemin = window.location.pathname;
+        const segments = chemin.split('/').filter(segment => segment);
+        
+        const breadcrumbListe = document.querySelector('.breadcrumb-liste');
+        if (!breadcrumbListe) return;
+
+        // Garde seulement le premier élément (Accueil)
+        breadcrumbListe.innerHTML = breadcrumbListe.querySelector('.breadcrumb-item').outerHTML;
+
+        // Filtre les segments techniques
+        const segmentsFiltres = segments.filter(segment => 
+            segment !== 'pages' && 
+            segment !== 'index.html' && 
+            segment !== 'html' &&
+            segment !== 'site_epl_web' &&
+            segment !== 'epl' &&
+            segment !== 'web'
+        );
+        
+        console.log('🔍 Segments breadcrumb:', segments);
+        console.log('🔍 Segments filtrés:', segmentsFiltres);
+
+        // Ajoute les segments
+        segmentsFiltres.forEach((segment, index) => {
+            const estDernier = index === segmentsFiltres.length - 1;
+            const nomAffichage = this.formaterNom(segment);
+            const url = this.genererUrl(segment);
+            const icone = this.obtenirIcone(segment);
+
+            const item = document.createElement('li');
+            item.className = 'breadcrumb-item';
+            
+            if (estDernier) {
+                item.innerHTML = `
+                    <span class="breadcrumb-actuel">
+                        ${icone}
+                        <span class="breadcrumb-texte">${nomAffichage}</span>
+                    </span>
+                `;
+            } else {
+                item.innerHTML = `
+                    <a href="${url}" class="breadcrumb-lien">
+                        ${icone}
+                        <span class="breadcrumb-texte">${nomAffichage}</span>
+                    </a>
+                `;
+            }
+
+            breadcrumbListe.appendChild(item);
+        });
+    }
+
+    genererUrl(segment) {
+        // Génère les URLs correctes pour le breadcrumb
+        const correspondances = {
+            'formations': '/pages/formations/index.html',
+            'dashboard': '/pages/dashboard.html',
+            'contact': '/pages/contact.html',
+            'about': '/pages/about.html',
+            'actualites': '/pages/actualites.html',
+            'admissions': '/pages/admissions.html'
+        };
+        
+        return correspondances[segment] || `/${segment}`;
+    }
+
+    formaterNom(segment) {
+        // Nettoie le segment (enlève .html, .php, etc.)
+        const segmentNettoye = segment.replace(/\.(html|php|aspx)$/i, '');
+        
+        const correspondances = {
+            'formations': 'Formations',
+            'dashboard': 'Tableau de bord',
+            'contact': 'Contact',
+            'about': 'À propos',
+            'actualites': 'Actualités',
+            'admissions': 'Admissions',
+            'admin': 'Administration',
+            'profil': 'Profil',
+            'parametres': 'Paramètres'
+        };
+        return correspondances[segmentNettoye] || segmentNettoye.charAt(0).toUpperCase() + segmentNettoye.slice(1);
+    }
+
+    obtenirIcone(segment) {
+        // Nettoie le segment (enlève .html, .php, etc.)
+        const segmentNettoye = segment.replace(/\.(html|php|aspx)$/i, '');
+        
+        const icones = {
+            'formations': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    <path d="M8 7h8"/>
+                    <path d="M8 11h8"/>
+                    <path d="M8 15h4"/>
+                </svg>
+            `,
+            'dashboard': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                </svg>
+            `,
+            'contact': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+            `,
+            'about': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+            `,
+            'actualites': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <path d="M8 6h8M8 10h8M8 14h5"/>
+                    <path d="M4 2h4v4H4z"/>
+                    <path d="M5 3h2v2H5z"/>
+                </svg>
+            `,
+            'admissions': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M18 6l4 4-4 4"/>
+                    <path d="M22 10H10"/>
+                    <path d="M18 6l2 2"/>
+                </svg>
+            `,
+            'admin': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            `,
+            'profil': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            `,
+            'parametres': `
+                <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.5 1.5 0 0 0 0 3 1.5 1.5 0 0 0 0-3Zm-14 0a1.5 1.5 0 0 0 0 3 1.5 1.5 0 0 0 0-3Zm7-7a1.5 1.5 0 0 0 0 3 1.5 1.5 0 0 0 0-3Z"/>
+                </svg>
+            `
+        };
+        return icones[segmentNettoye] || `
+            <svg class="breadcrumb-icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+            </svg>
+        `;
+    }
+}
+
+// Initialise le breadcrumb
+new GestionnaireBreadcrumb();
+</script>

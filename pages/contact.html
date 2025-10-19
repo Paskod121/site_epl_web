@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/components/buttons.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
     <link rel="stylesheet" href="/css/layouts/main.css">
     <link rel="stylesheet" href="/css/pages/dashboard.css">
 </head>
@@ -25,6 +26,12 @@
 <body>
     <!-- Skip link pour l'accessibilité -->
     <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb -->
+    <div id="breadcrumb-container"></div>
 
     <!-- Sidebar -->
     <div id="sidebar-container">
@@ -111,40 +118,33 @@
     <!-- Scripts JavaScript -->
     <script src="/js/utils/themes.js"></script>
     <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
     <script src="/js/components/sidebar.js"></script>
     <script src="/js/components/cta.js"></script>
     <script src="/js/pages/dashboard.js"></script>
     <script src="/js/main.js"></script>
 
-    <!-- Script de gestion du sidebar pour contact -->
+    <!-- Script de gestion de la page Contact -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            console.log(' Page Contact chargée');
+            console.log('🚀 Page Contact chargée');
 
-            // Charger le composant sidebar
-            fetch('/components/sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-container').innerHTML = html;
+            // Initialiser le système de pages avec breadcrumb
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('contact');
+            }
 
-                    // Marquer le lien Contact comme actif
-                    const contactLink = document.querySelector('a[href="/pages/contact.html"]');
-                    if (contactLink) {
-                        contactLink.classList.add('actif');
-                        contactLink.setAttribute('aria-current', 'page');
-                    }
+            // Forcer la synchronisation de la navigation
+            if (typeof gestionnaireNavigation !== 'undefined') {
+                setTimeout(() => {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }, 100);
+            }
 
-                    // Initialiser le gestionnaire de sidebar
-                    if (typeof SidebarManager !== 'undefined') {
-                        window.sidebarManager = new SidebarManager();
-                        console.log('✅ Gestionnaire de sidebar initialisé');
-                    }
-
-                    console.log('✅ Page Contact initialisée avec succès');
-                })
-                .catch(error => {
-                    console.error('❌ Erreur lors du chargement du sidebar:', error);
-                });
+            console.log('✅ Page Contact initialisée avec succès');
         });
     </script>
 </body>

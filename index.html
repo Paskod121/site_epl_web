@@ -41,6 +41,9 @@
     <link rel="stylesheet" href="/css/components/buttons.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/indicateurs-chargement.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
+    <link rel="stylesheet" href="/css/animations/animations-epl.css">
     <link rel="stylesheet" href="/css/layouts/main.css">
     <link rel="stylesheet" href="/css/pages/dashboard.css">
     <link rel="stylesheet" href="/css/components/hero.css">
@@ -73,6 +76,12 @@
 <body>
     <!-- Skip link pour l'accessibilité -->
     <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar principale -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb navigation -->
+    <div id="breadcrumb-container"></div>
 
     <!-- Overlay pour sidebar mobile -->
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
@@ -523,10 +532,29 @@
 
     <!-- Scripts JavaScript -->
     <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
     <script src="/js/components/sidebar.js"></script>
     <script src="/js/pages/dashboard.js"></script>
     <script src="/js/pages/index.js"></script>
     <script src="/js/main.js"></script>
+
+    <!-- Initialisation optimisée de la page -->
+    <script>
+        // Initialise la page avec le nouveau système de chargement
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🚀 Initialisation optimisée de la page d\'accueil');
+
+            // Initialise les composants avec le nouveau système
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('index');
+            } else {
+                console.warn('⚠️ ChargeurPages non disponible, utilisation du système de fallback');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -31,7 +31,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     color: white;
-    font-weight: 500;
+    --poids-medium: 500;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -105,7 +105,7 @@
 }
 
 .texte-theme-dynamique {
-    font-weight: 500;
+    --poids-medium: 500;
 }
 
 /* ================================================
@@ -212,7 +212,7 @@
 /* Valeurs numériques des statistiques */
 .valeur-stat {
     font-size: 1.5rem;
-    font-weight: 700;
+    --poids-bold: 700;
     color: #ffffff;
     line-height: 1;
     margin-bottom: 0.25rem;
@@ -222,7 +222,7 @@
 .label-stat {
     font-size: 0.7rem;
     color: #94a3b8;
-    font-weight: 400;
+    --poids-normal: 400;
     line-height: 1.2;
 }
 
@@ -275,7 +275,7 @@
 
 .bienvenue-titre {
     font-size: 2.5rem;
-    font-weight: 700;
+    --poids-bold: 700;
     color: var(--couleur-texte-principal);
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -329,7 +329,7 @@
 
 .card-rentree-titre {
     font-size: 1.5rem;
-    font-weight: 700;
+    --poids-bold: 700;
     margin-bottom: 0.75rem;
     color: white;
     line-height: 1.2;
@@ -374,7 +374,7 @@
     color: #2563EB;
     border: none;
     border-radius: 12px;
-    font-weight: 600;
+    --poids-semibold: 600;
     font-size: 0.875rem;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -475,7 +475,7 @@
 
 .dev-titre {
     font-size: 2.5rem;
-    font-weight: 700;
+    --poids-bold: 700;
     color: var(--couleur-texte-primaire);
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -505,7 +505,7 @@
 
 .dev-info strong {
     color: var(--couleur-texte-primaire);
-    font-weight: 600;
+    --poids-semibold: 600;
 }
 
 /* Mode sombre - Section en développement */
@@ -686,7 +686,7 @@
 
 .sidebar-logo-titre {
     font-size: 18px;
-    font-weight: 700;
+    --poids-bold: 700;
     color: var(--couleur-sidebar-texte);
     line-height: 1;
 }
@@ -718,7 +718,7 @@
     border-radius: 8px;
     color: var(--couleur-sidebar-texte);
     text-decoration: none;
-    font-weight: 500;
+    --poids-medium: 500;
     font-size: 14px;
     transition: all 0.2s ease;
 }
@@ -731,7 +731,7 @@
 .sidebar-nav-link.actif {
     background: var(--couleur-sidebar-active);
     color: white;
-    font-weight: 600;
+    --poids-semibold: 600;
 }
 
 .sidebar-nav-icon {
@@ -761,7 +761,7 @@
 
 .sidebar-aide-titre {
     font-size: 16px;
-    font-weight: 600;
+    --poids-semibold: 600;
     color: var(--couleur-texte-principal);
     margin: 0 0 8px 0;
 }
@@ -780,7 +780,7 @@
     border: 1px solid var(--couleur-bordure);
     border-radius: 8px;
     color: var(--couleur-texte-principal);
-    font-weight: 500;
+    --poids-medium: 500;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -927,7 +927,7 @@
 
 .valeur-stat {
     font-size: 3rem;
-    font-weight: 700;
+    --poids-bold: 700;
     color: #3b82f6;
     line-height: 1;
     margin-bottom: 0.5rem;
@@ -936,7 +936,7 @@
 .label-stat {
     font-size: 1rem;
     color: var(--couleur-texte-secondaire);
-    font-weight: 500;
+    --poids-medium: 500;
 }
 
 .badge-mise-a-jour {
@@ -976,7 +976,7 @@
 
 .titre-section {
     font-size: 2rem;
-    font-weight: 700;
+    --poids-bold: 700;
     color: var(--couleur-texte-principal);
     margin-bottom: 0.5rem;
     text-align: center;

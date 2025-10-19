@@ -20,7 +20,7 @@
  * - Logs détaillés pour le debug
  * 
  * AUTEUR : sCtt3 | EPL Devs
- * DERNIÈRE MODIFICATION : 22 janvier 2025
+ * DERNIÈRE MODIFICATION : 18 Octobre 2025
  */
 class GestionnaireThemeGlobal {
     constructor() {

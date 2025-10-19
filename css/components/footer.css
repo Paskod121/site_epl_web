@@ -66,14 +66,14 @@
     margin: 0;
     color: var(--couleur-texte-secondaire);
     font-size: 0.875rem;
-    font-weight: 400;
+    --poids-normal: 400;
     transition: color var(--transition-theme);
 }
 
 /* Mode sombre - Copyright professionnel */
 [data-theme="sombre"] .footer-copyright p {
     color: var(--couleur-accent);
-    font-weight: 500;
+    --poids-medium: 500;
 }
 
 .footer-links {
@@ -85,7 +85,7 @@
     color: var(--couleur-texte-secondaire);
     text-decoration: none;
     font-size: 0.875rem;
-    font-weight: 400;
+    --poids-normal: 400;
     transition: all var(--transition-normale);
     position: relative;
     padding: 0.25rem 0;

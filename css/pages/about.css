@@ -1,0 +1,180 @@
+/* Styles pour la page "À propos" */
+.dashboard__content {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: var(--espacement-2xl) var(--espacement-md);
+  font-family: var(--police-principale);
+  color: var(--couleur-texte-principal);
+}
+
+/* En-tête */
+.about-header h1 {
+  font-size: var(--texte-2xl);
+  margin: 0 0 calc(var(--espacement-sm));
+  font-weight: var(--poids-semibold);
+}
+
+.about-header p {
+  margin: 0 0 var(--espacement-lg);
+  color: var(--couleur-texte-secondaire);
+  font-size: var(--texte-base);
+}
+
+/* Layout principal : gauche (hero) + droite (pills) */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  align-items: start;
+  margin-top: var(--espacement-lg);
+}
+
+/* Carte principale (gauche) */
+.about-hero {
+  background: var(--couleur-card-fond);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-lg);
+  padding: var(--espacement-lg);
+  box-shadow: var(--couleur-card-ombre);
+}
+
+.about-hero__media {
+  width: 100%;
+  border-radius: calc(var(--rayon-md));
+  overflow: hidden;
+  margin-bottom: var(--espacement-md);
+}
+
+.about-hero__media img {
+  width: 100%;
+  height: 450px;
+  display: block;
+  object-fit: cover;
+  border-radius: calc(var(--rayon-md));
+}
+
+.about-hero__title {
+  font-size: var(--texte-lg);
+  margin: 0 0 var(--espacement-xs);
+  font-weight: var(--poids-semibold);
+}
+
+.about-hero__text {
+  color: var(--couleur-texte-secondaire);
+  line-height: var(--ligne-relaxed);
+  margin-bottom: var(--espacement-sm);
+}
+
+/* Colonnes de pills (droite) */
+.about-pill-columns {
+    margin: 100px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacement-md);
+}
+
+.about-pill {
+  background: var(--couleur-card-fond);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  padding: var(--espacement-md);
+  box-shadow: var(--couleur-card-ombre);
+}
+
+.about-pill__title {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: var(--texte-sm);
+  margin: 0 0 var(--espacement-xs);
+  color: var(--couleur-texte-principal);
+  font-weight: var(--poids-medium);
+}
+
+.about-pill__icon {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(59,130,246,0.06), rgba(59,130,246,0.02));
+  color: var(--couleur-primaire);
+  border: 1px solid rgba(59,130,246,0.08);
+}
+
+.about-pill__description {
+  margin: 0;
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  line-height: var(--ligne-normal);
+}
+
+/* Bandeau bas - reconnaissance internationale */
+.about-highlight {
+  margin-top: var(--espacement-2xl);
+  background: linear-gradient(180deg, rgba(59,130,246,0.06), rgba(59,130,246,0.03));
+  border: 1px solid rgba(59,130,246,0.06);
+  padding: calc(var(--espacement-md) + 4px) var(--espacement-md);
+  border-radius: var(--rayon-md);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.about-highlight__title {
+  font-size: var(--texte-md, 1rem);
+  margin: 0 0 var(--espacement-xs);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--couleur-texte-principal);
+  font-weight: var(--poids-semibold);
+}
+
+.about-highlight__text {
+  margin: 0;
+  color: var(--couleur-texte-secondaire);
+  font-size: var(--texte-base);
+  line-height: var(--ligne-normal);
+}
+
+/* Adaptations responsive */
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-pill-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+  .about-pill {
+    /* deux colonnes potentielles : chaque pill prend ~50% moins le gap */
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 220px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .about-hero__media img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-highlight {
+    flex-direction: column;
+  }
+  /* Force une colonne pour les pills sur mobile */
+  .about-pill-columns {
+    gap: 0.5rem;
+  }
+  .about-pill {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+}

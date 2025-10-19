@@ -18,13 +18,21 @@
     <link rel="stylesheet" href="/css/components/buttons.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
     <link rel="stylesheet" href="/css/layouts/main.css">
     <link rel="stylesheet" href="/css/pages/dashboard.css">
+    <link rel="stylesheet" href="/css/pages/admission.css">
 </head>
 
 <body>
     <!-- Skip link pour l'accessibilité -->
     <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb -->
+    <div id="breadcrumb-container"></div>
 
     <!-- Sidebar -->
     <div id="sidebar-container">
@@ -35,7 +43,7 @@
     <main id="contenu-principal" class="contenu-principal">
 
         <!-- Section En développement -->
-        <section class="dev-section" role="region">
+        <!-- <section class="dev-section" role="region">
             <div class="container">
                 <div class="dev-content">
                     <div class="dev-icon">
@@ -59,8 +67,136 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
+
+        <div class="dashboard__content">
+            <div class="container">
+            <header class="admissions-header">
+				<h1>Admissions</h1>
+				<p>Rejoignez l'excellence&nbsp;! Découvrez le processus d'admission pour l'année académique 2025-2026 et préparez votre candidature à l'École Polytechnique de Lomé.</p>
+			</header>
+
+			<section class="admissions-metrics" aria-label="Informations clés sur l'admission">
+				<article class="metric-card metric-card--primary">
+					<div class="metric-card__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="3" y="4" width="18" height="18" rx="2" />
+							<line x1="16" y1="2" x2="16" y2="6" />
+							<line x1="8" y1="2" x2="8" y2="6" />
+							<line x1="3" y1="10" x2="21" y2="10" />
+						</svg>
+					</div>
+					<div class="metric-card__title">Session 2025</div>
+					<p class="metric-card__text">Les inscriptions sont ouvertes du 15 janvier au 31 mars 2025.</p>
+					<a class="metric-card__button" href="../pages/admission/inscription.html">S'inscrire maintenant</a>
+				</article>
+
+                <article class="metric-card">
+                    <div class="metric-card__icon metric-card__icon--info" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M3 3h18v18H3z" />
+							<path d="M3 9h18" />
+							<path d="M9 21V9" />
+						</svg>
+					</div>
+					<div class="metric-card__title">Places disponibles</div>
+					<div class="metric-card__value">500</div>
+					<p class="metric-card__text">Places pour la rentrée 2025 toutes filières confondues.</p>
+				</article>
+
+                <article class="metric-card">
+                    <div class="metric-card__icon metric-card__icon--success" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M9 11l3 3L22 4" />
+							<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+						</svg>
+					</div>
+					<div class="metric-card__title">Taux d'admission</div>
+					<div class="metric-card__value">18%</div>
+					<p class="metric-card__text">Concours sélectif garantissant l'excellence académique.</p>
+				</article>
+			</section>
+
+			<section class="admissions-process" aria-label="Étapes du processus d'admission">
+				<h2 class="admissions-process__title">Processus d'admission</h2>
+				<div class="process-steps">
+					<article class="process-step">
+						<span class="process-step__badge">1</span>
+						<span class="process-step__period">Janvier - Mars</span>
+						<h3 class="process-step__title">Inscription en ligne</h3>
+						<p class="process-step__text">Créez votre compte et remplissez le formulaire d'inscription en ligne.</p>
+					</article>
+					<article class="process-step">
+						<span class="process-step__badge">2</span>
+						<span class="process-step__period">Février - Mars</span>
+						<h3 class="process-step__title">Dossier de candidature</h3>
+						<p class="process-step__text">Soumettez vos relevés de notes, diplômes et lettres de recommandation.</p>
+					</article>
+					<article class="process-step">
+						<span class="process-step__badge">3</span>
+						<span class="process-step__period">Avril</span>
+						<h3 class="process-step__title">Concours d'entrée</h3>
+						<p class="process-step__text">Passez les épreuves écrites (Mathématiques, Physique, Culture générale).</p>
+					</article>
+					<article class="process-step">
+						<span class="process-step__badge">4</span>
+						<span class="process-step__period">Mai - Juin</span>
+						<h3 class="process-step__title">Résultats et inscription</h3>
+						<p class="process-step__text">Consultez les résultats et complétez votre inscription administrative.</p>
+					</article>
+				</div>
+                </section>
+
+                <section class="admissions-info-grid" aria-label="Informations complémentaires">
+				<article class="info-card">
+					<h3 class="info-card__title">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M20 6L9 17l-5-5" />
+						</svg>
+						Conditions d'admission
+					</h3>
+					<ul>
+						<li>Être titulaire d'un Baccalauréat série C, D ou E avec mention Assez Bien minimum.</li>
+						<li>Avoir moins de 23 ans au 1er octobre de l'année d'inscription.</li>
+						<li>Être en bonne santé physique et mentale.</li>
+						<li>Justifier d'un niveau satisfaisant en français (langue d'enseignement).</li>
+					</ul>
+				</article>
+
+                <article class="info-card">
+                    <h3 class="info-card__title info-card__title--danger">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<circle cx="12" cy="12" r="10" />
+							<line x1="12" y1="7" x2="12" y2="13" />
+							<line x1="12" y1="17" x2="12.01" y2="17" />
+						</svg>
+						Documents requis
+					</h3>
+					<ul>
+						<li>Acte de naissance original.</li>
+						<li>Photocopie légalisée du Baccalauréat.</li>
+						<li>Relevés de notes du Baccalauréat.</li>
+						<li>Certificat médical de moins de 3 mois.</li>
+						<li>4 photos d'identité récentes.</li>
+						<li>Enveloppes timbrées pour la correspondance.</li>
+					</ul>
+				</article>
+			</section>
+
+			<section class="support-banner" aria-label="Aide aux admissions">
+				<div class="support-banner__text">
+					<h2>Besoin d'aide&nbsp;?</h2>
+					<p>Notre service des admissions est à votre disposition pour répondre à toutes vos questions et vous accompagner dans vos démarches.</p>
+				</div>
+				<div class="support-banner__actions">
+					<a class="support-banner__button support-banner__button--primary" href="./inscription.html">Télécharger le guide d'admission</a>
+					<a class="support-banner__button support-banner__button--ghost" href="../contact.html">Contacter le service des admissions</a>
+				</div>
+			</section>
+            </div>
+
+        </div>
         <!-- Section CTA -->
         <section class="cta-section" role="region">
             <div class="container">
@@ -114,40 +250,33 @@
     <!-- Scripts JavaScript -->
     <script src="/js/utils/themes.js"></script>
     <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
     <script src="/js/components/sidebar.js"></script>
     <script src="/js/components/cta.js"></script>
     <script src="/js/pages/dashboard.js"></script>
     <script src="/js/main.js"></script>
 
-    <!-- Script de gestion du sidebar pour admissions -->
+    <!-- Script de gestion de la page Admissions -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log('🚀 Page Admissions chargée');
 
-            // Charger le composant sidebar
-            fetch('/components/sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-container').innerHTML = html;
+            // Initialiser le système de pages avec breadcrumb
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('admissions');
+            }
 
-                    // Marquer le lien Admissions comme actif
-                    const admissionsLink = document.querySelector('a[href="/pages/admissions.html"]');
-                    if (admissionsLink) {
-                        admissionsLink.classList.add('actif');
-                        admissionsLink.setAttribute('aria-current', 'page');
-                    }
+            // Forcer la synchronisation de la navigation
+            if (typeof gestionnaireNavigation !== 'undefined') {
+                setTimeout(() => {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }, 100);
+            }
 
-                    // Initialiser le gestionnaire de sidebar
-                    if (typeof SidebarManager !== 'undefined') {
-                        window.sidebarManager = new SidebarManager();
-                        console.log('✅ Gestionnaire de sidebar initialisé');
-                    }
-
-                    console.log('✅ Page Admissions initialisée avec succès');
-                })
-                .catch(error => {
-                    console.error('❌ Erreur lors du chargement du sidebar:', error);
-                });
+            console.log('✅ Page Admissions initialisée avec succès');
         });
     </script>
 </body>
