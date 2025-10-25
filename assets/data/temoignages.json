@@ -1,0 +1,99 @@
+[
+  {
+    "id": 1,
+    "nom": "KOSSI Kossivi Odette",
+    "role": "Développeuse Full-Stack chez Orange Togo",
+    "formation": "Génie Informatique - Promotion 2023",
+    "temoignage": "L'EPL m'a donné les compétences techniques et la confiance nécessaires pour exceller dans le développement logiciel. Les projets pratiques et l'accompagnement des professeurs ont fait toute la différence.",
+    "avatar": "/assets/images/temoignages/aicha-tchakpe.jpg",
+    "note": 5,
+    "entreprise": "Orange Togo",
+    "salaire": "1,200,000 FCFA",
+    "specialite": "Développement Web & Mobile"
+  },
+  {
+    "id": 2,
+    "nom": "HACKER Josh",
+    "role": "Ingénieur Civil chez SOGEA-SATOM",
+    "formation": "Génie Civil - Promotion 2022",
+    "temoignage": "La formation pratique à l'EPL m'a préparé aux défis réels de l'ingénierie civile. Je travaille maintenant sur des projets d'infrastructure majeurs au Togo.",
+    "avatar": "/assets/images/temoignages/kodjo-mensah.jpg",
+    "note": 5,
+    "entreprise": "SOGEA-SATOM",
+    "salaire": "1,500,000 FCFA",
+    "specialite": "Infrastructure & BTP"
+  },
+  {
+    "id": 3,
+    "nom": "PASS Kod",
+    "role": "Ingénieure en Énergies Renouvelables",
+    "formation": "Génie Électrique - Promotion 2023",
+    "temoignage": "L'EPL m'a ouvert les portes des énergies renouvelables. Je contribue maintenant au développement durable du Togo grâce à mes compétences en énergie solaire.",
+    "avatar": "/assets/images/temoignages/fatouma-diallo.jpg",
+    "note": 5,
+    "entreprise": "Togolese Solar Company",
+    "salaire": "1,300,000 FCFA",
+    "specialite": "Énergies Renouvelables"
+  },
+  {
+    "id": 4,
+    "nom": "Komlan Agbévi",
+    "role": "Chef de Projet IT chez Ecobank",
+    "formation": "Génie Informatique - Promotion 2021",
+    "temoignage": "L'approche pédagogique de l'EPL m'a permis de développer une vision globale des systèmes d'information. Je dirige maintenant des équipes de développement dans le secteur bancaire.",
+    "avatar": "/assets/images/temoignages/komlan-agbevi.jpg",
+    "note": 5,
+    "entreprise": "Ecobank Togo",
+    "salaire": "2,000,000 FCFA",
+    "specialite": "Systèmes d'Information"
+  },
+  {
+    "id": 5,
+    "nom": "Mariam Traoré",
+    "role": "Ingénieure Mécanique chez Nestlé Togo",
+    "formation": "Génie Mécanique - Promotion 2022",
+    "temoignage": "La formation en génie mécanique à l'EPL m'a donné une base solide pour optimiser les processus industriels. Je travaille maintenant sur l'amélioration continue des chaînes de production.",
+    "avatar": "/assets/images/temoignages/mariam-traore.jpg",
+    "note": 5,
+    "entreprise": "Nestlé Togo",
+    "salaire": "1,400,000 FCFA",
+    "specialite": "Optimisation Industrielle"
+  },
+  {
+    "id": 6,
+    "nom": "Sébastien Koffi",
+    "role": "Expert en Télécommunications 5G",
+    "formation": "Génie des Télécommunications - Promotion 2023",
+    "temoignage": "L'EPL m'a préparé aux technologies de pointe en télécommunications. Je participe maintenant au déploiement de la 5G au Togo, une technologie qui transformera notre pays.",
+    "avatar": "/assets/images/temoignages/sebastien-koffi.jpg",
+    "note": 5,
+    "entreprise": "Togocom",
+    "salaire": "1,800,000 FCFA",
+    "specialite": "Réseaux 5G"
+  },
+  {
+    "id": 7,
+    "nom": "Grace Akouvi",
+    "role": "Consultante en Industrie 4.0",
+    "formation": "Génie Industriel - Promotion 2021",
+    "temoignage": "L'EPL m'a donné les outils pour comprendre la transformation digitale de l'industrie. J'accompagne maintenant les entreprises togolaises dans leur transition vers l'Industrie 4.0.",
+    "avatar": "/assets/images/temoignages/grace-akouvi.jpg",
+    "note": 5,
+    "entreprise": "Digital Industry Togo",
+    "salaire": "1,600,000 FCFA",
+    "specialite": "Industrie 4.0"
+  },
+  {
+    "id": 8,
+    "nom": "Dr. Kossi Amégan",
+    "role": "Chercheur en Intelligence Artificielle",
+    "formation": "Génie Informatique - Promotion 2020",
+    "temoignage": "L'EPL m'a donné la passion pour la recherche et l'innovation. Après mon doctorat, je contribue maintenant au développement de l'IA en Afrique de l'Ouest.",
+    "avatar": "/assets/images/temoignages/kossi-amegan.jpg",
+    "note": 5,
+    "entreprise": "Institut de Recherche IA Lomé",
+    "salaire": "2,500,000 FCFA",
+    "specialite": "Intelligence Artificielle"
+  }
+]
+

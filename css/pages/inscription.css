@@ -1,0 +1,272 @@
+/* Styles pour la page d'inscription */
+
+.inscription-card {
+  background: var(--couleur-fond-principal);
+  border-radius: var(--rayon-lg);
+  padding: clamp(20px, 3vw, 28px);
+  box-shadow: var(--ombre-sm);
+  border: 1px solid var(--couleur-bordure);
+  margin-top: var(--espacement-2xl);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacement-lg);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacement-md);
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacement-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group .hint {
+  font-size: 0.85rem;
+  color: var(--couleur-texte-tertiaire);
+  margin-top: 6px;
+}
+
+.form-grid input.error,
+.form-grid select.error {
+  border-color: var(--couleur-erreur);
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.06);
+}
+
+.form-grid .error-message {
+  color: var(--couleur-erreur);
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.form-grid fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  grid-column: 1 / -1;
+}
+
+.form-grid label {
+  display: block;
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  margin-bottom: 6px;
+}
+
+.form-grid input,
+.form-grid select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--rayon-sm);
+  border: 1px solid var(--couleur-bordure);
+  background: var(--couleur-fond-secondaire);
+  color: var(--couleur-texte-principal);
+  font-size: var(--texte-base);
+  box-sizing: border-box;
+}
+
+.select-control {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--couleur-texte-tertiaire) 50%), linear-gradient(135deg, var(--couleur-texte-tertiaire) 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+.form-grid input::placeholder {
+  color: var(--couleur-texte-tertiaire);
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"] {
+  min-height: 44px;
+}
+
+.hidden { display: none !important; }
+
+.file-input {
+  padding: 8px 10px;
+  background: transparent;
+}
+
+.file-input-hidden { display: none !important; }
+
+.file-chooser {
+  display: flex;
+  gap: var(--espacement-md);
+  align-items: center;
+}
+
+.file-chooser-button {
+  display: inline-block;
+  background: var(--couleur-primaire);
+  color: var(--couleur-texte-inverse);
+  padding: 8px 12px;
+  border-radius: var(--rayon-sm);
+  cursor: pointer;
+  font-weight: var(--poids-semibold);
+}
+
+.file-chooser-text {
+  font-size: 0.95rem;
+  color: var(--couleur-texte-secondaire);
+}
+
+.file-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-list .file-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: var(--rayon-sm);
+  background: var(--couleur-fond-principal);
+  border: 1px solid var(--couleur-bordure);
+  font-size: 0.95rem;
+}
+
+.upload-hint {
+  font-size: 0.85rem;
+  color: var(--couleur-texte-tertiaire);
+  margin-top: 6px;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  outline: none;
+  border-color: var(--couleur-primaire);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.06);
+}
+
+.form-grid label[for] + input,
+.form-grid label[for] + select {
+  margin-bottom: var(--espacement-md);
+}
+
+/* Champs sur une seule colonne — règle générale : 1 input par ligne */
+/* Si tu veux revenir à 2 colonnes pour desktop, modifie grid-template-columns */
+
+.actions-row {
+  display: flex;
+  gap: var(--espacement-md);
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .col-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inscription-summary {
+  background: var(--couleur-fond-secondaire);
+  border: 1px solid var(--couleur-bordure);
+  padding: var(--espacement-md);
+  border-radius: var(--rayon-md);
+}
+
+.inscription-summary h3 {
+  margin: 0 0 var(--espacement-sm) 0;
+  font-size: var(--texte-lg);
+  color: var(--couleur-texte-principal);
+}
+
+#summary-content dl {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px 18px;
+  align-items: start;
+}
+
+#summary-content dt {
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-secondaire);
+  font-size: var(--texte-sm);
+}
+
+#summary-content dd {
+  margin: 0 0 8px 0;
+  color: var(--couleur-texte-principal);
+  font-size: var(--texte-base);
+}
+
+#summary-content h4 {
+  margin: var(--espacement-md) 0 var(--espacement-sm) 0;
+  font-size: var(--texte-md);
+  color: var(--couleur-texte-principal);
+}
+
+.inscription-summary .success {
+  display: inline-block;
+  background: rgba(16,185,129,0.12);
+  color: var(--couleur-secondaire);
+  padding: 8px 12px;
+  border-radius: var(--rayon-sm);
+  margin-bottom: var(--espacement-sm);
+}
+
+.file-list { margin-top: 8px; }
+.file-list .file-item {
+  font-size: 0.95rem;
+  color: var(--couleur-texte-principal);
+}
+
+/* Small responsive tweak for summary layout */
+@media (max-width: 640px) {
+  #summary-content dl { grid-template-columns: 1fr; }
+  #summary-content dt { font-size: var(--texte-sm); }
+}
+
+.summary-actions {
+  margin-top: var(--espacement-md);
+}
+
+/* Boutons (réutilisent les classes globales éventuellement présentes) */
+.bouton {
+  padding: 10px 16px;
+  border-radius: var(--rayon-md);
+  border: none;
+  cursor: pointer;
+  font-weight: var(--poids-medium);
+}
+
+.bouton-primaire {
+  background: var(--couleur-primaire);
+  color: var(--couleur-texte-inverse);
+}
+
+.bouton-secondaire {
+  background: var(--couleur-fond-principal);
+  border: 1px solid var(--couleur-bordure);
+  color: var(--couleur-texte-principal);
+}
+
+.bouton-ghost {
+  background: transparent;
+  color: var(--couleur-texte-principal);
+  border: 1px dashed var(--couleur-bordure);
+}
+
+/* Small polish */
+.inscription-card legend {
+  font-weight: var(--poids-semibold);
+  margin-bottom: var(--espacement-sm);
+  font-size: var(--texte-lg);
+}
+
+.container { max-width: var(--largeur-max); }

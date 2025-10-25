@@ -1,0 +1,96 @@
+<!--
+    MODAL EPL
+    Système de modales réutilisables
+-->
+<div class="modal-epl-overlay" id="modal-overlay" style="display: none;">
+    <div class="modal-epl-conteneur">
+        <div class="modal-epl-header">
+            <h3 class="modal-epl-titre" id="modal-titre">Titre</h3>
+            <button class="modal-epl-fermer" id="modal-fermer" title="Fermer">
+                <span class="icone-fermer">×</span>
+            </button>
+        </div>
+        <div class="modal-epl-contenu" id="modal-contenu">
+            <!-- Contenu dynamique -->
+        </div>
+        <div class="modal-epl-footer" id="modal-footer">
+            <!-- Boutons dynamiques -->
+        </div>
+    </div>
+</div>
+
+<script>
+// Gestionnaire de modales
+class GestionnaireModal {
+    constructor() {
+        this.modal = document.getElementById('modal-overlay');
+        this.titre = document.getElementById('modal-titre');
+        this.contenu = document.getElementById('modal-contenu');
+        this.footer = document.getElementById('modal-footer');
+        this.boutonFermer = document.getElementById('modal-fermer');
+        
+        this.initialiser();
+    }
+
+    initialiser() {
+        // Événements
+        this.boutonFermer.addEventListener('click', () => this.fermer());
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) this.fermer();
+        });
+        
+        // Échap pour fermer
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.estOuverte()) {
+                this.fermer();
+            }
+        });
+    }
+
+    ouvrir(options = {}) {
+        const { titre = 'Modal', contenu = '', boutons = [] } = options;
+        
+        this.titre.textContent = titre;
+        this.contenu.innerHTML = contenu;
+        
+        // Boutons
+        this.footer.innerHTML = '';
+        boutons.forEach(bouton => {
+            const btn = document.createElement('button');
+            btn.textContent = bouton.texte;
+            btn.className = `bouton-epl-hover ${bouton.classe || ''}`;
+            btn.addEventListener('click', bouton.action);
+            this.footer.appendChild(btn);
+        });
+
+        this.modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Animation
+        if (typeof animateurEPL !== 'undefined') {
+            animateurEPL.animerEntree(this.modal.querySelector('.modal-epl-conteneur'), 'scale-in');
+        }
+    }
+
+    fermer() {
+        this.modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    estOuverte() {
+        return this.modal.style.display !== 'none';
+    }
+}
+
+// Instance globale
+const gestionnaireModal = new GestionnaireModal();
+
+// Fonctions utilitaires
+function ouvrirModal(options) {
+    gestionnaireModal.ouvrir(options);
+}
+
+function fermerModal() {
+    gestionnaireModal.fermer();
+}
+</script>

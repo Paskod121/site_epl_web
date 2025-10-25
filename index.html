@@ -1,26 +1,560 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" data-theme="clair">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>École Polytechnique de Lomé - Excellence en Ingénierie</title>
 
-    <title>Bienvenue_A_EPL</title>
-    
-    <link rel="stylesheet" href="./css/loader.css">
-    <script src="./js/loader.js"></script>
+    <!-- Meta tags pour SEO et réseaux sociaux -->
+    <meta name="description"
+        content="L'École Polytechnique de Lomé (EPL) forme les ingénieurs de demain au Togo. Formations d'excellence en ingénierie, innovation et développement.">
+    <meta name="keywords" content="EPL, École Polytechnique Lomé, ingénierie, formation, Togo, excellence">
+    <meta name="author" content="École Polytechnique de Lomé">
+
+    <!-- Open Graph pour Facebook/LinkedIn -->
+    <meta property="og:title" content="École Polytechnique de Lomé - Excellence en Ingénierie">
+    <meta property="og:description"
+        content="Formations d'excellence en ingénierie au Togo. L'EPL forme les ingénieurs de demain.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://epl-togo.edu">
+    <meta property="og:image" content="/assets/images/logos/logoepl.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="École Polytechnique de Lomé">
+    <meta name="twitter:description" content="Excellence en ingénierie au Togo">
+    <meta name="twitter:image" content="/assets/images/logos/logoepl.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/logos/logoepl.png">
+    <link rel="apple-touch-icon" href="/assets/images/logos/logoepl.png">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/indicateurs-chargement.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
+    <link rel="stylesheet" href="/css/animations/animations-epl.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/dashboard.css">
+    <link rel="stylesheet" href="/css/components/hero.css">
+
+    <!-- Preload des ressources critiques -->
+    <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/images/hero/hero-bg.jpg" as="image">
+
+    <!-- Schema.org pour le SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "École Polytechnique de Lomé",
+        "alternateName": "EPL",
+        "description": "École d'ingénierie d'excellence au Togo",
+        "url": "https://epl-togo.edu",
+        "logo": "/assets/images/logos/logoepl.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lomé",
+            "addressCountry": "TG"
+        },
+        "foundingDate": "2022",
+        "educationalCredentialAwarded": "Diplôme d'Ingénieur"
+    }
+    </script>
 </head>
 
 <body>
-    
-    <section class="dots-container">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </section>
+    <!-- Skip link pour l'accessibilité -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
 
+    <!-- Navbar principale -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb navigation -->
+    <div id="breadcrumb-container"></div>
+
+    <!-- Overlay pour sidebar mobile -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar de navigation -->
+    <aside id="sidebar" class="sidebar" role="navigation" aria-label="Navigation principale">
+        <!-- Header de la sidebar -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo-container">
+                <div class="sidebar-logo-cercle">
+                    <svg class="sidebar-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                </div>
+                <div class="sidebar-logo-texte">
+                    <div class="sidebar-logo-titre">EPL</div>
+                    <div class="sidebar-logo-sous-titre">École Polytechnique</div>
+                </div>
+            </div>
+
+            <!-- Bouton de thème dans la sidebar -->
+            <div class="sidebar-theme-selector">
+                <button id="bouton-theme-dynamique" class="btn-theme-dynamique" aria-label="Changer de thème"
+                    title="Changer de thème">
+                    <svg class="icone-theme-dynamique" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation principale -->
+        <nav class="sidebar-nav" role="menubar">
+            <div class="sidebar-nav-item" role="none">
+                <a href="/index.html" class="sidebar-nav-link actif" role="menuitem" aria-current="page">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9,22 9,12 15,12 15,22" />
+                    </svg>
+                    <span class="sidebar-nav-text">Accueil</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/dashboard.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="3" y="3" width="5" height="5" rx="1" />
+                        <rect x="9.5" y="3" width="5" height="5" rx="1" />
+                        <rect x="16" y="3" width="5" height="5" rx="1" />
+                        <rect x="3" y="9.5" width="5" height="5" rx="1" />
+                        <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+                        <rect x="16" y="9.5" width="5" height="5" rx="1" />
+                        <rect x="3" y="16" width="5" height="5" rx="1" />
+                        <rect x="9.5" y="16" width="5" height="5" rx="1" />
+                        <rect x="16" y="16" width="5" height="5" rx="1" />
+                    </svg>
+                    <span class="sidebar-nav-text">Tableau de bord</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/formations/index.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                    <span class="sidebar-nav-text">Formations</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/about.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    <span class="sidebar-nav-text">À propos</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/actualites.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <path d="M8 6h8M8 10h8M8 14h5" />
+                        <path d="M4 2h4v4H4z" />
+                        <path d="M5 3h2v2H5z" />
+                    </svg>
+                    <span class="sidebar-nav-text">Actualités</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/admissions.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M18 6l4 4-4 4" />
+                        <path d="M22 10H10" />
+                        <path d="M18 6l2 2" />
+                    </svg>
+                    <span class="sidebar-nav-text">Admissions</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/contact.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <span class="sidebar-nav-text">Contact</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Section d'aide -->
+        <div class="sidebar-aide">
+            <h3 class="sidebar-aide-titre">Besoin d'aide ?</h3>
+            <p class="sidebar-aide-description">
+                Contactez notre équipe pour toute assistance
+            </p>
+            <button class="sidebar-aide-bouton">
+                <span>Nous contacter</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Contenu principal -->
+    <main id="contenu-principal" class="contenu-principal">
+
+        <!-- Section Hero -->
+        <section class="hero-section" role="banner">
+            <div class="hero-contenu">
+                <div class="hero-texte">
+                    <h1 class="hero-titre">
+                        Excellence en <span class="texte-accent">Ingénierie</span>
+                    </h1>
+                    <p class="hero-description">
+                        L'École Polytechnique de Lomé forme les ingénieurs de demain avec des programmes d'excellence,
+                        une pédagogie innovante et un accompagnement personnalisé.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="/pages/formations/index.html" class="bouton bouton-primaire">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                <path d="M10 9H8" />
+                                <path d="M16 13H8" />
+                                <path d="M16 17H8" />
+                            </svg>
+                            <span>Découvrir nos formations</span>
+                        </a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visuel">
+                    <div class="hero-image-container">
+                        <img src="/assets/images/hero/ingenierie-modern.jpg"
+                            alt="Étudiants en ingénierie travaillant sur des projets innovants" class="hero-image"
+                            loading="eager">
+                        <div class="hero-badge">
+                            <span class="badge-texte">Excellence</span>
+                            <span class="badge-annee">Depuis 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Formations -->
+        <section class="formations-section" role="region" aria-labelledby="formations-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="formations-titre" class="section-titre">Nos Formations d'Excellence</h2>
+                    <p class="section-description">
+                        Des programmes d'ingénierie conçus pour répondre aux défis du monde moderne
+                    </p>
+                </header>
+
+                <div class="formations-grid" id="formations-container">
+                    <!-- Les formations seront chargées dynamiquement -->
+                </div>
+
+                <div class="section-actions">
+                    <a href="/pages/formations/index.html" class="bouton bouton-outline">
+                        <span>Voir toutes les formations</span>
+                        <span aria-hidden="true">=></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Actualités -->
+        <section class="actualites-section" role="region" aria-labelledby="actualites-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="actualites-titre" class="section-titre">Actualités & Événements</h2>
+                    <p class="section-description">
+                        Restez informé des dernières nouvelles de l'EPL
+                    </p>
+                </header>
+
+                <div class="actualites-grid" id="actualites-container">
+                    <!-- Les actualités seront chargées dynamiquement -->
+                </div>
+
+                <div class="section-actions">
+                    <a href="/pages/actualites.html" class="bouton bouton-outline">
+                        <span>Voir toutes les actualités</span>
+                        <span aria-hidden="true">=></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section class="temoignages-section" role="region" aria-labelledby="temoignages-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="temoignages-titre" class="section-titre">Ce que disent nos étudiants</h2>
+                    <p class="section-description">
+                        Découvrez les témoignages de nos étudiants et diplômés
+                    </p>
+                </header>
+
+                <div class="temoignages-grid" id="temoignages-container">
+                    <!-- Les témoignages seront chargés dynamiquement -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Final -->
+        <section class="cta-section" role="region">
+            <div class="container">
+                <div class="cta-contenu">
+                    <h2 class="cta-titre">Prêt à rejoindre l'excellence ?</h2>
+                    <p class="cta-description">
+                        Découvrez nos formations et commencez votre parcours d'ingénieur dès maintenant.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="/pages/formations/index.html" class="bouton bouton-primaire bouton-large">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                <path d="M10 9H8" />
+                                <path d="M16 13H8" />
+                                <path d="M16 17H8" />
+                            </svg>
+                            <span>Découvrir nos formations</span>
+                        </a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire bouton-large">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/pages/mentions-legales.html" class="footer-link">Mentions légales</a>
+                    <a href="/pages/politique-confidentialite.html" class="footer-link">Politique de confidentialité</a>
+                    <a href="/pages/plan-du-site.html" class="footer-link">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/components/cta.js"></script>
+    <script src="/js/components/hero.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Script de chargement des données -->
+    <script>
+        // Chargement des données au chargement de la page
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Charge les formations
+                await chargerFormations();
+
+                // Charge les actualités
+                await chargerActualites();
+
+                // Charge les témoignages
+                await chargerTemoignages();
+
+                console.log('✅ Page d\'accueil chargée avec succès');
+            } catch (erreur) {
+                console.error('❌ Erreur lors du chargement de la page :', erreur);
+            }
+        });
+
+        /**
+         * Charge et affiche les formations
+         */
+        async function chargerFormations() {
+            try {
+                const reponse = await fetch('/assets/data/formations.json');
+                const formations = await reponse.json();
+
+                const container = document.getElementById('formations-container');
+                if (!container) return;
+
+                // Affiche les 3 premières formations
+                const formationsAffichees = formations.slice(0, 3);
+
+                container.innerHTML = formationsAffichees.map(formation => `
+                    <article class="formation-card">
+                        <div class="card-header">
+                            <h3 class="card-titre">${formation.nom}</h3>
+                            <span class="card-badge">${formation.niveau}</span>
+                        </div>
+                        <div class="card-contenu">
+                            <p class="card-description">${formation.description}</p>
+                            <div class="card-details">
+                                <span class="detail-item">⏱️ ${formation.duree}</span>
+                                <span class="detail-item">👥 ${formation.etudiants} étudiants</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="/pages/formations/${formation.slug}.html" class="bouton bouton-outline">
+                                En savoir plus
+                            </a>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (erreur) {
+                console.error('Erreur lors du chargement des formations :', erreur);
+                document.getElementById('formations-container').innerHTML =
+                    '<p class="message-erreur">Impossible de charger les formations pour le moment.</p>';
+            }
+        }
+
+        /**
+         * Charge et affiche les actualités
+         */
+        async function chargerActualites() {
+            try {
+                const reponse = await fetch('/assets/data/actualites.json');
+                const actualites = await reponse.json();
+
+                const container = document.getElementById('actualites-container');
+                if (!container) return;
+
+                // Affiche les 3 dernières actualités
+                const actualitesAffichees = actualites.slice(0, 3);
+
+                container.innerHTML = actualitesAffichees.map(actualite => `
+                    <article class="actualite-card">
+                        <div class="card-image">
+                            <img src="${actualite.image}" alt="${actualite.titre}" loading="lazy">
+                            <span class="card-date">${actualite.date}</span>
+                        </div>
+                        <div class="card-contenu">
+                            <h3 class="card-titre">${actualite.titre}</h3>
+                            <p class="card-description">${actualite.description}</p>
+                            <a href="/pages/actualites/${actualite.slug}.html" class="bouton bouton-outline">
+                                Lire la suite
+                            </a>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (erreur) {
+                console.error('Erreur lors du chargement des actualités :', erreur);
+                document.getElementById('actualites-container').innerHTML =
+                    '<p class="message-erreur">Impossible de charger les actualités pour le moment.</p>';
+            }
+        }
+
+        /**
+         * Charge et affiche les témoignages
+         */
+        async function chargerTemoignages() {
+            try {
+                const reponse = await fetch('/assets/data/temoignages.json');
+                const temoignages = await reponse.json();
+
+                const container = document.getElementById('temoignages-container');
+                if (!container) return;
+
+                // Affiche les 3 premiers témoignages
+                const temoignagesAffiches = temoignages.slice(0, 3);
+
+                container.innerHTML = temoignagesAffiches.map(temoignage => `
+                    <article class="temoignage-card">
+                        <div class="card-contenu">
+                            <div class="temoignage-avatar">
+                                <img src="${temoignage.avatar}" alt="${temoignage.nom}" loading="lazy">
+                            </div>
+                            <blockquote class="temoignage-texte">
+                                "${temoignage.temoignage}"
+                            </blockquote>
+                            <div class="temoignage-auteur">
+                                <h4 class="auteur-nom">${temoignage.nom}</h4>
+                                <p class="auteur-role">${temoignage.role}</p>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (erreur) {
+                console.error('Erreur lors du chargement des témoignages :', erreur);
+                document.getElementById('temoignages-container').innerHTML =
+                    '<p class="message-erreur">Impossible de charger les témoignages pour le moment.</p>';
+            }
+        }
+    </script>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script src="/js/pages/index.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Initialisation optimisée de la page -->
+    <script>
+        // Initialise la page avec le nouveau système de chargement
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🚀 Initialisation optimisée de la page d\'accueil');
+
+            // Initialise les composants avec le nouveau système
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('index');
+            } else {
+                console.warn('⚠️ ChargeurPages non disponible, utilisation du système de fallback');
+            }
+        });
+    </script>
 </body>
 
 </html>

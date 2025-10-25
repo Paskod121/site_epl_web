@@ -1,0 +1,274 @@
+/**
+ * FICHIER : Variables CSS - Système de Thèmes
+ * 
+ * OBJECTIF : 
+ * Définit le système de 2 thèmes (Clair, Sombre) avec variables CSS natives
+ * Compatible avec tous les composants et pages
+ * 
+ * DÉPENDANCES :
+ * - Aucune (variables de base)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 Octobre 2025
+ */
+
+/* ===================================================
+   VARIABLES COMMUNES (ne changent pas selon le thème)
+   =================================================== */
+:root {
+  /* Couleurs institutionnelles EPL */
+  --couleur-primaire: #3b82f6;        /* Bleu EPL */
+  --couleur-primaire-hover: #2563eb;   /* Bleu plus foncé au hover */
+  --couleur-secondaire: #10b981;       /* Vert succès */
+  --couleur-erreur: #ef4444;           /* Rouge erreur */
+  --couleur-avertissement: #f59e0b;    /* Orange avertissement */
+  --couleur-info: #06b6d4;             /* Cyan info */
+  
+  /* Transitions fluides pour changement de thème */
+  --transition-theme: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-rapide: 150ms ease-out;
+  --transition-normale: 300ms ease-out;
+  --transition-lente: 500ms ease-out;
+  
+  /* Espacements cohérents */
+  --espacement-xs: 0.25rem;    /* 4px */
+  --espacement-sm: 0.5rem;     /* 8px */
+  --espacement-md: 1rem;       /* 16px */
+  --espacement-lg: 1.5rem;     /* 24px */
+  --espacement-xl: 2rem;       /* 32px */
+  --espacement-2xl: 3rem;      /* 48px */
+  --espacement-3xl: 4rem;      /* 64px */
+  
+  /* Bordures et rayons */
+  --rayon-sm: 0.25rem;         /* 4px */
+  --rayon-md: 0.5rem;          /* 8px */
+  --rayon-lg: 0.75rem;         /* 12px */
+  --rayon-xl: 1rem;            /* 16px */
+  --rayon-full: 9999px;        /* Completement arrondi */
+  
+  /* Ombres */
+  --ombre-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ombre-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ombre-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --ombre-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Typographie */
+  --police-principale: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --police-titres: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --police-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  
+  /* Tailles de police */
+  --texte-xs: 0.75rem;         /* 12px */
+  --texte-sm: 0.875rem;        /* 14px */
+  --texte-base: 1rem;          /* 16px */
+  --texte-lg: 1.125rem;        /* 18px */
+  --texte-xl: 1.25rem;         /* 20px */
+  --texte-2xl: 1.5rem;         /* 24px */
+  --texte-3xl: 1.875rem;       /* 30px */
+  --texte-4xl: 2.25rem;        /* 36px */
+  --texte-5xl: 3rem;           /* 48px */
+  --texte-6xl: 3.75rem;       /* 60px */
+  
+  /* Poids de police */
+  --poids-normal: 400;
+  --poids-medium: 500;
+  --poids-semibold: 600;
+  --poids-bold: 700;
+  --poids-extrabold: 800;
+  
+  /* Hauteurs de ligne */
+  --ligne-tight: 1.25;
+  --ligne-normal: 1.5;
+  --ligne-relaxed: 1.75;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* Layout */
+  --largeur-max: 1200px;
+  --largeur-sidebar: 280px;
+  --hauteur-header: 80px;
+}
+
+/* =================================
+   THÈME CLAIR (Light Mode) - DÉFAUT
+   ================================= */
+[data-theme="clair"] {
+  /* Couleurs de fond */
+  --couleur-fond-principal: #ffffff;
+  --couleur-fond-secondaire: #f8f9fa;
+  --couleur-fond-tertiaire: #f1f5f9;
+  --couleur-fond-hover: #f1f5f9;
+  
+  /* Couleurs de texte */
+  --couleur-texte-principal: #1a1a1a;
+  --couleur-texte-secondaire: #6b7280;
+  --couleur-texte-tertiaire: #9ca3af;
+  --couleur-texte-inverse: #ffffff;
+  
+  /* Couleurs de bordure */
+  --couleur-bordure: #e5e7eb;
+  --couleur-bordure-hover: #d1d5db;
+  --couleur-bordure-focus: var(--couleur-primaire);
+  
+  /* Couleurs d'ombre */
+  --couleur-ombre: rgba(0, 0, 0, 0.1);
+  --couleur-ombre-hover: rgba(0, 0, 0, 0.15);
+  
+  /* Couleurs de sidebar */
+  --couleur-sidebar-fond: #f8f9fa;
+  --couleur-sidebar-texte: #374151;
+  --couleur-sidebar-hover: #e5e7eb;
+  --couleur-sidebar-active: var(--couleur-primaire);
+  
+  /* Couleurs de cards */
+  --couleur-card-fond: #ffffff;
+  --couleur-card-ombre: var(--ombre-md);
+  --couleur-card-hover: var(--ombre-lg);
+}
+
+/* =========================
+   THÈME SOMBRE (Dark Mode)
+   ========================= */
+[data-theme="sombre"] {
+  /* Couleurs de fond */
+  --couleur-fond-principal: #0f172a;
+  --couleur-fond-secondaire: #1e293b;
+  --couleur-fond-tertiaire: #334155;
+  --couleur-fond-hover: #334155;
+  
+  /* Couleurs de texte */
+  --couleur-texte-principal: #f1f5f9;
+  --couleur-texte-secondaire: #cbd5e1;
+  --couleur-texte-tertiaire: #94a3b8;
+  --couleur-texte-inverse: #0f172a;
+  
+  /* Couleurs de bordure */
+  --couleur-bordure: #334155;
+  --couleur-bordure-hover: #475569;
+  --couleur-bordure-focus: var(--couleur-primaire);
+  
+  /* Couleurs d'ombre */
+  --couleur-ombre: rgba(0, 0, 0, 0.3);
+  --couleur-ombre-hover: rgba(0, 0, 0, 0.4);
+  
+  /* Couleurs de sidebar */
+  --couleur-sidebar-fond: #1e293b;
+  --couleur-sidebar-texte: #cbd5e1;
+  --couleur-sidebar-hover: #334155;
+  --couleur-sidebar-active: var(--couleur-primaire);
+  
+  /* Couleurs de cards */
+  --couleur-card-fond: #1e293b;
+  --couleur-card-ombre: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --couleur-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  
+  /* Couleurs professionnelles douces pour mode sombre */
+  --couleur-accent: #64748b;
+  --couleur-accent-hover: #475569;
+  --couleur-accent-fonce: #334155;
+  --couleur-accent-transparent: rgba(100, 116, 139, 0.1);
+  --couleur-accent-gradient: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+
+/* ==================================================
+   APPLICATION DES TRANSITIONS SUR TOUS LES ÉLÉMENTS
+   ================================================== */
+* {
+  transition: 
+    background-color var(--transition-theme),
+    color var(--transition-theme),
+    border-color var(--transition-theme),
+    box-shadow var(--transition-theme);
+}
+
+/* ======================
+   RESPONSIVE BREAKPOINTS
+   ====================== */
+@media (max-width: 640px) {
+  :root {
+    --espacement-md: 0.75rem;
+    --espacement-lg: 1rem;
+    --espacement-xl: 1.5rem;
+    --largeur-sidebar: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --largeur-sidebar: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --largeur-max: 1400px;
+  }
+}
+
+/* ===========================
+   UTILITAIRES POUR LES THÈMES
+   =========================== */
+.theme-clair {
+  --data-theme: "clair";
+}
+
+.theme-sombre {
+  --data-theme: "sombre";
+}
+
+/* ================================
+   DÉTECTION DE PRÉFÉRENCE SYSTÈME
+   ================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* Applique le thème sombre si l'utilisateur préfère le mode sombre */
+    --couleur-fond-principal: #0f172a;
+    --couleur-fond-secondaire: #1e293b;
+    --couleur-texte-principal: #f1f5f9;
+    --couleur-texte-secondaire: #cbd5e1;
+    --couleur-bordure: #334155;
+  }
+}
+
+/* ===============================
+   ACCESSIBILITÉ - CONTRASTE ÉLEVÉ
+   =============================== */
+@media (prefers-contrast: high) {
+  :root {
+    --couleur-texte-principal: #000000;
+    --couleur-texte-secondaire: #333333;
+    --couleur-bordure: #000000;
+  }
+  
+  [data-theme="sombre"] {
+    --couleur-texte-principal: #ffffff;
+    --couleur-texte-secondaire: #cccccc;
+    --couleur-bordure: #ffffff;
+  }
+}
+
+/* =======================
+   RÉDUCTION DE MOUVEMENT
+   ======================= */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-theme: none;
+    --transition-rapide: none;
+    --transition-normale: none;
+    --transition-lente: none;
+  }
+  
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+

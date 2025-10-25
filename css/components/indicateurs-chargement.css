@@ -1,0 +1,250 @@
+/**
+ * STYLES POUR INDICATEURS DE CHARGEMENT
+ * 
+ * Ce fichier contient les styles pour les indicateurs de chargement
+ * des composants réutilisables.
+ * 
+ * FONCTIONNALITÉS :
+ * - Spinner animé pour le chargement
+ * - Messages de chargement personnalisés
+ * - Transitions fluides
+ * - Compatible avec tous les thèmes
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 18 Octobre 2025
+ */
+
+/* ==================================================
+   INDICATEUR DE CHARGEMENT PRINCIPAL
+   ================================================== */
+.indicateur-chargement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espacement-xl);
+    min-height: 200px;
+    background-color: var(--couleur-fond-secondaire);
+    border-radius: var(--rayon-lg);
+    border: 1px solid var(--couleur-bordure);
+    transition: all var(--transition-normale);
+}
+
+/* ==================================================
+   SPINNER DE CHARGEMENT
+   ================================================== */
+.indicateur-chargement-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--couleur-bordure);
+    border-top: 3px solid var(--couleur-primaire);
+    border-radius: 50%;
+    animation: rotation-spinner 1s linear infinite;
+    margin-bottom: var(--espacement-md);
+}
+
+@keyframes rotation-spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==================================================
+   TEXTE DE CHARGEMENT
+   ================================================== */
+.indicateur-chargement-texte {
+    color: var(--couleur-texte-secondaire);
+    font-size: var(--texte-sm);
+    font-weight: var(--poids-medium);
+    text-align: center;
+    margin: 0;
+    animation: pulsation-texte 2s ease-in-out infinite;
+}
+
+@keyframes pulsation-texte {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* ==================================================
+   NOTIFICATION D'ERREUR
+   ================================================== */
+.notification-erreur {
+    position: fixed;
+    top: var(--espacement-lg);
+    right: var(--espacement-lg);
+    z-index: var(--z-modal);
+    max-width: 400px;
+    background-color: var(--couleur-fond-principal);
+    border: 1px solid var(--couleur-erreur);
+    border-radius: var(--rayon-lg);
+    box-shadow: var(--ombre-xl);
+    animation: apparition-notification 0.3s ease-out;
+}
+
+@keyframes apparition-notification {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.notification-erreur-contenu {
+    padding: var(--espacement-lg);
+}
+
+.notification-erreur-contenu h3 {
+    color: var(--couleur-erreur);
+    font-size: var(--texte-lg);
+    font-weight: var(--poids-semibold);
+    margin: 0 0 var(--espacement-sm) 0;
+}
+
+.notification-erreur-contenu p {
+    color: var(--couleur-texte-secondaire);
+    font-size: var(--texte-sm);
+    margin: 0 0 var(--espacement-md) 0;
+    line-height: var(--ligne-normal);
+}
+
+.notification-erreur-contenu button {
+    background-color: var(--couleur-erreur);
+    color: var(--couleur-texte-inverse);
+    border: none;
+    padding: var(--espacement-sm) var(--espacement-md);
+    border-radius: var(--rayon-md);
+    font-size: var(--texte-sm);
+    font-weight: var(--poids-medium);
+    cursor: pointer;
+    transition: all var(--transition-rapide);
+}
+
+.notification-erreur-contenu button:hover {
+    background-color: var(--couleur-primaire-hover);
+    transform: translateY(-1px);
+}
+
+/* ==================================================
+   FALLBACKS DES COMPOSANTS
+   ================================================== */
+.sidebar-fallback {
+    background-color: var(--couleur-fond-secondaire);
+    border: 1px dashed var(--couleur-bordure);
+    padding: var(--espacement-lg);
+}
+
+.sidebar-fallback .sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacement-sm);
+}
+
+.sidebar-fallback .sidebar-lien-navigation {
+    padding: var(--espacement-sm);
+    background-color: var(--couleur-fond-principal);
+    border-radius: var(--rayon-md);
+    text-decoration: none;
+    color: var(--couleur-texte-principal);
+    transition: all var(--transition-rapide);
+}
+
+.sidebar-fallback .sidebar-lien-navigation:hover {
+    background-color: var(--couleur-fond-hover);
+}
+
+.footer-fallback {
+    background-color: var(--couleur-fond-secondaire);
+    border-top: 1px solid var(--couleur-bordure);
+    padding: var(--espacement-lg) 0;
+    text-align: center;
+}
+
+.cta-fallback {
+    background-color: var(--couleur-fond-secondaire);
+    border: 1px dashed var(--couleur-bordure);
+    padding: var(--espacement-xl);
+    text-align: center;
+}
+
+.cta-fallback .cta-titre {
+    color: var(--couleur-texte-principal);
+    margin-bottom: var(--espacement-md);
+}
+
+.cta-fallback .cta-description {
+    color: var(--couleur-texte-secondaire);
+    margin-bottom: var(--espacement-lg);
+}
+
+/* ==================================================
+   RESPONSIVE DESIGN
+   ================================================== */
+@media (max-width: 768px) {
+    .indicateur-chargement {
+        min-height: 150px;
+        padding: var(--espacement-lg);
+    }
+    
+    .indicateur-chargement-spinner {
+        width: 32px;
+        height: 32px;
+        border-width: 2px;
+    }
+    
+    .notification-erreur {
+        top: var(--espacement-md);
+        right: var(--espacement-md);
+        left: var(--espacement-md);
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .indicateur-chargement {
+        min-height: 120px;
+        padding: var(--espacement-md);
+    }
+    
+    .indicateur-chargement-texte {
+        font-size: var(--texte-xs);
+    }
+}
+
+/* ==================================================
+   ACCESSIBILITÉ
+   ================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .indicateur-chargement-spinner {
+        animation: none;
+        border: 3px solid var(--couleur-bordure);
+    }
+    
+    .indicateur-chargement-texte {
+        animation: none;
+    }
+    
+    .notification-erreur {
+        animation: none;
+    }
+}
+
+/* ==================================================
+   MODE HAUTE CONTRASTE
+   ================================================== */
+@media (prefers-contrast: high) {
+    .indicateur-chargement {
+        border: 2px solid var(--couleur-texte-principal);
+    }
+    
+    .indicateur-chargement-spinner {
+        border-color: var(--couleur-texte-principal);
+        border-top-color: var(--couleur-primaire);
+    }
+    
+    .notification-erreur {
+        border: 2px solid var(--couleur-erreur);
+    }
+}

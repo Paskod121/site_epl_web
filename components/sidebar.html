@@ -1,0 +1,251 @@
+<!-- 
+    COMPOSANT SIDEBAR RÉUTILISABLE
+    =================================================================
+    
+    Ce composant est utilisé sur toutes les pages du site EPL.
+    Il contient la navigation principale et le bouton de thème.
+    
+    FONCTIONNALITÉS :
+    - Navigation responsive avec menu hamburger
+    - Bouton de thème intégré (clair/sombre)
+    - Gestion automatique des liens actifs
+    - Compatible avec tous les thèmes
+    
+    UTILISATION :
+    - Charger via fetch() dans un conteneur #sidebar-container
+    - Le JavaScript s'initialise automatiquement
+    - Pas besoin de dupliquer le code sur chaque page
+    
+    CSS REQUIS : /css/components/sidebar.css
+    JS REQUIS : /js/components/sidebar.js + /js/utils/themes.js
+-->
+<aside id="sidebar" class="sidebar" role="navigation" aria-label="Navigation principale">
+    <!-- Header de la sidebar -->
+    <div class="sidebar-header">
+        <div class="sidebar-logo-container">
+            <div class="sidebar-logo-cercle">
+                <svg class="sidebar-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+            </div>
+            <div class="sidebar-logo-texte">
+                <div class="sidebar-logo-titre">EPL</div>
+                <div class="sidebar-logo-sous-titre">École Polytechnique</div>
+            </div>
+        </div>
+        
+        <!-- Bouton de thème dans la sidebar -->
+        <div class="sidebar-theme-selector">
+            <button id="bouton-theme-dynamique" class="btn-theme-dynamique" 
+                    aria-label="Changer de thème"
+                    title="Changer de thème">
+                <svg class="icone-theme-dynamique" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Navigation principale -->
+    <nav class="sidebar-nav" role="menubar">
+        <div class="sidebar-nav-item" role="none">
+            <a href="/index.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9,22 9,12 15,12 15,22"/>
+                </svg>
+                <span class="sidebar-nav-text">Accueil</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-nav-item" role="none">
+            <a href="/pages/dashboard.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="5" height="5" rx="1"/>
+                    <rect x="9.5" y="3" width="5" height="5" rx="1"/>
+                    <rect x="16" y="3" width="5" height="5" rx="1"/>
+                    <rect x="3" y="9.5" width="5" height="5" rx="1"/>
+                    <rect x="9.5" y="9.5" width="5" height="5" rx="1"/>
+                    <rect x="16" y="9.5" width="5" height="5" rx="1"/>
+                    <rect x="3" y="16" width="5" height="5" rx="1"/>
+                    <rect x="9.5" y="16" width="5" height="5" rx="1"/>
+                    <rect x="16" y="16" width="5" height="5" rx="1"/>
+                </svg>
+                <span class="sidebar-nav-text">Tableau de bord</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-nav-item" role="none">
+            <a href="/pages/formations/index.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+                <span class="sidebar-nav-text">Formations</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-nav-item" role="none">
+            <a href="/pages/about.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                <span class="sidebar-nav-text">À propos</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-nav-item" role="none">
+            <a href="/pages/actualites.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <path d="M8 6h8M8 10h8M8 14h5"/>
+                    <path d="M4 2h4v4H4z"/>
+                    <path d="M5 3h2v2H5z"/>
+                </svg>
+                <span class="sidebar-nav-text">Actualités</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-nav-item" role="none">
+            <a href="/pages/admissions.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M18 6l4 4-4 4"/>
+                    <path d="M22 10H10"/>
+                    <path d="M18 6l2 2"/>
+                </svg>
+                <span class="sidebar-nav-text">Admissions</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-nav-item" role="none">
+            <a href="/pages/contact.html" class="sidebar-nav-link" role="menuitem">
+                <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span class="sidebar-nav-text">Contact</span>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Section d'aide -->
+    <div class="sidebar-aide">
+        <h3 class="sidebar-aide-titre">Besoin d'aide ?</h3>
+        <p class="sidebar-aide-description">
+            Contactez notre équipe pour toute assistance
+        </p>
+        <button class="sidebar-aide-bouton">
+            <span>Nous contacter</span>
+        </button>
+    </div>
+</aside>
+
+<!-- 
+    SCRIPT DE GESTION DU THÈME INTÉGRÉ
+    ===============================================================================
+    
+    Ce script est intégré dans le composant sidebar pour gérer le bouton de thème.
+    Il s'initialise automatiquement quand le composant est chargé.
+    
+    FONCTIONNALITÉS :
+    - Détection automatique du bouton de thème
+    - Gestion des conflits d'événements
+    - Mise à jour de l'icône selon le thème
+    - Retry automatique si les dépendances ne sont pas chargées
+    
+    DÉPENDANCES :
+    - GestionnaireThemes (themes.js)
+    - Variables CSS (variables.css)
+-->
+<script>
+    // Fonction d'initialisation du bouton de thème
+    function initialiserBoutonTheme() {
+        console.log('🔍 Recherche du bouton de thème...');
+        
+        // Recherche du bouton de thème dans le DOM
+        let boutonTheme = document.getElementById('bouton-theme-dynamique');
+        
+        if (boutonTheme) {
+            console.log('✅ Bouton de thème trouvé');
+            
+            // Vérification de la disponibilité du gestionnaire de thèmes
+            if (typeof GestionnaireThemes !== 'undefined') {
+                console.log('✅ GestionnaireThemes disponible');
+                
+                // Initialisation du gestionnaire s'il n'existe pas encore
+                if (!window.gestionnaireThemes) {
+                    window.gestionnaireThemes = new GestionnaireThemes();
+                    console.log('✅ Gestionnaire de thèmes initialisé');
+                }
+                
+                // Suppression des anciens écouteurs pour éviter les conflits
+                const nouveauBouton = boutonTheme.cloneNode(true);
+                boutonTheme.parentNode.replaceChild(nouveauBouton, boutonTheme);
+                
+                // Configuration du gestionnaire de clic
+                nouveauBouton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🎨 Clic sur le bouton de thème détecté');
+                    
+                    if (window.gestionnaireThemes) {
+                        console.log('🔄 Appel de changerTheme()...');
+                        window.gestionnaireThemes.changerTheme();
+                        mettreAJourIconeTheme();
+                    } else {
+                        console.error('❌ Gestionnaire de thèmes non disponible');
+                    }
+                });
+                
+                // Fonction de mise à jour de l'icône selon le thème
+                function mettreAJourIconeTheme() {
+                    const iconeTheme = document.querySelector('.icone-theme-dynamique');
+                    if (iconeTheme && window.gestionnaireThemes) {
+                        const themeActuel = window.gestionnaireThemes.obtenirThemeActuel();
+                        console.log('🎨 Thème actuel:', themeActuel);
+
+                        // Icône soleil pour le mode clair, lune pour le mode sombre
+                        if (themeActuel === 'sombre') {
+                            iconeTheme.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+                        } else {
+                            iconeTheme.innerHTML = `
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                            `;
+                        }
+                    }
+                }
+                
+                // Initialisation de l'icône au chargement
+                mettreAJourIconeTheme();
+                
+                // Configuration du bouton d'aide
+                const boutonAide = document.querySelector('.sidebar-aide-bouton');
+                if (boutonAide) {
+                    boutonAide.addEventListener('click', function() {
+                        console.log('💬 Redirection vers contact');
+                        window.location.href = '/pages/contact.html';
+                    });
+                }
+                
+                console.log('✅ Bouton de thème configuré avec succès');
+            } else {
+                console.log('⏳ Gestionnaire de thèmes pas encore chargé, réessai dans 200ms...');
+                setTimeout(initialiserBoutonTheme, 200);
+            }
+        } else {
+            console.error('❌ Bouton de thème non trouvé');
+        }
+    }
+
+    // Initialisation automatique au chargement du DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 Initialisation du bouton de thème...');
+        setTimeout(initialiserBoutonTheme, 200);
+    });
+</script>

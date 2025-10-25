@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="clair">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan du site - École Polytechnique de Lomé</title>
+    <meta name="description" content="Plan du site de l'École Polytechnique de Lomé.">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/dashboard.css">
+</head>
+
+<body>
+    <!-- Skip link pour l'accessibilité -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <!-- Le contenu du sidebar sera chargé ici par JavaScript -->
+    </div>
+
+    <!-- Contenu principal -->
+    <main id="contenu-principal" class="contenu-principal">
+
+        <!-- Section En développement -->
+        <section class="dev-section" role="region">
+            <div class="container">
+                <div class="dev-content">
+                    <div class="dev-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v18H3zM9 9h6v6H9z" />
+                            <path d="M9 3v6M15 3v6M9 15v6M15 15v6" />
+                        </svg>
+                    </div>
+                    <h1 class="dev-titre">Page en développement</h1>
+                    <p class="dev-description">
+                        Cette page est actuellement en cours de développement par l'équipe EPL.
+                        Le contenu sera bientôt disponible.
+                    </p>
+                    <div class="dev-info">
+                        <p><strong>Équipe responsable :</strong> Développement Web EPL</p>
+                        <p><strong>Statut :</strong> En cours de développement</p>
+                        <p><strong>Date prévue :</strong> Bientôt disponible</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA -->
+        <section class="cta-section" role="region">
+            <div class="container">
+                <div class="cta-contenu">
+                    <h2 class="cta-titre">Prêt à rejoindre l'excellence ?</h2>
+                    <p class="cta-description">
+                        Découvrez nos formations et commencez votre parcours d'ingénieur dès maintenant.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="/pages/formations/index.html" class="bouton bouton-primaire bouton-large">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                <path d="M10 9H8" />
+                                <path d="M16 13H8" />
+                                <path d="M16 17H8" />
+                            </svg>
+                            <span>Découvrir nos formations</span>
+                        </a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire bouton-large">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/pages/mentions-legales.html" class="footer-link">Mentions légales</a>
+                    <a href="/pages/politique-confidentialite.html" class="footer-link">Politique de confidentialité</a>
+                    <a href="/pages/plan-du-site.html" class="footer-link">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/components/cta.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Script de gestion du sidebar pour plan-du-site -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🚀 Page Plan du site chargée');
+
+            // Charger le composant sidebar
+            fetch('/components/sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-container').innerHTML = html;
+
+                    // Initialiser le gestionnaire de sidebar
+                    if (typeof SidebarManager !== 'undefined') {
+                        window.sidebarManager = new SidebarManager();
+                        console.log('✅ Gestionnaire de sidebar initialisé');
+                    }
+
+                    console.log('✅ Page Plan du site initialisée avec succès');
+                })
+                .catch(error => {
+                    console.error('❌ Erreur lors du chargement du sidebar:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

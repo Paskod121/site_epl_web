@@ -1,0 +1,519 @@
+/**
+ * ANIMATIONS ÉLÉGANTES EPL - Version Professionnelle
+ * 
+ * Ce fichier contient toutes les animations et transitions
+ * pour donner une image professionnelle à l'École Polytechnique de Lomé.
+ * 
+ * FONCTIONNALITÉS :
+ * - Spinner de chargement avec logo EPL
+ * - Transitions fluides des composants
+ * - Micro-interactions élégantes
+ * - Animations de thème
+ * - Chargement progressif
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 18 Octobre 2025
+ */
+
+/* ======================================
+   SPINNER DE CHARGEMENT EPL - Logo Animé
+   ====================================== */
+.spinner-epl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espacement-xl);
+    min-height: 200px;
+    background: linear-gradient(135deg,
+            var(--couleur-fond-secondaire) 0%,
+            var(--couleur-fond-tertiaire) 100%);
+    border-radius: var(--rayon-lg);
+    border: 1px solid var(--couleur-bordure);
+    position: relative;
+    overflow: hidden;
+}
+
+.spinner-epl::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(59, 130, 246, 0.1),
+            transparent);
+    animation: shimmer-epl 2s infinite;
+}
+
+@keyframes shimmer-epl {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Logo EPL animé */
+.logo-epl-anime {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin-bottom: var(--espacement-lg);
+    animation: rotation-logo-epl 2s linear infinite;
+}
+
+.logo-epl-anime::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--couleur-primaire);
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotation-inverse 1.5s linear infinite;
+}
+
+.logo-epl-anime::after {
+    content: "EPL";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: var(--poids-bold);
+    color: var(--couleur-primaire);
+    animation: pulsation-logo 1s ease-in-out infinite alternate;
+}
+
+@keyframes rotation-logo-epl {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotation-inverse {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes pulsation-logo {
+    0% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Texte de chargement animé */
+.texte-chargement-epl {
+    color: var(--couleur-texte-secondaire);
+    font-size: var(--texte-sm);
+    font-weight: var(--poids-medium);
+    text-align: center;
+    margin: 0;
+    animation: vague-texte 2s ease-in-out infinite;
+}
+
+@keyframes vague-texte {
+
+    0%,
+    100% {
+        opacity: 0.7;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+/* ==================================================
+   TRANSITIONS DE COMPOSANTS - Apparition Fluide
+   ================================================== */
+.composant-entree {
+    animation: entree-composant 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes entree-composant {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation spécifique pour la sidebar */
+.sidebar-entree {
+    animation: entree-sidebar 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+@keyframes entree-sidebar {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation spécifique pour le footer */
+.footer-entree {
+    animation: entree-footer 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes entree-footer {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation spécifique pour le CTA */
+.cta-entree {
+    animation: entree-cta 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+}
+
+@keyframes entree-cta {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==================================================
+   MICRO-INTERACTIONS - Hover Effects Élégants
+   ================================================== */
+.bouton-epl-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normale);
+}
+
+.bouton-epl-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+.bouton-epl-hover:hover::before {
+    left: 100%;
+}
+
+.bouton-epl-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ombre-lg);
+}
+
+/* Animation des liens de navigation */
+.lien-nav-epl {
+    position: relative;
+    transition: all var(--transition-rapide);
+}
+
+.lien-nav-epl::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--couleur-primaire);
+    transition: width var(--transition-normale);
+}
+
+.lien-nav-epl:hover::after {
+    width: 100%;
+}
+
+.lien-nav-epl:hover {
+    color: var(--couleur-primaire);
+    transform: translateX(5px);
+}
+
+/* ==================================================
+   CHARGEMENT PROGRESSIF - Barre de Progression
+   ================================================== */
+.barre-progression-epl {
+    width: 100%;
+    height: 4px;
+    background-color: var(--couleur-fond-tertiaire);
+    border-radius: var(--rayon-full);
+    overflow: hidden;
+    position: relative;
+    margin: var(--espacement-md) 0;
+}
+
+.barre-progression-epl::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg,
+            var(--couleur-primaire),
+            var(--couleur-secondaire));
+    border-radius: var(--rayon-full);
+    animation: progression-epl 2s ease-in-out infinite;
+}
+
+@keyframes progression-epl {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Indicateur de progression avec pourcentage */
+.indicateur-progression-epl {
+    display: flex;
+    align-items: center;
+    gap: var(--espacement-sm);
+    margin: var(--espacement-md) 0;
+}
+
+.pourcentage-progression {
+    font-size: var(--texte-sm);
+    font-weight: var(--poids-semibold);
+    color: var(--couleur-primaire);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* ==================================================
+        TRANSITIONS DE THÈME - Changement Fluide
+   ================================================== */
+.transition-theme-epl {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation du bouton de thème */
+.bouton-theme-epl {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normale);
+}
+
+.bouton-theme-epl::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle,
+            var(--couleur-primaire) 0%,
+            transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.bouton-theme-epl:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.bouton-theme-epl:active {
+    transform: scale(0.95);
+}
+
+/* ==================================================
+   ANIMATIONS DE NOTIFICATION - Alertes Élégantes
+   ================================================== */
+.notification-epl {
+    position: fixed;
+    top: var(--espacement-lg);
+    right: var(--espacement-lg);
+    z-index: var(--z-modal);
+    max-width: 400px;
+    background: linear-gradient(135deg,
+            var(--couleur-fond-principal) 0%,
+            var(--couleur-fond-secondaire) 100%);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon-lg);
+    box-shadow: var(--ombre-xl);
+    animation: apparition-notification-epl 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top right;
+}
+
+@keyframes apparition-notification-epl {
+    0% {
+        opacity: 0;
+        transform: translateX(100%) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Animation de disparition */
+.notification-epl.fermeture {
+    animation: fermeture-notification-epl 0.3s ease-in forwards;
+}
+
+@keyframes fermeture-notification-epl {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%) scale(0.8);
+    }
+}
+
+/* ==================================================
+   ANIMATIONS RESPONSIVE - Mobile Optimisé
+   ================================================== */
+@media (max-width: 768px) {
+    .spinner-epl {
+        min-height: 150px;
+        padding: var(--espacement-lg);
+    }
+
+    .logo-epl-anime {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-epl-anime::before {
+        width: 30px;
+        height: 30px;
+    }
+
+    .notification-epl {
+        top: var(--espacement-md);
+        right: var(--espacement-md);
+        left: var(--espacement-md);
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .spinner-epl {
+        min-height: 120px;
+        padding: var(--espacement-md);
+    }
+
+    .logo-epl-anime {
+        width: 40px;
+        height: 40px;
+    }
+
+    .texte-chargement-epl {
+        font-size: var(--texte-xs);
+    }
+}
+
+/* =======================================
+    ACCESSIBILITÉ - Réduction de Mouvement
+   ======================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    .spinner-epl,
+    .logo-epl-anime,
+    .composant-entree,
+    .sidebar-entree,
+    .footer-entree,
+    .cta-entree,
+    .bouton-epl-hover,
+    .lien-nav-epl,
+    .barre-progression-epl,
+    .bouton-theme-epl,
+    .notification-epl {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .logo-epl-anime::before,
+    .logo-epl-anime::after {
+        animation: none !important;
+    }
+}
+
+/* ==================================================
+   MODE HAUTE CONTRASTE - Amélioration Visibilité
+   ================================================== */
+@media (prefers-contrast: high) {
+    .spinner-epl {
+        border: 2px solid var(--couleur-texte-principal);
+    }
+
+    .logo-epl-anime::before {
+        border-color: var(--couleur-texte-principal);
+        border-top-color: var(--couleur-primaire);
+    }
+
+    .barre-progression-epl::before {
+        background: var(--couleur-texte-principal);
+    }
+
+    .notification-epl {
+        border: 2px solid var(--couleur-texte-principal);
+    }
+}

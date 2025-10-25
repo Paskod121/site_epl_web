@@ -1,0 +1,391 @@
+.dashboard__content {
+	/* Conteneur principal des pages de type dashboard (centrage + padding) */
+	padding: var(--espacement-3xl) 0;
+}
+.admissions-header {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.admissions-header h1 {
+	font-size: var(--texte-2xl);
+	--poids-bold: 700;
+}
+
+.admissions-header p {
+	font-size: var(--texte-base);
+	color: var(--couleur-texte-secondaire);
+	max-width: 760px;
+	line-height: 1.65;
+}
+.dashboard__content {
+	padding: var(--espacement-3xl) 0;
+}
+.admissions-header {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.admissions-header h1 {
+	font-size: var(--texte-2xl);
+	--poids-bold: 700;
+}
+
+.admissions-header p {
+	font-size: var(--texte-base);
+	color: var(--couleur-texte-secondaire);
+	max-width: 760px;
+	line-height: 1.65;
+}
+
+.admissions-metrics {
+	/* Grille des cartes métriques (session, places, taux) */
+	margin-top: 32px;
+	display: grid;
+	grid-template-columns: 1.1fr 1fr 1fr;
+	gap: clamp(18px, 4vw, 24px);
+}
+
+.metric-card {
+	/* Carte réutilisable pour affichage d'informations */
+	background: var(--couleur-fond-principal);
+	border-radius: var(--rayon-lg);
+	padding: clamp(22px, 4vw, 28px);
+	box-shadow: var(--ombre-sm);
+	border: 1px solid rgba(148, 163, 184, 0.14);
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	/* Alignement par défaut (desktop) : gauche */
+	align-items: flex-start;
+	text-align: left;
+}
+
+.metric-card__icon {
+	/* Petite pastille icône en haut de la carte */
+	width: 40px;
+	height: 40px;
+	border-radius: 14px;
+	background: rgba(79, 70, 229, 0.14);
+	display: grid;
+	place-items: center;
+	color: #fff;
+}
+
+.metric-card__icon svg {
+	width: 22px;
+	height: 22px;
+}
+
+.metric-card__icon--info {
+	background: rgba(14, 165, 233, 0.14);
+	color: var(--couleur-info);
+}
+
+.metric-card__icon--success {
+	background: rgba(16, 185, 129, 0.14);
+	color: var(--couleur-secondaire);
+}
+
+.metric-card__title {
+	font-size: 1.1rem;
+	--poids-semibold: 600;
+	color: var(--couleur-texte-principal);
+}
+
+.metric-card__value {
+	font-size: clamp(1.8rem, 4vw, 2.2rem);
+	--poids-bold: 700;
+	color: var(--couleur-texte-principal);
+}
+
+.metric-card__text {
+	font-size: var(--texte-sm);
+	color: var(--couleur-texte-principal);
+	line-height: 1.6;
+}
+
+.metric-card--primary {
+	background-color: var(--couleur-primaire);
+	color: var(--couleur-texte-principal);
+	/* Bord léger pour définir la carte sur fonds clairs ou texturés */
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	position: relative;
+	overflow: hidden;
+}
+
+.metric-card--primary::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at -20% -20%, rgba(255, 255, 255, 0.3), transparent 55%);
+}
+
+.metric-card--primary > * {
+	position: relative;
+	z-index: 1;
+}
+
+.metric-card--primary .metric-card__icon {
+	background: rgba(255, 255, 255, 0.22);
+	color: #fff;
+}
+
+
+.metric-card__button {
+	display: inline-block;
+	align-self: center;
+	padding: clamp(10px, 2.8vw, 12px) clamp(18px, 3.8vw, 22px);
+	border-radius: var(--rayon-md);
+	background: #fff;
+	color: var(--couleur-primaire);
+	--poids-semibold: 600;
+	transition: var(--transition-normale);
+	text-decoration: none;
+}
+
+.metric-card__button:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--ombre-md);
+}
+
+.admissions-process {
+	/* Conteneur des étapes du processus */
+	margin-top: 36px;
+	background: var(--couleur-fond-principal);
+	border-radius: var(--rayon-lg);
+	padding: 30px;
+	box-shadow: var(--ombre-sm);
+	border: 1px solid rgba(148, 163, 184, 0.12);
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+
+/* Ligne centrale du processus (desktop) */
+.admissions-process .process-steps {
+	position: relative;
+	padding: 18px 0;
+}
+
+.process-step {
+	position: relative;
+	z-index: 1;
+}
+
+.admissions-process__title {
+	font-size: 1.15rem;
+	--poids-semibold: 600;
+}
+
+.process-steps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: clamp(18px, 4vw, 24px);
+}
+
+.process-step {
+	/* Un bloc représentant chaque étape du process (badge, période, titre, description) */
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	align-items: center;
+	text-align: center;
+}
+
+.process-step__badge {
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, rgba(59,130,246,0.16), rgba(16,185,129,0.12));
+	display: grid;
+	place-items: center;
+	--poids-semibold: 600;
+	color: var(--couleur-primaire);
+}
+
+.process-step__period {
+	font-size: 0.8rem;
+	--poids-semibold: 600;
+	color: var(--couleur-primaire);
+	background: rgba(29, 78, 216, 0.12);
+	padding: 6px 12px;
+	border-radius: 999px;
+}
+
+.process-step__title {
+	--poids-semibold: 600;
+	color: var(--couleur-texte-principal);
+}
+
+.process-step__text {
+	font-size: var(--texte-sm);
+	color: var(--couleur-texte-principale);
+	line-height: 1.6;
+}
+
+.admissions-info-grid {
+	margin-top: 32px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(16px, 3vw, 24px);
+}
+
+.info-card {
+	background: var(--couleur-fond-principal);
+	border-radius: var(--rayon-lg);
+	padding: clamp(22px, 4vw, 28px);
+	box-shadow: var(--ombre-sm);
+	border: 1px solid rgba(148, 163, 184, 0.12);
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.info-card__title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	--poids-semibold: 600;
+	color: var(--couleur-texte-principal);
+}
+
+.info-card__title svg {
+	width: 20px;
+	height: 20px;
+}
+
+.info-card__title--danger {
+	color: var(--couleur-erreur);
+}
+
+.info-card ul {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding-left: 18px;
+	font-size: var(--texte-sm);
+	color: var(--couleur-texte-secondaire);
+	line-height: 1.6;
+}
+
+.support-banner {
+	margin-top: 28px;
+	padding: clamp(22px, 4vw, 28px);
+	border-radius: var(--rayon-lg);
+	background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(16,185,129,0.04));
+	border: 1px solid rgba(148, 163, 184, 0.16);
+	box-shadow: var(--ombre-sm);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.support-banner__actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.support-banner__button {
+	padding: clamp(10px, 2.8vw, 12px) clamp(16px, 3.6vw, 20px);
+	border-radius: var(--rayon-md);
+	--poids-semibold: 600;
+	transition: var(--transition-normale);
+}
+
+.support-banner__button--primary {
+	background: var(--couleur-primaire);
+	color: #fff;
+}
+.support-banner__text{
+	max-width:520px;
+	/* font-size: var(--texte-1xl); */
+}
+.support-banner__button--ghost {
+	background: rgba(255, 255, 255, 0.6);
+	color: var(--couleur-primaire);
+}
+
+.support-banner__button:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--ombre-sm);
+}
+
+@media (max-width: 1080px) {
+	.admissions-metrics {
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	}
+}
+
+/* Responsive : centrer les éléments des cards et steps sur petits écrans */
+@media (max-width: 900px) {
+	.process-step {
+		align-items: center;
+		text-align: center;
+	}
+	.metric-card {
+		/* En responsive, les cartes adoptent un centrage visuel */
+		align-items: center;
+		text-align: center;
+	}
+	.metric-card__button {
+		align-self: center;
+	}
+	/* Forcer le centrage des enfants en responsive (sécurité contre overrides) */
+	.metric-card > *,
+	.process-step > * {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media (max-width: 640px) {
+    /* Renforcer le centrage pour très petits écrans */
+    .metric-card, .process-step {
+        align-items: center;
+        text-align: center;
+    }
+    .metric-card__icon,
+    .process-step__badge {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .metric-card__button {
+        width: 100%;
+        max-width: 320px;
+    }
+
+	.admissions-header h1 {
+		font-size: var(--texte-xl);
+	}
+
+	.metric-card {
+		padding: 24px;
+	}
+
+	.admissions-process {
+		padding: 24px;
+	}
+
+	.support-banner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media (max-width: 540px) {
+	.support-banner__actions {
+		width: 100%;
+	}
+
+	.support-banner__button {
+		width: 100%;
+		text-align: center;
+	}
+}

@@ -1,0 +1,267 @@
+/**
+ * FICHIER : cta.css
+ * 
+ * OBJECTIF : 
+ * Styles pour le composant CTA réutilisable
+ * Compatible avec les 2 thèmes (Clair, Sombre)
+ * Design moderne avec gradient et boutons élégants
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * - css/components/buttons.css (styles des boutons)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ========================
+   SECTION CTA RÉUTILISABLE
+   ======================== */
+.cta-section {
+    /* Position et layouts */
+    position: relative;
+    padding: 4rem 0;
+    margin: 2rem 0;
+    
+    /* Gradient de fond moderne */
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+    
+    /* Effets visuels */
+    overflow: hidden;
+    border-radius: 1rem;
+    
+    /* Transitions */
+    transition: all var(--transition-normale);
+}
+
+/* Effet de brillance subtile */
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.cta-section:hover::before {
+    transform: translateX(100%);
+}
+
+/* ===================
+    CONTENU DU CTA
+   =================== */
+.cta-contenu {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cta-titre {
+    font-size: 2.5rem;
+    --poids-bold: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===================
+    ACTIONS DU CTA
+   =================== */
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bouton-large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    --poids-semibold: 600;
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all var(--transition-normale);
+}
+
+/* Bouton primaire du CTA */
+.cta-actions .bouton-primaire {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cta-actions .bouton-primaire:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Bouton secondaire du CTA */
+.cta-actions .bouton-secondaire {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.cta-actions .bouton-secondaire:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================
+    ICÔNES DU CTA
+   =================== */
+.cta-actions .icone-cta {
+    width: 20px;
+    height: 20px;
+    transition: all var(--transition-normale);
+}
+
+.cta-actions .bouton:hover .icone-cta {
+    transform: scale(1.1);
+}
+
+/* ===================
+        MODE SOMBRE
+   =================== */
+[data-theme="sombre"] .cta-section {
+    background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+}
+
+[data-theme="sombre"] .cta-titre {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="sombre"] .cta-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="sombre"] .cta-actions .bouton-primaire {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="sombre"] .cta-actions .bouton-primaire:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="sombre"] .cta-actions .bouton-secondaire {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="sombre"] .cta-actions .bouton-secondaire:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===================
+    RESPONSIVE DESIGN
+   =================== */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 3rem 0;
+        margin: 1.5rem 0;
+        border-radius: 0.75rem;
+    }
+    
+    .cta-titre {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .bouton-large {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-section {
+        padding: 2.5rem 0;
+        margin: 1rem 0;
+    }
+    
+    .cta-titre {
+        font-size: 1.75rem;
+    }
+    
+    .cta-description {
+        font-size: 0.95rem;
+    }
+    
+    .bouton-large {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===================
+   VARIATIONS DU CTA
+   =================== */
+/* CTA avec fond sombre */
+.cta-section.cta-sombre {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+}
+
+/* CTA avec fond coloré */
+.cta-section.cta-colore {
+    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+}
+
+/* CTA compact */
+.cta-section.cta-compact {
+    padding: 2rem 0;
+    margin: 1rem 0;
+}
+
+.cta-section.cta-compact .cta-titre {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.cta-section.cta-compact .cta-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}

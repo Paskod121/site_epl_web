@@ -1,0 +1,529 @@
+/**
+ * FICHIER : Sidebar.css
+ * 
+ * OBJECTIF : 
+ * Styles pour la sidebar de navigation réutilisable
+ * Compatible avec les 2 thèmes (Clair, Sombre)
+ * Responsive et accessible
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ===========================
+   CONTENEUR SIDEBAR PRINCIPAL
+   =========================== */
+.sidebar {
+  /* Position et dimensions */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--largeur-sidebar);
+  height: 100vh;
+  z-index: var(--z-fixed);
+  
+  /* Apparence */
+  background-color: var(--couleur-sidebar-fond);
+  border-right: 1px solid var(--couleur-bordure);
+  
+  /* Comportement */
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Transitions fluides */
+  transition: transform var(--transition-normale);
+  
+  /* Scroll personnalisé pour WebKit */
+  scrollbar-width: thin;
+  scrollbar-color: var(--couleur-bordure) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--couleur-bordure);
+  border-radius: var(--rayon-full);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--couleur-bordure-hover);
+}
+
+/* =============================
+   HEADER SIDEBAR (LOGO + TITRE)
+   ============================= */
+.sidebar-header {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--espacement-md);
+  
+  /* Espacement */
+  padding: var(--espacement-lg) var(--espacement-lg) var(--espacement-md);
+  
+  /* Bordure de séparation */
+  border-bottom: 1px solid var(--couleur-bordure);
+  margin-bottom: var(--espacement-md);
+}
+
+.sidebar-logo {
+  /* Dimensions du logo */
+  width: 40px;
+  height: 40px;
+  
+  /* Apparence */
+  background-color: var(--couleur-primaire);
+  border-radius: var(--rayon-md);
+  
+  /* Centrage du contenu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Icône à l'intérieur */
+  color: white;
+  font-size: var(--texte-lg);
+  font-weight: var(--poids-bold);
+}
+
+.sidebar-titre {
+  /* Typographie */
+  font-size: var(--texte-lg);
+  font-weight: var(--poids-bold);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0;
+  line-height: var(--ligne-tight);
+}
+
+.sidebar-sous-titre {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0;
+  line-height: var(--ligne-normal);
+}
+
+/* ======================
+   NAVIGATION PRINCIPALE
+   ===================== */
+.sidebar-nav {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacement-xs);
+  
+  /* Espacement */
+  padding: 0 var(--espacement-lg);
+}
+
+.sidebar-nav-item {
+  /* Comportement */
+  position: relative;
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+}
+
+.sidebar-nav-link {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--espacement-md);
+  
+  /* Dimensions */
+  width: 100%;
+  padding: var(--espacement-md);
+  
+  /* Apparence */
+  color: var(--couleur-sidebar-texte);
+  text-decoration: none;
+  border-radius: var(--rayon-md);
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+  
+  /* État de focus pour accessibilité */
+  outline: none;
+}
+
+.sidebar-nav-link:hover {
+  /* Couleurs au survol */
+  background-color: var(--couleur-sidebar-hover);
+  color: var(--couleur-texte-principal);
+  
+  /* Transformation subtile */
+  transform: translateX(4px);
+}
+
+.sidebar-nav-link:focus {
+  /* Indicateur de focus pour accessibilité */
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+.sidebar-nav-link.actif {
+  /* Couleurs pour l'item actif */
+  background-color: var(--couleur-sidebar-active);
+  color: white;
+  
+  /* Indicateur visuel */
+  box-shadow: var(--ombre-sm);
+}
+
+.sidebar-nav-link.actif:hover {
+  /* Maintient la couleur active au survol */
+  background-color: var(--couleur-sidebar-active);
+  color: white;
+  transform: none;
+}
+
+/* ===================
+   ICÔNES DE NAVIGATION
+   =================== */
+.sidebar-nav-icon {
+  /* Dimensions */
+  width: 20px;
+  height: 20px;
+  
+  /* Centrage */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Transitions */
+  transition: transform var(--transition-rapide);
+}
+
+.sidebar-nav-link:hover .sidebar-nav-icon {
+  /* Animation subtile au survol */
+  transform: scale(1.1);
+}
+
+/* ===================
+      SECTION D'AIDE
+   =================== */
+.sidebar-aide {
+  /* Position */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  /* Layout */
+  padding: var(--espacement-lg);
+  
+  /* Apparence */
+  background-color: var(--couleur-fond-secondaire);
+  border-top: 1px solid var(--couleur-bordure);
+}
+
+.sidebar-aide-titre {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-sm) 0;
+}
+
+.sidebar-aide-description {
+  /* Typographie */
+  font-size: var(--texte-xs);
+  color: var(--couleur-texte-secondaire);
+  line-height: var(--ligne-normal);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-md) 0;
+}
+
+.sidebar-aide-bouton {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacement-sm);
+  
+  /* Dimensions */
+  width: 100%;
+  padding: var(--espacement-sm) var(--espacement-md);
+  
+  /* Apparence */
+  background-color: var(--couleur-primaire);
+  color: white;
+  border: none;
+  border-radius: var(--rayon-md);
+  
+  /* Typographie */
+  font-size: var(--texte-sm);
+  font-weight: var(--poids-medium);
+  text-decoration: none;
+  
+  /* Comportement */
+  cursor: pointer;
+  transition: all var(--transition-rapide);
+}
+
+.sidebar-aide-bouton:hover {
+  /* Effet au survol */
+  background-color: var(--couleur-primaire-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--ombre-md);
+}
+
+.sidebar-aide-bouton:focus {
+  /* Indicateur de focus */
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* ===================
+    RESPONSIVE DESIGN
+   =================== */
+
+/* Mobile : Sidebar en overlay */
+@media (max-width: 768px) {
+  .sidebar {
+    /* Transform pour masquer par défaut */
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.ouvert {
+    /* Affiche la sidebar quand ouverte */
+    transform: translateX(0);
+  }
+  
+  /* Overlay sombre quand sidebar ouverte */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-modal-backdrop);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normale);
+  }
+  
+  .sidebar-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Tablet : Sidebar réduite */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+  }
+  
+  .sidebar-header {
+    padding: var(--espacement-md);
+  }
+  
+  .sidebar-nav {
+    padding: 0 var(--espacement-md);
+  }
+  
+  .sidebar-aide {
+    padding: var(--espacement-md);
+  }
+}
+
+/* Desktop : Sidebar complète */
+@media (min-width: 1025px) {
+  .sidebar {
+    width: var(--largeur-sidebar);
+  }
+}
+
+/* ===================
+      ÉTATS SPÉCIAUX
+   =================== */
+
+/* Sidebar réduite (mode compact) */
+.sidebar.compact {
+  width: 80px;
+}
+
+.sidebar.compact .sidebar-titre,
+.sidebar.compact .sidebar-sous-titre,
+.sidebar.compact .sidebar-nav-text {
+  /* Masque le texte en mode compact */
+  display: none;
+}
+
+.sidebar.compact .sidebar-nav-link {
+  /* Centre l'icône en mode compact */
+  justify-content: center;
+  padding: var(--espacement-md);
+}
+
+.sidebar.compact .sidebar-aide {
+  /* Masque l'aide en mode compact */
+  display: none;
+}
+
+/* Sidebar avec indicateur de chargement */
+.sidebar.chargement {
+  position: relative;
+}
+
+.sidebar.chargement::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--couleur-primaire), transparent);
+  animation: chargement 2s infinite;
+}
+
+@keyframes chargement {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===================
+      ACCESSIBILITÉ
+   =================== */
+
+/* Masque la sidebar pour les lecteurs d'écran quand fermée */
+.sidebar[aria-hidden="true"] {
+  display: none;
+}
+
+/* Indicateur pour les utilisateurs de clavier */
+.sidebar-nav-link:focus-visible {
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* ===================
+   ANIMATIONS D'ENTRÉE
+   =================== */
+
+/* Animation d'apparition de la sidebar */
+@keyframes apparitionSidebar {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar.animation-entree {
+  animation: apparitionSidebar 0.3s ease-out;
+}
+
+/* Animation des items de navigation */
+.sidebar-nav-item {
+  animation: apparitionItem 0.2s ease-out;
+  animation-fill-mode: both;
+}
+
+.sidebar-nav-item:nth-child(1) { animation-delay: 0.1s; }
+.sidebar-nav-item:nth-child(2) { animation-delay: 0.15s; }
+.sidebar-nav-item:nth-child(3) { animation-delay: 0.2s; }
+.sidebar-nav-item:nth-child(4) { animation-delay: 0.25s; }
+.sidebar-nav-item:nth-child(5) { animation-delay: 0.3s; }
+.sidebar-nav-item:nth-child(6) { animation-delay: 0.35s; }
+
+/* ===============================
+   BOUTON DE THÈME DANS LA SIDEBAR
+   =============================== */
+.btn-theme-dynamique {
+    background: var(--couleur-fond-secondaire);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--couleur-texte-primaire);
+}
+
+.btn-theme-dynamique:hover {
+    background: var(--couleur-accent);
+    border-color: var(--couleur-accent);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: var(--ombre-bouton);
+}
+
+.btn-theme-dynamique:active {
+    transform: scale(0.95);
+}
+
+.icone-theme-dynamique {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+}
+
+.btn-theme-dynamique:hover .icone-theme-dynamique {
+    transform: rotate(15deg);
+}
+
+/* Mode sombre - Bouton de thème */
+[data-theme="sombre"] .btn-theme-dynamique {
+    background: var(--couleur-fond-sombre-secondaire);
+    border-color: var(--couleur-accent);
+    color: var(--couleur-accent);
+}
+
+[data-theme="sombre"] .btn-theme-dynamique:hover {
+    background: var(--couleur-accent);
+    color: #ffffff;
+    box-shadow: var(--ombre-bouton-sombre);
+}
+
+/* Responsive - Bouton de thème */
+@media (max-width: 1024px) {
+    .btn-theme-dynamique {
+        width: 36px;
+        height: 36px;
+        padding: 0.4rem;
+    }
+    
+    .icone-theme-dynamique {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@keyframes apparitionItem {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

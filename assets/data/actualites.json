@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "titre": "Ouverture des inscriptions 2025-2026",
+    "slug": "inscriptions-2025-2026",
+    "description": "Les inscriptions pour l'année académique 2025-2026 sont ouvertes. Découvrez nos programmes d'ingénierie d'excellence.",
+    "contenu": "L'École Polytechnique de Lomé ouvre ses portes pour une nouvelle année académique riche en opportunités. Nos programmes d'ingénierie sont conçus pour former les ingénieurs de demain avec une pédagogie innovante et des équipements de pointe.",
+    "date": "08 sept 2025",
+    "auteur": "Direction EPL",
+    "image": "/assets/images/actualites/inscriptions.jpg",
+    "categorie": "Admission",
+    "tags": ["inscription", "admission", "2025"],
+    "priorite": "haute"
+  },
+  {
+    "id": 2,
+    "titre": "Nouveau laboratoire d'intelligence artificielle",
+    "slug": "nouveau-laboratoire-ia",
+    "description": "Inauguration du laboratoire d'IA équipé des dernières technologies pour la recherche et l'enseignement.",
+    "contenu": "L'EPL inaugure son nouveau laboratoire d'intelligence artificielle, doté d'équipements de pointe pour la recherche et l'enseignement. Ce laboratoire permettra aux étudiants de travailler sur des projets concrets d'IA et de machine learning.",
+    "date": "10 Jan 2025",
+    "auteur": "Prof. Kondo Hloindo Adjallah",
+    "image": "/assets/images/actualites/laboratoire-ia.jpg",
+    "categorie": "Innovation",
+    "tags": ["IA", "laboratoire", "innovation"],
+    "priorite": "moyenne"
+  },
+  {
+    "id": 3,
+    "titre": "Partenariat avec l'industrie togolaise",
+    "slug": "partenariat-industrie",
+    "description": "Signature d'un partenariat stratégique avec les principales entreprises du Togo pour l'insertion professionnelle.",
+    "contenu": "L'EPL renforce ses liens avec l'industrie togolaise grâce à un nouveau partenariat qui facilitera l'insertion professionnelle de nos diplômés et offrira des opportunités de stage et d'emploi.",
+    "date": "8 Jan 2025",
+    "auteur": "Ousmane Any",
+    "image": "/assets/images/actualites/partenariat.jpg",
+    "categorie": "Partenariat",
+    "tags": ["partenariat", "emploi", "industrie"],
+    "priorite": "haute"
+  },
+  {
+    "id": 4,
+    "titre": "Conférence sur l'ingénierie durable",
+    "slug": "conference-ingenierie-durable",
+    "description": "Une conférence exceptionnelle sur les défis de l'ingénierie durable en Afrique avec des experts internationaux.",
+    "contenu": "L'EPL organise une conférence majeure sur l'ingénierie durable, réunissant des experts internationaux pour discuter des défis environnementaux et des solutions innovantes en Afrique.",
+    "date": "5 Jan 2025",
+    "auteur": "Comité Scientifique EPL",
+    "image": "/assets/images/actualites/conference.jpg",
+    "categorie": "Événement",
+    "tags": ["conférence", "durable", "environnement"],
+    "priorite": "moyenne"
+  },
+  {
+    "id": 5,
+    "titre": "Résultats exceptionnels de nos diplômés",
+    "slug": "resultats-diplomes-2024",
+    "description": "95% de nos diplômés 2024 ont trouvé un emploi dans les 6 mois suivant leur sortie.",
+    "contenu": "L'EPL est fière d'annoncer des résultats exceptionnels pour la promotion 2024 : 95% de nos diplômés ont trouvé un emploi dans les 6 mois, avec des salaires compétitifs dans l'industrie togolaise et internationale.",
+    "date": "3 Jan 2025",
+    "auteur": "Service des Relations Entreprises",
+    "image": "/assets/images/actualites/diplomes.jpg",
+    "categorie": "Succès",
+    "tags": ["emploi", "diplômés", "succès"],
+    "priorite": "haute"
+  },
+  {
+    "id": 6,
+    "titre": "Programme d'échange international",
+    "slug": "echange-international-2025",
+    "description": "Nouveau programme d'échange avec des universités européennes et africaines.",
+    "contenu": "L'EPL lance un nouveau programme d'échange international permettant aux étudiants de passer un semestre dans des universités partenaires en Europe et en Afrique.",
+    "date": "1 Jan 2025",
+    "auteur": "Service International",
+    "image": "/assets/images/actualites/echange.jpg",
+    "categorie": "International",
+    "tags": ["échange", "international", "mobilité"],
+    "priorite": "moyenne"
+  }
+]
+

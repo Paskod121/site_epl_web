@@ -1,0 +1,466 @@
+/**
+ * FICHIER : Hero.css
+ * 
+ * OBJECTIF : 
+ * Styles pour la section hero de la page d'accueil
+ * Design moderne et responsive
+ * Compatible avec les 2 thèmes
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* =======================
+   SECTION HERO PRINCIPALE
+   ======================= */
+.hero-section {
+  /* Layout */
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  
+  /* Apparence */
+  background: linear-gradient(135deg, 
+    var(--couleur-fond-principal) 0%, 
+    var(--couleur-fond-secondaire) 100%);
+  
+  /* Espacement */
+  padding: var(--espacement-3xl) 0;
+  
+  /* Overflow pour les animations */
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assets/images/hero/hero-pattern.svg') no-repeat center;
+  background-size: cover;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.hero-contenu {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacement-3xl);
+  align-items: center;
+  
+  /* Position */
+  position: relative;
+  z-index: 2;
+  
+  /* Conteneur */
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 var(--espacement-lg);
+}
+
+/* ===================
+        TEXTE HERO
+   =================== */
+.hero-texte {
+  /* Espacement */
+  margin-bottom: var(--espacement-2xl);
+}
+
+.hero-titre {
+  /* Typographie */
+  font-size: clamp(var(--texte-4xl), 5vw, var(--texte-6xl));
+  font-weight: var(--poids-extrabold);
+  line-height: var(--ligne-tight);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-lg) 0;
+  
+  /* Animation d'entrée */
+  animation: apparitionTitre 0.8s ease-out;
+}
+
+.texte-accent {
+  /* Couleur d'accent */
+  background: linear-gradient(135deg, 
+    var(--couleur-primaire) 0%, 
+    var(--couleur-secondaire) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* Animation */
+  animation: brillance 2s ease-in-out infinite alternate;
+}
+
+.hero-description {
+  /* Typographie */
+  font-size: var(--texte-lg);
+  line-height: var(--ligne-relaxed);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-2xl) 0;
+  
+  /* Animation d'entrée */
+  animation: apparitionDescription 0.8s ease-out 0.2s both;
+}
+
+/* ===================
+      ACTIONS HERO
+   =================== */
+.hero-actions {
+  /* Layout */
+  display: flex;
+  gap: var(--espacement-lg);
+  flex-wrap: wrap;
+  
+  /* Animation d'entrée */
+  animation: apparitionActions 0.8s ease-out 0.4s both;
+}
+
+/* ===================
+        VISUEL HERO
+   =================== */
+.hero-visuel {
+  /* Position */
+  position: relative;
+  
+  /* Animation d'entrée */
+  animation: apparitionVisuel 0.8s ease-out 0.6s both;
+}
+
+.hero-image-container {
+  /* Position */
+  position: relative;
+  
+  /* Dimensions */
+  width: 100%;
+  height: 500px;
+  
+  /* Apparence */
+  border-radius: var(--rayon-xl);
+  overflow: hidden;
+  
+  /* Ombre */
+  box-shadow: var(--ombre-xl);
+  
+  /* Animation de flottement */
+  animation: flottement 6s ease-in-out infinite;
+}
+
+.hero-image {
+  /* Dimensions */
+  width: 100%;
+  height: 100%;
+  
+  /* Apparence */
+  object-fit: cover;
+  object-position: center;
+  
+  /* Transition */
+  transition: transform var(--transition-lente);
+}
+
+.hero-image-container:hover .hero-image {
+  /* Effet de zoom au survol */
+  transform: scale(1.05);
+}
+
+.hero-badge {
+  /* Position */
+  position: absolute;
+  top: var(--espacement-lg);
+  right: var(--espacement-lg);
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacement-xs);
+  
+  /* Apparence */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--rayon-lg);
+  padding: var(--espacement-md);
+  
+  /* Ombre */
+  box-shadow: var(--ombre-lg);
+  
+  /* Animation */
+  animation: pulsation 2s ease-in-out infinite;
+}
+
+.badge-texte {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  font-weight: var(--poids-bold);
+  color: var(--couleur-primaire);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+.badge-annee {
+  /* Typographie */
+  font-size: var(--texte-xs);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+/* ===================
+    RESPONSIVE DESIGN
+   =================== */
+
+/* Mobile : Layout en colonne */
+@media (max-width: 768px) {
+  .hero-section {
+    /* Hauteur adaptée */
+    min-height: auto;
+    padding: var(--espacement-2xl) 0;
+  }
+  
+  .hero-contenu {
+    /* Layout en colonne */
+    grid-template-columns: 1fr;
+    gap: var(--espacement-2xl);
+    
+    /* Espacement réduit */
+    padding: 0 var(--espacement-md);
+  }
+  
+  .hero-titre {
+    /* Taille réduite */
+    font-size: var(--texte-3xl);
+  }
+  
+  .hero-description {
+    /* Taille réduite */
+    font-size: var(--texte-base);
+  }
+  
+  .hero-actions {
+    /* Layout en colonne */
+    flex-direction: column;
+    gap: var(--espacement-md);
+  }
+  
+  .hero-image-container {
+    /* Hauteur réduite */
+    height: 300px;
+  }
+  
+  .hero-badge {
+    /* Position adaptée */
+    top: var(--espacement-md);
+    right: var(--espacement-md);
+    padding: var(--espacement-sm);
+  }
+}
+
+/* Tablet : Ajustements moyens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-contenu {
+    /* Gap réduit */
+    gap: var(--espacement-2xl);
+  }
+  
+  .hero-image-container {
+    /* Hauteur adaptée */
+    height: 400px;
+  }
+}
+
+/* Desktop large : Optimisations */
+@media (min-width: 1400px) {
+  .hero-contenu {
+    /* Gap augmenté */
+    gap: var(--espacement-3xl);
+  }
+  
+  .hero-image-container {
+    /* Hauteur augmentée */
+    height: 600px;
+  }
+}
+
+/* ===================
+        ANIMATIONS
+   =================== */
+
+@keyframes apparitionTitre {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes apparitionDescription {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes apparitionActions {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes apparitionVisuel {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flottement {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulsation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes brillance {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.2);
+  }
+}
+
+/* ===================
+      ÉTATS SPÉCIAUX
+   =================== */
+
+/* Hero avec indicateur de chargement */
+.hero-section.chargement {
+  position: relative;
+}
+
+.hero-section.chargement::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--couleur-primaire), transparent);
+  animation: chargement 2s infinite;
+}
+
+/* Hero avec mode sombre */
+[data-theme="sombre"] .hero-section {
+  background: linear-gradient(135deg, 
+    var(--couleur-fond-principal) 0%, 
+    var(--couleur-fond-secondaire) 100%);
+}
+
+/* Hero avec mode doux */
+[data-theme="doux"] .hero-section {
+  background: linear-gradient(135deg, 
+    var(--couleur-fond-principal) 0%, 
+    var(--couleur-fond-secondaire) 100%);
+}
+
+/* ===================
+      ACCESSIBILITÉ
+   =================== */
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .hero-titre,
+  .hero-description,
+  .hero-actions,
+  .hero-visuel {
+    animation: none;
+  }
+  
+  .hero-image-container {
+    animation: none;
+  }
+  
+  .hero-badge {
+    animation: none;
+  }
+  
+  .texte-accent {
+    animation: none;
+  }
+}
+
+/* Contraste élevé */
+@media (prefers-contrast: high) {
+  .hero-titre {
+    color: var(--couleur-texte-principal);
+  }
+  
+  .texte-accent {
+    color: var(--couleur-primaire);
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+  }
+}
+
+/* ===================
+      PRINT STYLES
+   =================== */
+@media print {
+  .hero-section {
+    /* Masque les éléments non essentiels */
+    min-height: auto;
+    padding: var(--espacement-lg) 0;
+  }
+  
+  .hero-visuel {
+    /* Masque l'image en impression */
+    display: none;
+  }
+  
+  .hero-badge {
+    /* Masque le badge en impression */
+    display: none;
+  }
+}
+

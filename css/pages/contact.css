@@ -1,0 +1,83 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  main {
+    margin-left: 280px;
+    background-color: ;
+  }
+
+  /* --- Section 1 --- */
+  i {
+    background-color: #d4d6d8b1;
+    border-radius: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-right: 12px;
+  }
+
+   p {
+    margin-left: 60px;
+  }
+  b { 
+    padding-top: 0px;
+  }
+
+  .contact-card {
+    background: rgba(246, 247, 248, 0.581);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-contact {
+    font-size: 1.5rem;
+    color: #0d6efd;
+    margin-bottom: 10px;
+
+  }
+  
+  /* --- Section 2 --- */
+ 
+  
+  .form-control {
+    border-radius: 10px;
+    border: 2px solid #9da3e3;
+    box-shadow: none;
+  }
+  
+  .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .info-box {
+    background-color: #f8f9fc;
+    border-radius: 12px;
+  }
+
+  .btn-outline-primary,
+  .btn-outline-info,
+  .btn-outline-secondary {
+    border-radius: 8px;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px)  {
+    main {
+      margin-left: 0px;
+    } 
+ }

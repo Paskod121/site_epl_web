@@ -1,0 +1,496 @@
+/**
+ * FICHIER : Main.css
+ * 
+ * OBJECTIF : 
+ * Layout principal de l'application
+ * Structure responsive avec sidebar
+ * Compatible avec les 2 thèmes
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * - css/components/sidebar.css (sidebar)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ===================
+    LAYOUT PRINCIPAL
+   =================== */
+body {
+  /* Typographie de base */
+  font-family: var(--police-principale);
+  font-size: var(--texte-base);
+  line-height: var(--ligne-normal);
+  color: var(--couleur-texte-principal);
+  
+  /* Apparence */
+  background-color: var(--couleur-fond-principal);
+  
+  /* Comportement */
+  margin: 0;
+  padding: 0;
+  
+  /* Transitions pour changement de thème */
+  transition: background-color var(--transition-theme), color var(--transition-theme);
+}
+
+/* ===================
+   CONTENEUR PRINCIPAL
+   =================== */
+.contenu-principal {
+  /* Position */
+  position: relative;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+  /* Espacement pour la sidebar */
+  margin-left: var(--largeur-sidebar);
+  
+  /* Transitions */
+  transition: margin-left var(--transition-normale);
+}
+
+/* ===================
+    HEADER PRINCIPAL
+   =================== */
+.header-principal {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Dimensions */
+  height: var(--hauteur-header);
+  
+  /* Apparence */
+  background-color: var(--couleur-fond-principal);
+  border-bottom: 1px solid var(--couleur-bordure);
+  
+  /* Espacement */
+  padding: 0 var(--espacement-lg);
+  
+  /* Position */
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  
+  /* Transitions */
+  transition: all var(--transition-theme);
+}
+
+/* ===================
+   SECTIONS PRINCIPALES
+   =================== */
+.hero-section,
+.formations-section,
+.actualites-section,
+.temoignages-section,
+.cta-section {
+  /* Espacement */
+  padding: var(--espacement-3xl) 0;
+}
+
+.formations-section,
+.actualites-section,
+.temoignages-section {
+  /* Apparence */
+  background-color: var(--couleur-fond-secondaire);
+}
+
+.cta-section {
+  /* Apparence */
+  background: linear-gradient(135deg, 
+    var(--couleur-primaire) 0%, 
+    var(--couleur-secondaire) 100%);
+  color: white;
+}
+
+/* ===================
+        CONTENEURS
+   =================== */
+.container {
+  /* Dimensions */
+  max-width: var(--largeur-max);
+  
+  /* Centrage */
+  margin: 0 auto;
+  
+  /* Espacement */
+  padding: 0 var(--espacement-lg);
+}
+
+/* ===================
+   HEADERS DE SECTION
+   =================== */
+.section-header {
+  /* Layout */
+  text-align: center;
+  
+  /* Espacement */
+  margin-bottom: var(--espacement-3xl);
+}
+
+.section-titre {
+  /* Typographie */
+  font-size: clamp(var(--texte-2xl), 4vw, var(--texte-4xl));
+  font-weight: var(--poids-bold);
+  line-height: var(--ligne-tight);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-lg) 0;
+}
+
+.section-description {
+  /* Typographie */
+  font-size: var(--texte-lg);
+  line-height: var(--ligne-relaxed);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0;
+  
+  /* Largeur maximale */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-actions {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  
+  /* Espacement */
+  margin-top: var(--espacement-2xl);
+}
+
+/* ===================
+        SECTION CTA
+   =================== */
+.cta-contenu {
+  /* Layout */
+  text-align: center;
+  
+  /* Espacement */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-titre {
+  /* Typographie */
+  font-size: clamp(var(--texte-2xl), 4vw, var(--texte-4xl));
+  font-weight: var(--poids-bold);
+  line-height: var(--ligne-tight);
+  color: white;
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-lg) 0;
+}
+
+.cta-description {
+  /* Typographie */
+  font-size: var(--texte-lg);
+  line-height: var(--ligne-relaxed);
+  color: rgba(255, 255, 255, 0.9);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-2xl) 0;
+}
+
+.cta-actions {
+  /* Layout */
+  display: flex;
+  gap: var(--espacement-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===================
+          FOOTER
+   =================== */
+.footer-principal {
+  /* Apparence */
+  background-color: var(--couleur-fond-tertiaire);
+  border-top: 1px solid var(--couleur-bordure);
+  
+  /* Espacement */
+  padding: var(--espacement-3xl) 0 var(--espacement-lg);
+  
+  /* Transitions */
+  transition: all var(--transition-theme);
+}
+
+.footer-contenu {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--espacement-2xl);
+  
+  /* Espacement */
+  margin-bottom: var(--espacement-2xl);
+}
+
+.footer-section {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacement-md);
+}
+
+.footer-titre {
+  /* Typographie */
+  font-size: var(--texte-lg);
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+.footer-sous-titre {
+  /* Typographie */
+  font-size: var(--texte-base);
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-sm) 0;
+}
+
+.footer-description {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  line-height: var(--ligne-normal);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+.footer-nav {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacement-sm);
+}
+
+.footer-nav a {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  text-decoration: none;
+  
+  /* Transitions */
+  transition: color var(--transition-rapide);
+}
+
+.footer-nav a:hover {
+  /* Couleur au survol */
+  color: var(--couleur-primaire);
+}
+
+.footer-contact {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacement-xs);
+}
+
+.footer-contact p {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+.footer-bottom {
+  /* Layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacement-md);
+  
+  /* Apparence */
+  border-top: 1px solid var(--couleur-bordure);
+  
+  /* Espacement */
+  padding-top: var(--espacement-lg);
+}
+
+.footer-bottom p {
+  /* Typographie */
+  font-size: var(--texte-xs);
+  color: var(--couleur-texte-tertiaire);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+/* ===================
+   RESPONSIVE DESIGN
+   =================== */
+
+/* Mobile : Layout adapté */
+@media (max-width: 768px) {
+  .contenu-principal {
+    /* Pas de marge pour la sidebar */
+    margin-left: 0;
+  }
+  
+  .header-principal {
+    /* Espacement réduit */
+    padding: 0 var(--espacement-md);
+  }
+  
+  .container {
+    /* Espacement réduit */
+    padding: 0 var(--espacement-md);
+  }
+  
+  .hero-section,
+  .formations-section,
+  .actualites-section,
+  .temoignages-section,
+  .cta-section {
+    /* Espacement réduit */
+    padding: var(--espacement-2xl) 0;
+  }
+  
+  .section-header {
+    /* Espacement réduit */
+    margin-bottom: var(--espacement-2xl);
+  }
+  
+  .cta-actions {
+    /* Layout en colonne */
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-contenu {
+    /* Layout en colonne */
+    grid-template-columns: 1fr;
+    gap: var(--espacement-lg);
+  }
+  
+  .footer-bottom {
+    /* Layout en colonne */
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Tablet : Ajustements moyens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contenu-principal {
+    /* Marge réduite */
+    margin-left: 240px;
+  }
+  
+  .footer-contenu {
+    /* Layout adapté */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop : Optimisations */
+@media (min-width: 1025px) {
+  .contenu-principal {
+    /* Marge complète */
+    margin-left: var(--largeur-sidebar);
+  }
+  
+  .footer-contenu {
+    /* Layout complet */
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+/* ===================
+      ÉTATS SPÉCIAUX
+   =================== */
+
+/* Mode compact de la sidebar */
+.sidebar.compact + .contenu-principal {
+  margin-left: 80px;
+}
+
+/* Sidebar mobile ouverte */
+.sidebar.ouvert + .contenu-principal {
+  /* Pas de marge sur mobile */
+  margin-left: 0;
+}
+
+/* ===================
+        ANIMATIONS
+   =================== */
+
+/* Animation d'apparition des sections */
+.hero-section,
+.formations-section,
+.actualites-section,
+.temoignages-section,
+.cta-section {
+  animation: apparitionSection 0.6s ease-out;
+}
+
+@keyframes apparitionSection {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================
+      ACCESSIBILITÉ
+   =================== */
+
+/* Skip link pour l'accessibilité */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--couleur-primaire);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ===================
+      PRINT STYLES
+   =================== */
+@media print {
+  .contenu-principal {
+    /* Pas de marge en impression */
+    margin-left: 0;
+  }
+  
+  .header-principal {
+    /* Masque le header en impression */
+    display: none;
+  }
+  
+  .footer-principal {
+    /* Masque le footer en impression */
+    display: none;
+  }
+}
+

@@ -1,0 +1,168 @@
+/**
+ * FICHIER : footer.css
+ * 
+ * OBJECTIF : 
+ * Styles pour le footer réutilisable
+ * Utilise le système de grille pour s'adapter au sidebar
+ * Compatible avec les 2 thèmes (Clair, Sombre)
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ===================
+   FOOTER RÉUTILISABLE
+   =================== */
+.footer-principal {
+    /* Position et layouts */
+    position: relative;
+    margin-left: var(--largeur-sidebar); /* S'adapte automatiquement au sidebar */
+    width: calc(100% - var(--largeur-sidebar)); /* Occupe l'espace restant */
+    
+    /* Apparence */
+    background: var(--couleur-fond-secondaire);
+    border-top: 1px solid var(--couleur-bordure);
+    padding: 2rem 0;
+    
+    /* Transitions */
+    transition: margin-left var(--transition-normale), 
+                width var(--transition-normale),
+                background-color var(--transition-theme),
+                border-color var(--transition-theme);
+}
+
+/* Mode sombre - Footer professionnel doux */
+[data-theme="sombre"] .footer-principal {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    border-top: 1px solid var(--couleur-accent);
+}
+
+[data-theme="sombre"] .footer-principal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--couleur-accent-gradient);
+    opacity: 0.4;
+}
+
+/* ===================
+   CONTENU DU FOOTER
+   =================== */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright p {
+    margin: 0;
+    color: var(--couleur-texte-secondaire);
+    font-size: 0.875rem;
+    --poids-normal: 400;
+    transition: color var(--transition-theme);
+}
+
+/* Mode sombre - Copyright professionnel */
+[data-theme="sombre"] .footer-copyright p {
+    color: var(--couleur-accent);
+    --poids-medium: 500;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-link {
+    color: var(--couleur-texte-secondaire);
+    text-decoration: none;
+    font-size: 0.875rem;
+    --poids-normal: 400;
+    transition: all var(--transition-normale);
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--couleur-accent);
+    transition: width var(--transition-normale);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-link:hover {
+    color: var(--couleur-accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Mode sombre - Liens cohérents */
+[data-theme="sombre"] .footer-link {
+    color: var(--couleur-texte-tertiaire);
+}
+
+[data-theme="sombre"] .footer-link:hover {
+    color: var(--couleur-accent-hover);
+    transform: translateY(-1px);
+}
+
+/* ===================
+   RESPONSIVE DESIGN
+   =================== */
+@media (max-width: 1024px) {
+    .footer-principal {
+        margin-left: 0; /* Pas de marge sur tablette - sidebar se cache */
+        width: 100%; /* Occupe toute la largeur */
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-principal {
+        padding: 1.5rem 0;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-principal {
+        padding: 1rem 0;
+    }
+    
+    .footer-copyright p {
+        font-size: 0.8rem;
+    }
+    
+    .footer-link {
+        font-size: 0.8rem;
+    }
+}

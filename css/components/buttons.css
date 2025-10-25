@@ -1,0 +1,577 @@
+/**
+ * FICHIER : Buttons.css
+ * 
+ * OBJECTIF : 
+ * Styles pour les boutons réutilisables
+ * Design moderne et cohérent
+ * Compatible avec les 2 thèmes
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ===================
+   BOUTONS DE BASE
+   =================== */
+.bouton {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacement-sm);
+  
+  /* Dimensions */
+  min-height: 44px;
+  padding: var(--espacement-sm) var(--espacement-lg);
+  
+  /* Apparence */
+  border: 2px solid transparent;
+  border-radius: var(--rayon-md);
+  background-color: var(--couleur-primaire);
+  color: white;
+  
+  /* Typographie */
+  font-size: var(--texte-base);
+  font-weight: var(--poids-medium);
+  text-decoration: none;
+  text-align: center;
+  
+  /* Comportement */
+  cursor: pointer;
+  user-select: none;
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+  
+  /* Position */
+  position: relative;
+  overflow: hidden;
+}
+
+.bouton:hover {
+  /* Effet au survol */
+  background-color: var(--couleur-primaire-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--ombre-md);
+}
+
+.bouton:active {
+  /* Effet au clic */
+  transform: translateY(0);
+  box-shadow: var(--ombre-sm);
+}
+
+.bouton:focus {
+  /* Indicateur de focus */
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+.bouton:disabled {
+  /* État désactivé */
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===================
+   VARIANTES DE BOUTONS
+   =================== */
+
+/* Bouton primaire */
+.bouton-primaire {
+  background-color: var(--couleur-primaire);
+  color: white;
+}
+
+.bouton-primaire:hover {
+  background-color: var(--couleur-primaire-hover);
+}
+
+/* Bouton secondaire */
+.bouton-secondaire {
+  background-color: var(--couleur-secondaire);
+  color: white;
+}
+
+.bouton-secondaire:hover {
+  background-color: #059669;
+}
+
+/* Bouton outline */
+.bouton-outline {
+  background-color: transparent;
+  color: var(--couleur-primaire);
+  border-color: var(--couleur-primaire);
+}
+
+.bouton-outline:hover {
+  background-color: var(--couleur-primaire);
+  color: white;
+}
+
+/* Bouton ghost */
+.bouton-ghost {
+  background-color: transparent;
+  color: var(--couleur-texte-principal);
+  border-color: transparent;
+}
+
+.bouton-ghost:hover {
+  background-color: var(--couleur-fond-hover);
+  color: var(--couleur-texte-principal);
+}
+
+/* Bouton destructif */
+.bouton-destructif {
+  background-color: var(--couleur-erreur);
+  color: white;
+}
+
+.bouton-destructif:hover {
+  background-color: #dc2626;
+}
+
+/* ===================
+   TAILLES DE BOUTONS
+   =================== */
+
+/* Bouton petit */
+.bouton-petit {
+  min-height: 32px;
+  padding: var(--espacement-xs) var(--espacement-md);
+  font-size: var(--texte-sm);
+}
+
+/* Bouton normal (défaut) */
+.bouton-normal {
+  min-height: 44px;
+  padding: var(--espacement-sm) var(--espacement-lg);
+  font-size: var(--texte-base);
+}
+
+/* Bouton large */
+.bouton-large {
+  min-height: 56px;
+  padding: var(--espacement-md) var(--espacement-xl);
+  font-size: var(--texte-lg);
+}
+
+/* ===================
+   BOUTONS SPÉCIALISÉS
+   =================== */
+
+/* Bouton avec icône */
+.bouton-icone {
+  /* Dimensions carrées */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  
+  /* Centrage de l'icône */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bouton-icone .icone {
+  /* Dimensions de l'icône */
+  width: 20px;
+  height: 20px;
+}
+
+/* Bouton de chargement */
+.bouton.chargement {
+  position: relative;
+  color: transparent;
+}
+
+.bouton.chargement::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: var(--rayon-full);
+  animation: rotation 1s linear infinite;
+}
+
+/* Bouton avec badge */
+.bouton-badge {
+  position: relative;
+}
+
+.bouton-badge .badge {
+  /* Position */
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  
+  /* Dimensions */
+  min-width: 20px;
+  height: 20px;
+  
+  /* Apparence */
+  background-color: var(--couleur-erreur);
+  color: white;
+  border-radius: var(--rayon-full);
+  
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Typographie */
+  font-size: var(--texte-xs);
+  font-weight: var(--poids-bold);
+}
+
+/* ===================
+   GROUPES DE BOUTONS
+   =================== */
+.groupe-boutons {
+  /* Layout */
+  display: flex;
+  gap: var(--espacement-sm);
+  flex-wrap: wrap;
+}
+
+.groupe-boutons .bouton {
+  /* Supprime les marges */
+  margin: 0;
+}
+
+/* Groupe de boutons attachés */
+.groupe-boutons-attaches {
+  display: flex;
+}
+
+.groupe-boutons-attaches .bouton {
+  /* Supprime les rayons des côtés attachés */
+  border-radius: 0;
+  border-right-width: 1px;
+}
+
+.groupe-boutons-attaches .bouton:first-child {
+  border-top-left-radius: var(--rayon-md);
+  border-bottom-left-radius: var(--rayon-md);
+}
+
+.groupe-boutons-attaches .bouton:last-child {
+  border-top-right-radius: var(--rayon-md);
+  border-bottom-right-radius: var(--rayon-md);
+  border-right-width: 2px;
+}
+
+/* ===================
+   BOUTONS DE THÈME
+   =================== */
+.bouton-theme {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Dimensions */
+  width: 40px;
+  height: 40px;
+  
+  /* Apparence */
+  background-color: var(--couleur-fond-secondaire);
+  border: 2px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  color: var(--couleur-texte-principal);
+  
+  /* Comportement */
+  cursor: pointer;
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+  
+  /* Typographie */
+  font-size: var(--texte-lg);
+}
+
+.bouton-theme:hover {
+  /* Effet au survol */
+  background-color: var(--couleur-fond-hover);
+  border-color: var(--couleur-bordure-hover);
+  transform: scale(1.05);
+}
+
+.bouton-theme.actif {
+  /* État actif */
+  background-color: var(--couleur-primaire);
+  border-color: var(--couleur-primaire);
+  color: white;
+}
+
+.bouton-theme:focus {
+  /* Indicateur de focus */
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* ======================
+   BOUTON TOGGLE SIDEBAR
+   ====================== */
+.bouton-toggle {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Dimensions */
+  width: 44px;
+  height: 44px;
+  
+  /* Apparence */
+  background-color: var(--couleur-fond-secondaire);
+  border: 2px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  color: var(--couleur-texte-principal);
+  
+  /* Comportement */
+  cursor: pointer;
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+}
+
+.bouton-toggle:hover {
+  /* Effet au survol */
+  background-color: var(--couleur-fond-hover);
+  border-color: var(--couleur-bordure-hover);
+}
+
+.bouton-toggle:focus {
+  /* Indicateur de focus */
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  
+  /* Dimensions */
+  width: 20px;
+  height: 16px;
+}
+
+.hamburger span {
+  /* Dimensions */
+  width: 100%;
+  height: 2px;
+  
+  /* Apparence */
+  background-color: currentColor;
+  border-radius: var(--rayon-full);
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+}
+
+/* Animation du hamburger */
+.bouton-toggle[aria-expanded="true"] .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bouton-toggle[aria-expanded="true"] .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.bouton-toggle[aria-expanded="true"] .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ===================
+   RESPONSIVE DESIGN
+   =================== */
+
+/* Mobile : Boutons adaptés */
+@media (max-width: 768px) {
+  .bouton {
+    /* Taille adaptée pour le tactile */
+    min-height: 48px;
+    padding: var(--espacement-md) var(--espacement-lg);
+  }
+  
+  .bouton-petit {
+    min-height: 40px;
+    padding: var(--espacement-sm) var(--espacement-md);
+  }
+  
+  .bouton-large {
+    min-height: 56px;
+    padding: var(--espacement-lg) var(--espacement-xl);
+  }
+  
+  .groupe-boutons {
+    /* Layout en colonne sur mobile */
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .groupe-boutons .bouton {
+    /* Largeur complète */
+    width: 100%;
+  }
+}
+
+/* ===================
+        ANIMATIONS
+   =================== */
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation d'apparition des boutons */
+.bouton {
+  animation: apparitionBouton 0.3s ease-out;
+}
+
+@keyframes apparitionBouton {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================
+      ACCESSIBILITÉ
+   =================== */
+
+/* Focus visible pour tous les boutons */
+.bouton:focus-visible,
+.bouton-theme:focus-visible,
+.bouton-toggle:focus-visible {
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .bouton {
+    animation: none;
+    transition: none;
+  }
+  
+  .bouton:hover {
+    transform: none;
+  }
+  
+  .bouton.chargement::after {
+    animation: none;
+  }
+  
+  .bouton-toggle[aria-expanded="true"] .hamburger span {
+    transform: none;
+  }
+}
+
+/* ===================
+      PRINT STYLES
+   =================== */
+@media print {
+  .bouton {
+    /* Supprime les couleurs en impression */
+    background-color: transparent !important;
+    color: var(--couleur-texte-principal) !important;
+    border: 1px solid var(--couleur-bordure) !important;
+  }
+  
+  .bouton:hover {
+    /* Pas d'effet au survol en impression */
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ========================
+   ICÔNES CTA ILLUSTRATIVES
+   ======================== */
+.icone-cta {
+  width: 22px;
+  height: 22px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  stroke-width: 2.5;
+  opacity: 0.95;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.bouton:hover .icone-cta {
+  transform: scale(1.08) translateY(-1px);
+  opacity: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+/* Mode clair - Icônes contrastées */
+.icone-cta {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bouton-secondaire .icone-cta {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mode sombre - Icônes plus visibles */
+[data-theme="sombre"] .icone-cta {
+  color: #f1f5f9;
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+[data-theme="sombre"] .bouton:hover .icone-cta {
+  color: #ffffff;
+  opacity: 1;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Mode sombre - Design professionnel doux */
+[data-theme="sombre"] .bouton-primaire {
+  background: var(--couleur-accent-gradient);
+  color: #f1f5f9;
+  border: 1px solid var(--couleur-accent);
+  box-shadow: 0 2px 8px rgba(100, 116, 139, 0.2);
+}
+
+[data-theme="sombre"] .bouton-primaire:hover {
+  background: var(--couleur-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
+}
+
+[data-theme="sombre"] .bouton-secondaire {
+  background: transparent;
+  color: var(--couleur-accent);
+  border: 1px solid var(--couleur-accent);
+}
+
+[data-theme="sombre"] .bouton-secondaire:hover {
+  background: var(--couleur-accent-transparent);
+  color: var(--couleur-accent-hover);
+  transform: translateY(-1px);
+}
+

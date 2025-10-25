@@ -1,0 +1,147 @@
+[
+  {
+    "id": 1,
+    "nom": "Génie Informatique",
+    "slug": "genie-informatique",
+    "niveau": "Ingénieur",
+    "duree": "5 ans",
+    "etudiants": "120",
+    "description": "Formation complète en développement logiciel, intelligence artificielle et systèmes d'information.",
+    "competences": [
+      "Développement Web & Mobile",
+      "Intelligence Artificielle",
+      "Cybersécurité",
+      "Base de données"
+    ],
+    "debouchés": [
+      "Développeur Full-Stack",
+      "Data Scientist",
+      "Architecte Logiciel",
+      "Chef de Projet IT"
+    ],
+    "image": "/assets/images/formations/informatique.jpg",
+    "icone": "💻",
+    "couleur": "#3b82f6"
+  },
+  {
+    "id": 2,
+    "nom": "Génie Civil",
+    "slug": "genie-civil",
+    "niveau": "Ingénieur",
+    "duree": "5 ans",
+    "etudiants": "95",
+    "description": "Conception et construction d'infrastructures durables et innovantes.",
+    "competences": [
+      "Conception de structures",
+      "Matériaux de construction",
+      "Gestion de projets",
+      "Développement durable"
+    ],
+    "debouchés": [
+      "Ingénieur en BTP",
+      "Chef de chantier",
+      "Bureau d'études",
+      "Expert en matériaux"
+    ],
+    "image": "/assets/images/formations/civil.jpg",
+    "icone": "🏗️",
+    "couleur": "#10b981"
+  },
+  {
+    "id": 3,
+    "nom": "Génie Électrique",
+    "slug": "genie-electrique",
+    "niveau": "Ingénieur",
+    "duree": "5 ans",
+    "etudiants": "85",
+    "description": "Énergies renouvelables, systèmes électriques et automatisation industrielle.",
+    "competences": [
+      "Énergies renouvelables",
+      "Automatisation",
+      "Réseaux électriques",
+      "Électronique de puissance"
+    ],
+    "debouchés": [
+      "Ingénieur en énergies",
+      "Automaticien",
+      "Électricien industriel",
+      "Expert en réseaux"
+    ],
+    "image": "/assets/images/formations/electrique.jpg",
+    "icone": "⚡",
+    "couleur": "#f59e0b"
+  },
+  {
+    "id": 4,
+    "nom": "Génie Mécanique",
+    "slug": "genie-mecanique",
+    "niveau": "Ingénieur",
+    "duree": "5 ans",
+    "etudiants": "75",
+    "description": "Conception mécanique, fabrication et maintenance industrielle.",
+    "competences": [
+      "Conception CAO",
+      "Fabrication",
+      "Maintenance",
+      "Mécanique des fluides"
+    ],
+    "debouchés": [
+      "Ingénieur de conception",
+      "Chef d'atelier",
+      "Maintenancier industriel",
+      "Expert en fabrication"
+    ],
+    "image": "/assets/images/formations/mecanique.jpg",
+    "icone": "⚙️",
+    "couleur": "#ef4444"
+  },
+  {
+    "id": 5,
+    "nom": "Génie des Télécommunications",
+    "slug": "genie-telecommunications",
+    "niveau": "Ingénieur",
+    "duree": "5 ans",
+    "etudiants": "65",
+    "description": "Réseaux de télécommunications, 5G et technologies numériques.",
+    "competences": [
+      "Réseaux 5G",
+      "Télécommunications",
+      "Sécurité réseau",
+      "IoT et connectivité"
+    ],
+    "debouchés": [
+      "Ingénieur télécoms",
+      "Expert 5G",
+      "Architecte réseau",
+      "Consultant télécoms"
+    ],
+    "image": "/assets/images/formations/telecoms.jpg",
+    "icone": "📡",
+    "couleur": "#8b5cf6"
+  },
+  {
+    "id": 6,
+    "nom": "Génie Industriel",
+    "slug": "genie-industriel",
+    "niveau": "Ingénieur",
+    "duree": "5 ans",
+    "etudiants": "55",
+    "description": "Optimisation des processus industriels et gestion de production.",
+    "competences": [
+      "Optimisation",
+      "Gestion de production",
+      "Qualité",
+      "Logistique"
+    ],
+    "debouchés": [
+      "Ingénieur de production",
+      "Chef de projet industriel",
+      "Expert en qualité",
+      "Consultant logistique"
+    ],
+    "image": "/assets/images/formations/industriel.jpg",
+    "icone": "🏭",
+    "couleur": "#06b6d4"
+  }
+]
+

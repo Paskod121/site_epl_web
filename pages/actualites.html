@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr data-theme="clair"">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actualités - École Polytechnique de Lomé</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <style>
+    body {
+      background-color: #f5f6fa;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    /* Section titre */
+    main {
+      margin-left: 280px;
+    }
+    section {
+      background-color: #f8f9fa;
+    }
+    
+    h2 {
+      color: #0d6efd;
+    }
+    
+    /* Carrousel */
+   
+    .carousel {
+      max-width: 1200px;
+      margin: 40px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    
+    }
+
+    .carousel-item {
+      position: relative;
+      height: 550px;
+      opacity: 0.3;
+      transition: all 1s ease-in-out;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+    }
+
+    .carousel-item img {
+      object-fit: cover;
+      width: 100%;
+      height: 40%;
+      filter: brightness(80%);
+    }
+
+    /* Effet de flou en bas de l’image */
+    .carousel-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      backdrop-filter: blur(5px);
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      z-index: 10;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+    }
+
+    .carousel-caption p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 10px auto;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+    }
+
+    .btn-lire-plus {
+      background-color: #ff7b00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn-lire-plus:hover {
+      background-color: #ff5400;
+      transform: scale(1.05);
+    }
+
+    .shadow {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
+    }
+    @media (max-width: 768px)  {
+      main {
+        margin-left: 0px;
+      }
+    }
+    
+    /* Personnalisation des flèches du carrousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(13, 110, 253, 0.9); /* Bleu Bootstrap */
+  border-radius: 50%;                        /* Rondes */
+  width: 45px;                               /* Taille plus grande */
+  height: 45px;
+  background-size: 60% 60%;                  /* Taille de la flèche interne */
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(0, 98, 255, 1);     /* Bleu plus vif au hover */
+  transform: scale(1.1);
+}
+
+/* Supprimer le filtre inversé par défaut si présent */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: none !important;
+}
+
+  </style>
+
+</head>
+
+
+<body>
+    <main>
+  <div class="container py-5">
+    <h2 class="section-title">Actualités</h2>
+    <p class="section-subtitle">Les dernières nouvelles de l’École Polytechnique de Lomé</p>
+
+     <!-- ===== CARROUSEL ===== -->
+  <div id="actualitesCarousel" class="carousel slide" data-bs-ride="carousel">
+    
+    <!-- Indicateurs -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#actualitesCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#actualitesCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#actualitesCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="container py-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+              <img src="../assets/images/actu1.png" class="actu1 img-fluid rounded mb-4 shadow" alt="Cérémonie de Remise des Diplômes">
+              <h5 class="fw-bold">🎓 Cérémonie d'Accueil des étudiants de l 'EPL 2025-2026 </h5>
+              <p class="text-secondary small">Le 15 Octobre 2025</p>
+              <p class="text-secondary">
+                L'École Polytechnique de Lomé a officielement lancé sa rentrée académique 2025-2026...
+              </p>
+              <a href="#" class="btn btn-primary btn-sm mt-2">Lire plus <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="container py-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+              <img src="../assets/images/actu2.png" class="img-fluid rounded mb-4 shadow" alt="Inauguration du nouveau bâtiment">
+              <h5 class="fw-bold">Renforcement de l'Environement Technologique à L' EPL </h5>
+              <p class="text-secondary small">Le 17 Octobre 2025</p>
+              <p class="text-secondary">
+                L'EPL à l'honneur de recevoir une Délégation Chinoise lors d'une Cérémonie Officielle de remise d'une salle préfabriquée...
+              </p>
+              <a href="#" class="btn btn-primary btn-sm mt-2">Lire plus <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="container py-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+              <img src="../assets/images/actu3.png" class="img-fluid rounded mb-4 shadow" alt="Partenariat international">
+              <h5 class="fw-bold">Appel à Soumission de sujets et aux partenaires - 2 ème Edition</h5>
+              <p class="text-secondary small">Date limite : Le 03 Octobre 2025</p>
+              <p class="text-secondary">
+                  Vous etes une entreprise , une istitution ou un porteur de projet à la recherche de solutois concrètes à des problèmes...
+              </p>
+              <a href="#" class="btn btn-primary btn-sm mt-2">Lire plus <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contrôles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#actualitesCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#actualitesCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </div>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+=======
+<html lang="fr" data-theme="clair">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - École Polytechnique de Lomé</title>
+    <meta name="description"
+        content="Découvrez les dernières actualités et événements de l'École Polytechnique de Lomé.">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/dashboard.css">
+</head>
+
+<body>
+    <!-- Skip link pour l'accessibilité -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb -->
+    <div id="breadcrumb-container"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <!-- Le contenu du sidebar sera chargé ici par JavaScript -->
+    </div>
+
+    <!-- Contenu principal -->
+    <!-- <main id="contenu-principal" class="contenu-principal">
+
+        <!-- Section En développement -->
+
+    <!-- Footer -->
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/pages/mentions-legales.html" class="footer-link">Mentions légales</a>
+                    <a href="/pages/politique-confidentialite.html" class="footer-link">Politique de confidentialité</a>
+                    <a href="/pages/plan-du-site.html" class="footer-link">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/components/cta.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Script de gestion de la page Actualités -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🚀 Page Actualités chargée');
+
+            // Initialiser le système de pages avec breadcrumb
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('actualites');
+            }
+
+            // Forcer la synchronisation de la navigation
+            if (typeof gestionnaireNavigation !== 'undefined') {
+                setTimeout(() => {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }, 100);
+            }
+
+            console.log('✅ Page Actualités initialisée avec succès');
+        });
+    </script>
+</body>
+
+</html>
+>>>>>>> 38b9b1bad4572c351cb0d45de19078787c80dfd5

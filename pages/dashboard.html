@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="clair">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - École Polytechnique de Lomé</title>
+
+    <!-- Meta tags pour SEO -->
+    <meta name="description"
+        content="Tableau de bord de l'École Polytechnique de Lomé. Statistiques, actualités et informations en temps réel.">
+    <meta name="keywords" content="dashboard EPL, statistiques, tableau de bord, école polytechnique">
+    <meta name="author" content="École Polytechnique de Lomé">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dashboard - EPL">
+    <meta property="og:description" content="Tableau de bord de l'École Polytechnique de Lomé">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://epl-togo.edu/dashboard">
+    <meta property="og:image" content="/assets/images/dashboard/hero-dashboard.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/logos/logoepl.png">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
+    <link rel="stylesheet" href="/css/pages/dashboard.css">
+
+    <!-- Chart.js pour les graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Skip link pour l'accessibilité -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar principale (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb navigation -->
+    <div id="breadcrumb-container"></div>
+
+    <!-- Overlay pour sidebar mobile -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar de navigation -->
+    <aside id="sidebar" class="sidebar" role="navigation" aria-label="Navigation principale">
+        <!-- Header de la sidebar -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo-container">
+                <div class="sidebar-logo-cercle">
+                    <svg class="sidebar-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                </div>
+                <div class="sidebar-logo-texte">
+                    <div class="sidebar-logo-titre">EPL</div>
+                    <div class="sidebar-logo-sous-titre">École Polytechnique</div>
+                </div>
+            </div>
+
+            <!-- Bouton de thème dans la sidebar -->
+            <div class="sidebar-theme-selector">
+                <button id="bouton-theme-dynamique" class="btn-theme-dynamique" aria-label="Changer de thème"
+                    title="Changer de thème">
+                    <svg class="icone-theme-dynamique" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Navigation principale -->
+        <nav class="sidebar-nav" role="menubar">
+            <div class="sidebar-nav-item" role="none">
+                <a href="/index.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9,22 9,12 15,12 15,22" />
+                    </svg>
+                    <span class="sidebar-nav-text">Accueil</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/dashboard.html" class="sidebar-nav-link actif" role="menuitem" aria-current="page">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="3" y="3" width="5" height="5" rx="1" />
+                        <rect x="9.5" y="3" width="5" height="5" rx="1" />
+                        <rect x="16" y="3" width="5" height="5" rx="1" />
+                        <rect x="3" y="9.5" width="5" height="5" rx="1" />
+                        <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+                        <rect x="16" y="9.5" width="5" height="5" rx="1" />
+                        <rect x="3" y="16" width="5" height="5" rx="1" />
+                        <rect x="9.5" y="16" width="5" height="5" rx="1" />
+                        <rect x="16" y="16" width="5" height="5" rx="1" />
+                    </svg>
+                    <span class="sidebar-nav-text">Tableau de bord</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/formations/index.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                    <span class="sidebar-nav-text">Formations</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/about.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    <span class="sidebar-nav-text">À propos</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/actualites.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <path d="M8 6h8M8 10h8M8 14h5" />
+                        <path d="M4 2h4v4H4z" />
+                        <path d="M5 3h2v2H5z" />
+                    </svg>
+                    <span class="sidebar-nav-text">Actualités</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/admissions.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M18 6l4 4-4 4" />
+                        <path d="M22 10H10" />
+                        <path d="M18 6l2 2" />
+                    </svg>
+                    <span class="sidebar-nav-text">Admissions</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/contact.html" class="sidebar-nav-link" role="menuitem">
+                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <span class="sidebar-nav-text">Contact</span>
+                </a>
+            </div>
+        </nav>
+
+
+        <!-- Section d'aide -->
+        <div class="sidebar-aide">
+            <h3 class="sidebar-aide-titre">Besoin d'aide ?</h3>
+            <p class="sidebar-aide-description">
+                Contactez notre équipe pour toute assistance
+            </p>
+            <button class="sidebar-aide-bouton">
+                <span>Nous contacter</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Contenu principal -->
+    <main id="contenu-principal" class="contenu-principal">
+        <!-- Header supprimé - Plus de header avec sidebar -->
+
+
+        <!-- Section Statistiques Principales -->
+        <section class="section-statistiques-principales" role="region">
+            <div class="container">
+                <div class="grille-statistiques">
+                    <div class="carte-stat">
+                        <svg class="icone-stat" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <div class="valeur-stat" id="stat-etudiants">495+</div>
+                        <div class="label-stat">Étudiants actifs</div>
+                    </div>
+
+                    <div class="carte-stat">
+                        <svg class="icone-stat" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            <path d="M8 7h8M8 11h8M8 15h4" />
+                        </svg>
+                        <div class="valeur-stat" id="stat-formations">6</div>
+                        <div class="label-stat">Programmes d'études</div>
+                    </div>
+
+                    <div class="carte-stat">
+                        <svg class="icone-stat" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        <div class="valeur-stat" id="stat-diplomes">8,000+</div>
+                        <div class="label-stat">Depuis 1970</div>
+                    </div>
+
+                    <div class="carte-stat">
+                        <svg class="icone-stat" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4" />
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                        </svg>
+                        <div class="valeur-stat" id="stat-reussite">85%</div>
+                        <div class="label-stat">Aux examens</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Section Bienvenue à l'EPL -->
+        <section class="section-bienvenue-epl" role="region">
+            <div class="container">
+                <div class="bienvenue-contenu">
+                    <div class="bienvenue-texte">
+                        <h2 class="bienvenue-titre">Bienvenue à l'EPL</h2>
+                        <p class="bienvenue-description">
+                            L'École Polytechnique de Lomé est une institution d'enseignement supérieur d'excellence qui
+                            forme des ingénieurs de haut niveau depuis plus de 50 ans. Nos programmes couvrent les
+                            domaines clés de l'ingénierie moderne.
+                        </p>
+                        <p class="bienvenue-description">
+                            Rejoignez-nous pour bâtir votre avenir et contribuer au développement technologique et
+                            économique du Togo et de l'Afrique.
+                        </p>
+                    </div>
+
+                    <div class="card-rentree-academique">
+                        <div class="card-rentree-header">
+                            <h3 class="card-rentree-titre">Rentrée Académique 2025</h3>
+                            <p class="card-rentree-intro">
+                                Les inscriptions pour l'année académique 2025-2026 sont maintenant ouvertes !
+                            </p>
+                        </div>
+
+                        <ul class="card-rentree-liste">
+                            <li class="card-rentree-item">
+                                <span class="card-rentree-bullet">•</span>
+                                <span class="card-rentree-texte">12 formations d'excellence</span>
+                            </li>
+                            <li class="card-rentree-item">
+                                <span class="card-rentree-bullet">•</span>
+                                <span class="card-rentree-texte">Corps professoral qualifié</span>
+                            </li>
+                            <li class="card-rentree-item">
+                                <span class="card-rentree-bullet">•</span>
+                                <span class="card-rentree-texte">Infrastructures modernes</span>
+                            </li>
+                            <li class="card-rentree-item">
+                                <span class="card-rentree-bullet">•</span>
+                                <span class="card-rentree-texte">Partenariats internationaux</span>
+                            </li>
+                        </ul>
+
+                        <button class="card-rentree-bouton">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                            Commencer votre inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Statistiques Principales -->
+        <section class="section-statistiques-principales" role="region" aria-labelledby="stats-principales-titre">
+            <div class="container">
+                <h2 class="titre-section">Statistiques Principales</h2>
+                <p class="sous-titre-section">
+                    Indicateurs clés de performance de l'EPL
+                </p>
+
+                <div class="stats-grid">
+                    <!-- Statistiques des formations -->
+                    <div class="stat-card-large">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-titre">Répartition par Formation</h3>
+                            <button class="stat-card-action" aria-label="Actualiser les données">
+                                <span aria-hidden="true">🔄</span>
+                            </button>
+                        </div>
+                        <div class="stat-card-contenu">
+                            <canvas id="graphique-formations" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Évolution des inscriptions -->
+                    <div class="stat-card-large">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-titre">Évolution des Inscriptions</h3>
+                            <button class="stat-card-action" aria-label="Actualiser les données">
+                                <span aria-hidden="true">🔄</span>
+                            </button>
+                        </div>
+                        <div class="stat-card-contenu">
+                            <canvas id="graphique-evolution" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Taux de réussite -->
+                    <div class="stat-card-large">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-titre">Taux de Réussite</h3>
+                            <button class="stat-card-action" aria-label="Actualiser les données">
+                                <span aria-hidden="true">🔄</span>
+                            </button>
+                        </div>
+                        <div class="stat-card-contenu">
+                            <div class="taux-reussite">
+                                <div class="taux-valeur">92%</div>
+                                <div class="taux-description">Moyenne générale</div>
+                                <div class="taux-barre">
+                                    <div class="taux-progression" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insertion professionnelle -->
+                    <div class="stat-card-large">
+                        <div class="stat-card-header">
+                            <h3 class="stat-card-titre">Insertion Professionnelle</h3>
+                            <button class="stat-card-action" aria-label="Actualiser les données">
+                                <span aria-hidden="true">🔄</span>
+                            </button>
+                        </div>
+                        <div class="stat-card-contenu">
+                            <div class="insertion-stats">
+                                <div class="insertion-item">
+                                    <span class="insertion-pourcentage">95%</span>
+                                    <span class="insertion-label">Emploi dans les 6 mois</span>
+                                </div>
+                                <div class="insertion-item">
+                                    <span class="insertion-pourcentage">78%</span>
+                                    <span class="insertion-label">Salaire > 1M FCFA</span>
+                                </div>
+                                <div class="insertion-item">
+                                    <span class="insertion-pourcentage">65%</span>
+                                    <span class="insertion-label">Secteur privé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Actualités Récentes -->
+        <section class="actualites-recentes-section" role="region" aria-labelledby="actualites-recentes-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="actualites-recentes-titre" class="section-titre">Actualités Récentes</h2>
+                    <p class="section-description">
+                        Les dernières nouvelles de l'EPL
+                    </p>
+                </header>
+
+                <div class="actualites-grid" id="actualites-dashboard-container">
+                    <!-- Les actualités seront chargées dynamiquement -->
+                </div>
+
+                <div class="section-actions">
+                    <a href="/pages/actualites.html" class="bouton bouton-outline">
+                        <span>Voir toutes les actualités</span>
+                        <span aria-hidden="true">=></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Formations Populaires -->
+        <section class="formations-populaires-section" role="region" aria-labelledby="formations-populaires-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="formations-populaires-titre" class="section-titre">Formations les Plus Demandées</h2>
+                    <p class="section-description">
+                        Les programmes qui attirent le plus d'étudiants
+                    </p>
+                </header>
+
+                <div class="formations-populaires-grid" id="formations-populaires-container">
+                    <!-- Les formations populaires seront chargées dynamiquement -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Final -->
+        <section class="cta-section" role="region">
+            <div class="container">
+                <div class="cta-contenu">
+                    <h2 class="cta-titre">Prêt à rejoindre l'excellence ?</h2>
+                    <p class="cta-description">
+                        Découvrez nos formations et commencez votre parcours d'ingénieur dès maintenant.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="/pages/formations/index.html" class="bouton bouton-primaire bouton-large">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                                <path d="M10 9H8" />
+                                <path d="M16 13H8" />
+                                <path d="M16 17H8" />
+                            </svg>
+                            <span>Découvrir nos formations</span>
+                        </a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire bouton-large">
+                            <svg class="icone-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span>Nous contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/pages/mentions-legales.html" class="footer-link">Mentions légales</a>
+                    <a href="/pages/politique-confidentialite.html" class="footer-link">Politique de confidentialité</a>
+                    <a href="/pages/plan-du-site.html" class="footer-link">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/components/cta.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Script de chargement du dashboard -->
+    <script>
+        // Chargement du dashboard au chargement de la page
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Initialise les composants pour la page dashboard
+            chargeurPages.initialiser('dashboard');
+            
+            // Force la synchronisation de la navigation
+            setTimeout(() => {
+                if (typeof gestionnaireNavigation !== 'undefined') {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }
+            }, 500);
+            try {
+                // Initialise le dashboard
+                if (window.DashboardEPL) {
+                    window.dashboardEPL = new window.DashboardEPL();
+                }
+
+                console.log('✅ Dashboard chargé avec succès');
+            } catch (erreur) {
+                console.error('❌ Erreur lors du chargement du dashboard :', erreur);
+            }
+        });
+    </script>
+</body>
+
+</html>

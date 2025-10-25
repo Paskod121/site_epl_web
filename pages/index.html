@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="clair">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>École Polytechnique de Lomé - Excellence en Ingénierie</title>
+
+    <!-- Meta tags pour SEO et réseaux sociaux -->
+    <meta name="description"
+        content="L'École Polytechnique de Lomé (EPL) forme les ingénieurs de demain au Togo. Formations d'excellence en ingénierie, innovation et développement.">
+    <meta name="keywords" content="EPL, École Polytechnique Lomé, ingénierie, formation, Togo, excellence">
+    <meta name="author" content="École Polytechnique de Lomé">
+
+    <!-- Open Graph pour Facebook/LinkedIn -->
+    <meta property="og:title" content="École Polytechnique de Lomé - Excellence en Ingénierie">
+    <meta property="og:description"
+        content="Formations d'excellence en ingénierie au Togo. L'EPL forme les ingénieurs de demain.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://epl-togo.edu">
+    <meta property="og:image" content="/assets/images/logos/logoepl.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="École Polytechnique de Lomé">
+    <meta name="twitter:description" content="Excellence en ingénierie au Togo">
+    <meta name="twitter:image" content="/assets/images/logos/logoepl.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/logos/logoepl.png">
+    <link rel="apple-touch-icon" href="/assets/images/logos/logoepl.png">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/hero.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+
+    <!-- Preload des ressources critiques -->
+    <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/images/hero/hero-bg.jpg" as="image">
+
+    <!-- Schema.org pour le SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "École Polytechnique de Lomé",
+        "alternateName": "EPL",
+        "description": "École d'ingénierie d'excellence au Togo",
+        "url": "https://epl-togo.edu",
+        "logo": "/assets/images/logos/logoepl.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lomé",
+            "addressCountry": "TG"
+        },
+        "foundingDate": "2022",
+        "educationalCredentialAwarded": "Diplôme d'Ingénieur"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Overlay pour sidebar mobile -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar de navigation -->
+    <aside id="sidebar" class="sidebar" role="navigation" aria-label="Navigation principale">
+        <!-- Header de la sidebar -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo" aria-hidden="true">EPL</div>
+            <div>
+                <h1 class="sidebar-titre">École Polytechnique</h1>
+                <p class="sidebar-sous-titre">de Lomé</p>
+            </div>
+        </div>
+
+        <!-- Navigation principale -->
+        <nav class="sidebar-nav" role="menubar">
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/index.html" class="sidebar-nav-link" role="menuitem" aria-current="page">
+                    <span class="sidebar-nav-icon" aria-hidden="true">🏠</span>
+                    <span class="sidebar-nav-text">Accueil</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/formations/index.html" class="sidebar-nav-link" role="menuitem">
+                    <span class="sidebar-nav-icon" aria-hidden="true">🎓</span>
+                    <span class="sidebar-nav-text">Formations</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/dashboard.html" class="sidebar-nav-link" role="menuitem">
+                    <span class="sidebar-nav-icon" aria-hidden="true">📊</span>
+                    <span class="sidebar-nav-text">Dashboard</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/actualites.html" class="sidebar-nav-link" role="menuitem">
+                    <span class="sidebar-nav-icon" aria-hidden="true">📰</span>
+                    <span class="sidebar-nav-text">Actualités</span>
+                </a>
+            </div>
+
+            <div class="sidebar-nav-item" role="none">
+                <a href="/pages/contact.html" class="sidebar-nav-link" role="menuitem">
+                    <span class="sidebar-nav-icon" aria-hidden="true">📞</span>
+                    <span class="sidebar-nav-text">Contact</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Section d'aide -->
+        <div class="sidebar-aide">
+            <h3 class="sidebar-aide-titre">Besoin d'aide ?</h3>
+            <p class="sidebar-aide-description">
+                Notre équipe est là pour vous accompagner dans votre parcours académique.
+            </p>
+            <a href="/pages/contact.html" class="sidebar-aide-bouton" role="button">
+                <span aria-hidden="true">💬</span>
+                <span>Nous contacter</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Contenu principal -->
+    <main id="contenu-principal" class="contenu-principal">
+        <!-- Header avec bouton toggle -->
+        <header class="header-principal">
+            <button id="bouton-toggle-sidebar" class="bouton-toggle" aria-label="Ouvrir le menu de navigation"
+                aria-expanded="false">
+                <span class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+
+            <!-- Sélecteur de thème -->
+            <div class="selecteur-theme">
+                <button data-theme-cible="clair" class="bouton-theme" aria-label="Thème clair" title="Thème clair">
+                    ☀️
+                </button>
+                <button data-theme-cible="sombre" class="bouton-theme" aria-label="Thème sombre" title="Thème sombre">
+                    🌙
+                </button>
+                <button data-theme-cible="doux" class="bouton-theme" aria-label="Thème doux" title="Thème doux">
+                    🌸
+                </button>
+            </div>
+        </header>
+
+        <!-- Section Hero -->
+        <section class="hero-section" role="banner">
+            <div class="hero-contenu">
+                <div class="hero-texte">
+                    <h1 class="hero-titre">
+                        Excellence en <span class="texte-accent">Ingénierie</span>
+                    </h1>
+                    <p class="hero-description">
+                        L'École Polytechnique de Lomé forme les ingénieurs de demain avec des programmes d'excellence,
+                        une pédagogie innovante et un accompagnement personnalisé.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="/pages/formations/index.html" class="bouton bouton-primaire">
+                            <span>Découvrir nos formations</span>
+                            <span aria-hidden="true">=></span>
+                        </a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire">
+                            <span>Nous contacter</span>
+                            <span aria-hidden="true">📞</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visuel">
+                    <div class="hero-image-container">
+                        <img src="/assets/images/hero/ingenierie-modern.jpg"
+                            alt="Étudiants en ingénierie travaillant sur des projets innovants" class="hero-image"
+                            loading="eager">
+                        <div class="hero-badge">
+                            <span class="badge-texte">Excellence</span>
+                            <span class="badge-annee">Depuis 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Formations -->
+        <section class="formations-section" role="region" aria-labelledby="formations-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="formations-titre" class="section-titre">Nos Formations d'Excellence</h2>
+                    <p class="section-description">
+                        Des programmes d'ingénierie conçus pour répondre aux défis du monde moderne
+                    </p>
+                </header>
+
+                <div class="formations-grid" id="formations-container">
+                    <!-- Les formations seront chargées dynamiquement -->
+                </div>
+
+                <div class="section-actions">
+                    <a href="/pages/formations/index.html" class="bouton bouton-outline">
+                        <span>Voir toutes les formations</span>
+                        <span aria-hidden="true">=></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Actualités -->
+        <section class="actualites-section" role="region" aria-labelledby="actualites-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="actualites-titre" class="section-titre">Actualités & Événements</h2>
+                    <p class="section-description">
+                        Restez informé des dernières nouvelles de l'EPL
+                    </p>
+                </header>
+
+                <div class="actualites-grid" id="actualites-container">
+                    <!-- Les actualités seront chargées dynamiquement -->
+                </div>
+
+                <div class="section-actions">
+                    <a href="/pages/actualites.html" class="bouton bouton-outline">
+                        <span>Voir toutes les actualités</span>
+                        <span aria-hidden="true">=></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section class="temoignages-section" role="region" aria-labelledby="temoignages-titre">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="temoignages-titre" class="section-titre">Ce que disent nos étudiants</h2>
+                    <p class="section-description">
+                        Découvrez les témoignages de nos étudiants et diplômés
+                    </p>
+                </header>
+
+                <div class="temoignages-grid" id="temoignages-container">
+                    <!-- Les témoignages seront chargés dynamiquement -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Final -->
+        <section class="cta-section" role="region">
+            <div class="container">
+                <div class="cta-contenu">
+                    <h2 class="cta-titre">Prêt à rejoindre l'excellence ?</h2>
+                    <p class="cta-description">
+                        Découvrez nos formations et commencez votre parcours d'ingénieur dès maintenant.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="/pages/formations/index.html" class="bouton bouton-primaire bouton-large">
+                            <span>Découvrir nos formations</span>
+                            <span aria-hidden="true">🎓</span>
+                        </a>
+                        <a href="/pages/contact.html" class="bouton bouton-secondaire bouton-large">
+                            <span>Nous contacter</span>
+                            <span aria-hidden="true">📞</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-contenu">
+                <div class="footer-section">
+                    <h3 class="footer-titre">École Polytechnique de Lomé</h3>
+                    <p class="footer-description">
+                        Excellence en ingénierie au Togo. Formons les ingénieurs de demain.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-sous-titre">Navigation</h4>
+                    <nav class="footer-nav">
+                        <a href="/pages/index.html">Accueil</a>
+                        <a href="/pages/formations/index.html">Formations</a>
+                        <a href="/pages/contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-sous-titre">Contact</h4>
+                    <div class="footer-contact">
+                        <p>📧 contact@epl-togo.edu</p>
+                        <p>📞 +228 XX XX XX XX</p>
+                        <p>📍 Lomé, Togo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                <p>Développé par l'équipe sCtt3 | EPL Devs</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/components/hero.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Script de chargement des données -->
+    <script>
+        // Chargement des données au chargement de la page
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Charge les formations
+                await chargerFormations();
+
+                // Charge les actualités
+                await chargerActualites();
+
+                // Charge les témoignages
+                await chargerTemoignages();
+
+                console.log('✅ Page d\'accueil chargée avec succès');
+            } catch (erreur) {
+                console.error('❌ Erreur lors du chargement de la page :', erreur);
+            }
+        });
+
+        /**
+         * Charge et affiche les formations
+         */
+        async function chargerFormations() {
+            try {
+                const reponse = await fetch('/assets/data/formations.json');
+                const formations = await reponse.json();
+
+                const container = document.getElementById('formations-container');
+                if (!container) return;
+
+                // Affiche les 3 premières formations
+                const formationsAffichees = formations.slice(0, 3);
+
+                container.innerHTML = formationsAffichees.map(formation => `
+                    <article class="formation-card">
+                        <div class="card-header">
+                            <h3 class="card-titre">${formation.nom}</h3>
+                            <span class="card-badge">${formation.niveau}</span>
+                        </div>
+                        <div class="card-contenu">
+                            <p class="card-description">${formation.description}</p>
+                            <div class="card-details">
+                                <span class="detail-item">⏱️ ${formation.duree}</span>
+                                <span class="detail-item">👥 ${formation.etudiants} étudiants</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="/pages/formations/${formation.slug}.html" class="bouton bouton-outline">
+                                En savoir plus
+                            </a>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (erreur) {
+                console.error('Erreur lors du chargement des formations :', erreur);
+                document.getElementById('formations-container').innerHTML =
+                    '<p class="message-erreur">Impossible de charger les formations pour le moment.</p>';
+            }
+        }
+
+        /**
+         * Charge et affiche les actualités
+         */
+        async function chargerActualites() {
+            try {
+                const reponse = await fetch('/assets/data/actualites.json');
+                const actualites = await reponse.json();
+
+                const container = document.getElementById('actualites-container');
+                if (!container) return;
+
+                // Affiche les 3 dernières actualités
+                const actualitesAffichees = actualites.slice(0, 3);
+
+                container.innerHTML = actualitesAffichees.map(actualite => `
+                    <article class="actualite-card">
+                        <div class="card-image">
+                            <img src="${actualite.image}" alt="${actualite.titre}" loading="lazy">
+                            <span class="card-date">${actualite.date}</span>
+                        </div>
+                        <div class="card-contenu">
+                            <h3 class="card-titre">${actualite.titre}</h3>
+                            <p class="card-description">${actualite.description}</p>
+                            <a href="/pages/actualites/${actualite.slug}.html" class="bouton bouton-outline">
+                                Lire la suite
+                            </a>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (erreur) {
+                console.error('Erreur lors du chargement des actualités :', erreur);
+                document.getElementById('actualites-container').innerHTML =
+                    '<p class="message-erreur">Impossible de charger les actualités pour le moment.</p>';
+            }
+        }
+
+        /**
+         * Charge et affiche les témoignages
+         */
+        async function chargerTemoignages() {
+            try {
+                const reponse = await fetch('/assets/data/temoignages.json');
+                const temoignages = await reponse.json();
+
+                const container = document.getElementById('temoignages-container');
+                if (!container) return;
+
+                // Affiche les 3 premiers témoignages
+                const temoignagesAffiches = temoignages.slice(0, 3);
+
+                container.innerHTML = temoignagesAffiches.map(temoignage => `
+                    <article class="temoignage-card">
+                        <div class="card-contenu">
+                            <div class="temoignage-avatar">
+                                <img src="${temoignage.avatar}" alt="${temoignage.nom}" loading="lazy">
+                            </div>
+                            <blockquote class="temoignage-texte">
+                                "${temoignage.temoignage}"
+                            </blockquote>
+                            <div class="temoignage-auteur">
+                                <h4 class="auteur-nom">${temoignage.nom}</h4>
+                                <p class="auteur-role">${temoignage.role}</p>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (erreur) {
+                console.error('Erreur lors du chargement des témoignages :', erreur);
+                document.getElementById('temoignages-container').innerHTML =
+                    '<p class="message-erreur">Impossible de charger les témoignages pour le moment.</p>';
+            }
+        }
+    </script>
+</body>
+
+</html>

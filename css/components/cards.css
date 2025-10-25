@@ -1,0 +1,519 @@
+/**
+ * FICHIER : Cards.css
+ * 
+ * OBJECTIF : 
+ * Styles pour les cartes réutilisables (formations, actualités, témoignages)
+ * Design moderne et cohérent
+ * Compatible avec les 2 thèmes
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ===================
+   CARTES DE BASE
+   =================== */
+.card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  
+  /* Apparence */
+  background-color: var(--couleur-card-fond);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--couleur-card-ombre);
+  
+  /* Transitions */
+  transition: all var(--transition-normale);
+  
+  /* Overflow */
+  overflow: hidden;
+  
+  /* Position */
+  position: relative;
+}
+
+.card:hover {
+  /* Effet au survol */
+  transform: translateY(-4px);
+  box-shadow: var(--couleur-card-hover);
+}
+
+/* ===================
+   HEADER DE CARTE
+   =================== */
+.card-header {
+  /* Layout */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacement-md);
+  
+  /* Espacement */
+  padding: var(--espacement-lg);
+  padding-bottom: var(--espacement-md);
+}
+
+.card-titre {
+  /* Typographie */
+  font-size: var(--texte-lg);
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0;
+  line-height: var(--ligne-tight);
+}
+
+.card-badge {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacement-xs);
+  
+  /* Apparence */
+  background-color: var(--couleur-primaire);
+  color: white;
+  border-radius: var(--rayon-full);
+  padding: var(--espacement-xs) var(--espacement-sm);
+  
+  /* Typographie */
+  font-size: var(--texte-xs);
+  font-weight: var(--poids-medium);
+  
+  /* Flexibilité */
+  flex-shrink: 0;
+}
+
+/* ===================
+    CONTENU DE CARTE
+   =================== */
+.card-contenu {
+  /* Espacement */
+  padding: 0 var(--espacement-lg) var(--espacement-lg);
+  
+  /* Flexibilité */
+  flex: 1;
+}
+
+.card-description {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  line-height: var(--ligne-normal);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0 0 var(--espacement-md) 0;
+}
+
+.card-details {
+  /* Layout */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacement-sm);
+  
+  /* Espacement */
+  margin-bottom: var(--espacement-md);
+}
+
+.detail-item {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--espacement-xs);
+  
+  /* Apparence */
+  background-color: var(--couleur-fond-tertiaire);
+  border-radius: var(--rayon-sm);
+  padding: var(--espacement-xs) var(--espacement-sm);
+  
+  /* Typographie */
+  font-size: var(--texte-xs);
+  color: var(--couleur-texte-tertiaire);
+}
+
+/* ===================
+   ACTIONS DE CARTE
+   =================== */
+.card-actions {
+  /* Layout */
+  display: flex;
+  gap: var(--espacement-sm);
+  
+  /* Espacement */
+  padding: 0 var(--espacement-lg) var(--espacement-lg);
+}
+
+/* ===================
+   CARTES SPÉCIALISÉES
+   =================== */
+
+/* Carte de formation */
+.formation-card {
+  /* Dimensions */
+  min-height: 300px;
+}
+
+.formation-card .card-header {
+  /* Bordure de séparation */
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+/* Carte d'actualité */
+.actualite-card {
+  /* Layout */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  
+  /* Dimensions */
+  min-height: 400px;
+}
+
+.actualite-card .card-image {
+  /* Position */
+  position: relative;
+  
+  /* Dimensions */
+  height: 200px;
+  
+  /* Apparence */
+  overflow: hidden;
+}
+
+.actualite-card .card-image img {
+  /* Dimensions */
+  width: 100%;
+  height: 100%;
+  
+  /* Apparence */
+  object-fit: cover;
+  object-position: center;
+  
+  /* Transition */
+  transition: transform var(--transition-normale);
+}
+
+.actualite-card:hover .card-image img {
+  /* Effet de zoom au survol */
+  transform: scale(1.05);
+}
+
+.actualite-card .card-date {
+  /* Position */
+  position: absolute;
+  top: var(--espacement-sm);
+  left: var(--espacement-sm);
+  
+  /* Apparence */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: var(--rayon-sm);
+  padding: var(--espacement-xs) var(--espacement-sm);
+  
+  /* Typographie */
+  font-size: var(--texte-xs);
+  font-weight: var(--poids-medium);
+}
+
+/* Carte de témoignage */
+.temoignage-card {
+  /* Layout */
+  text-align: center;
+  
+  /* Dimensions */
+  min-height: 350px;
+}
+
+.temoignage-card .card-contenu {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacement-md);
+}
+
+.temoignage-avatar {
+  /* Dimensions */
+  width: 80px;
+  height: 80px;
+  
+  /* Apparence */
+  border-radius: var(--rayon-full);
+  overflow: hidden;
+  
+  /* Ombre */
+  box-shadow: var(--ombre-md);
+}
+
+.temoignage-avatar img {
+  /* Dimensions */
+  width: 100%;
+  height: 100%;
+  
+  /* Apparence */
+  object-fit: cover;
+  object-position: center;
+}
+
+.temoignage-texte {
+  /* Typographie */
+  font-size: var(--texte-base);
+  font-style: italic;
+  line-height: var(--ligne-relaxed);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0;
+  
+  /* Guillemets */
+  position: relative;
+}
+
+.temoignage-texte::before,
+.temoignage-texte::after {
+  content: '"';
+  font-size: var(--texte-2xl);
+  color: var(--couleur-primaire);
+  font-weight: var(--poids-bold);
+}
+
+.temoignage-auteur {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacement-xs);
+}
+
+.auteur-nom {
+  /* Typographie */
+  font-size: var(--texte-base);
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+.auteur-role {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin: 0;
+}
+
+/* ===================
+   GRIDS DE CARTES
+   =================== */
+.formations-grid,
+.actualites-grid,
+.temoignages-grid {
+  /* Layout */
+  display: grid;
+  gap: var(--espacement-xl);
+  
+  /* Responsive */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Grid spécifique pour les formations */
+.formations-grid {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* Grid spécifique pour les actualités */
+.actualites-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Grid spécifique pour les témoignages */
+.temoignages-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ===================
+   RESPONSIVE DESIGN
+   =================== */
+
+/* Mobile : Grid en colonne */
+@media (max-width: 768px) {
+  .formations-grid,
+  .actualites-grid,
+  .temoignages-grid {
+    /* Une colonne sur mobile */
+    grid-template-columns: 1fr;
+    gap: var(--espacement-lg);
+  }
+  
+  .card-header {
+    /* Espacement réduit */
+    padding: var(--espacement-md);
+    padding-bottom: var(--espacement-sm);
+  }
+  
+  .card-contenu {
+    /* Espacement réduit */
+    padding: 0 var(--espacement-md) var(--espacement-md);
+  }
+  
+  .card-actions {
+    /* Espacement réduit */
+    padding: 0 var(--espacement-md) var(--espacement-md);
+  }
+}
+
+/* Tablet : Ajustements moyens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .formations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .actualites-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .temoignages-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Desktop : Optimisations */
+@media (min-width: 1025px) {
+  .formations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .actualites-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .temoignages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================
+      ÉTATS SPÉCIAUX
+   =================== */
+
+/* Carte avec indicateur de chargement */
+.card.chargement {
+  position: relative;
+  overflow: hidden;
+}
+
+.card.chargement::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  animation: chargement 1.5s infinite;
+}
+
+/* Carte sélectionnée */
+.card.selectionnee {
+  /* Bordure de sélection */
+  border: 2px solid var(--couleur-primaire);
+  
+  /* Ombre renforcée */
+  box-shadow: var(--ombre-lg), 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Carte désactivée */
+.card.desactivee {
+  /* Opacité réduite */
+  opacity: 0.6;
+  
+  /* Pas d'interaction */
+  pointer-events: none;
+}
+
+/* ======================
+       ANIMATIONS
+   ====================== */
+
+@keyframes chargement {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Animation d'apparition des cartes */
+.card {
+  animation: apparitionCarte 0.5s ease-out;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes apparitionCarte {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================
+      ACCESSIBILITÉ
+   =================== */
+
+/* Focus visible pour les cartes cliquables */
+.card:focus-visible {
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+    transition: none;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .actualite-card:hover .card-image img {
+    transform: none;
+  }
+}
+
+/* ===================
+      PRINT STYLES
+   =================== */
+@media print {
+  .card {
+    /* Supprime les ombres en impression */
+    box-shadow: none;
+    border: 1px solid var(--couleur-bordure);
+  }
+  
+  .card:hover {
+    /* Pas d'effet au survol en impression */
+    transform: none;
+  }
+}
+

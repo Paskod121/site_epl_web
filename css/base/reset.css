@@ -1,0 +1,459 @@
+/**
+ * FICHIER : Reset.css
+ * 
+ * OBJECTIF : 
+ * Reset CSS moderne pour assurer la cohérence cross-browser
+ * Base solide pour le système de design
+ * Compatible avec les 2 thèmes
+ * 
+ * DÉPENDANCES :
+ * - css/base/variables.css (variables de thème)
+ * 
+ * AUTEUR : sCtt3 | EPL Devs
+ * DERNIÈRE MODIFICATION : 15 octobre 2025
+ */
+
+/* ========================
+   RESET MODERNE ET COMPLET
+   ======================== */
+
+/* Reset de base */
+*,
+*::before,
+*::after {
+  /* Box model */
+  box-sizing: border-box;
+  
+  /* Supprime les marges et paddings par défaut */
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================
+      ÉLÉMENTS HTML
+   =================== */
+
+/* HTML et Body */
+html {
+  /* Hauteur complète */
+  height: 100%;
+  
+  /* Scroll fluide */
+  scroll-behavior: smooth;
+  
+  /* Typographie */
+  font-family: var(--police-principale);
+  font-size: 16px;
+  line-height: var(--ligne-normal);
+  
+  /* Couleurs */
+  color: var(--couleur-texte-principal);
+  background-color: var(--couleur-fond-principal);
+  
+  /* Transitions pour changement de thème */
+  transition: color var(--transition-theme), background-color var(--transition-theme);
+}
+
+body {
+  /* Hauteur complète */
+  min-height: 100vh;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  
+  /* Typographie */
+  font-size: var(--texte-base);
+  line-height: var(--ligne-normal);
+  
+  /* Apparence */
+  color: var(--couleur-texte-principal);
+  background-color: var(--couleur-fond-principal);
+  
+  /* Comportement */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Transitions */
+  transition: color var(--transition-theme), background-color var(--transition-theme);
+}
+
+/* ====================
+      TYPOGRAPHIE
+   ==================== */
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+  /* Typographie */
+  font-family: var(--police-titres);
+  font-weight: var(--poids-semibold);
+  line-height: var(--ligne-tight);
+  color: var(--couleur-texte-principal);
+  
+  /* Espacement */
+  margin: 0;
+  
+  /* Transitions */
+  transition: color var(--transition-theme);
+}
+
+/* Paragraphes */
+p {
+  /* Espacement */
+  margin: 0;
+  
+  /* Transitions */
+  transition: color var(--transition-theme);
+}
+
+/* Liens */
+a {
+  /* Apparence */
+  color: var(--couleur-primaire);
+  text-decoration: none;
+  
+  /* Transitions */
+  transition: color var(--transition-rapide);
+}
+
+a:hover {
+  /* Couleur au survol */
+  color: var(--couleur-primaire-hover);
+}
+
+a:focus {
+  /* Indicateur de focus */
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* Listes */
+ul, ol {
+  /* Espacement */
+  margin: 0;
+  padding: 0;
+  
+  /* Supprime les puces par défaut */
+  list-style: none;
+}
+
+li {
+  /* Espacement */
+  margin: 0;
+}
+
+/* ====================
+        FORMULAIRES
+   ==================== */
+
+/* Champs de saisie */
+input, textarea, select, button {
+  /* Typographie */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  
+  /* Apparence */
+  color: var(--couleur-texte-principal);
+  background-color: var(--couleur-fond-principal);
+  
+  /* Transitions */
+  transition: all var(--transition-rapide);
+}
+
+/* Boutons */
+button {
+  /* Apparence */
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+  /* Comportement */
+  user-select: none;
+}
+
+button:disabled {
+  /* État désactivé */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Champs de saisie */
+input, textarea, select {
+  /* Apparence */
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  padding: var(--espacement-sm) var(--espacement-md);
+  
+  /* Transitions */
+  transition: border-color var(--transition-rapide), box-shadow var(--transition-rapide);
+}
+
+input:focus, textarea:focus, select:focus {
+  /* État de focus */
+  outline: none;
+  border-color: var(--couleur-bordure-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ===================
+      MÉDIA ET IMAGES
+   =================== */
+
+/* Images */
+img {
+  /* Dimensions */
+  max-width: 100%;
+  height: auto;
+  
+  /* Apparence */
+  display: block;
+  
+  /* Comportement */
+  vertical-align: middle;
+}
+
+/* Vidéos */
+video {
+  /* Dimensions */
+  max-width: 100%;
+  height: auto;
+  
+  /* Apparence */
+  display: block;
+}
+
+/* ===================
+        TABLEAUX
+   =================== */
+
+/* Tableaux */
+table {
+  /* Layout */
+  border-collapse: collapse;
+  border-spacing: 0;
+  
+  /* Dimensions */
+  width: 100%;
+}
+
+th, td {
+  /* Espacement */
+  padding: var(--espacement-sm);
+  
+  /* Alignement */
+  text-align: left;
+  
+  /* Bordures */
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+th {
+  /* Typographie */
+  font-weight: var(--poids-semibold);
+  color: var(--couleur-texte-principal);
+}
+
+/* ======================
+   ÉLÉMENTS SÉMANTIQUES
+   ====================== */
+
+/* Sections */
+section, article, aside, nav, header, footer, main {
+  /* Layout */
+  display: block;
+}
+
+/* Figures */
+figure {
+  /* Espacement */
+  margin: 0;
+}
+
+figcaption {
+  /* Typographie */
+  font-size: var(--texte-sm);
+  color: var(--couleur-texte-secondaire);
+  
+  /* Espacement */
+  margin-top: var(--espacement-sm);
+}
+
+/* ======================
+    ÉLÉMENTS INTERACTIFS
+   ====================== */
+
+/* Détails et résumés */
+details {
+  /* Espacement */
+  margin: var(--espacement-md) 0;
+}
+
+summary {
+  /* Typographie */
+  font-weight: var(--poids-medium);
+  cursor: pointer;
+  
+  /* Espacement */
+  padding: var(--espacement-sm) 0;
+  
+  /* Apparence */
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  /* Supprime la flèche par défaut */
+  display: none;
+}
+
+/* ===================
+    ÉLÉMENTS SPÉCIAUX
+   =================== */
+
+/* Règles horizontales */
+hr {
+  /* Apparence */
+  border: none;
+  height: 1px;
+  background-color: var(--couleur-bordure);
+  
+  /* Espacement */
+  margin: var(--espacement-lg) 0;
+}
+
+/* Citations */
+blockquote {
+  /* Espacement */
+  margin: var(--espacement-lg) 0;
+  padding-left: var(--espacement-lg);
+  
+  /* Apparence */
+  border-left: 4px solid var(--couleur-primaire);
+  
+  /* Typographie */
+  font-style: italic;
+  color: var(--couleur-texte-secondaire);
+}
+
+/* Code */
+code, pre {
+  /* Typographie */
+  font-family: var(--police-mono);
+  font-size: var(--texte-sm);
+}
+
+code {
+  /* Apparence */
+  background-color: var(--couleur-fond-tertiaire);
+  padding: var(--espacement-xs) var(--espacement-sm);
+  border-radius: var(--rayon-sm);
+}
+
+pre {
+  /* Apparence */
+  background-color: var(--couleur-fond-tertiaire);
+  padding: var(--espacement-md);
+  border-radius: var(--rayon-md);
+  overflow-x: auto;
+  
+  /* Espacement */
+  margin: var(--espacement-md) 0;
+}
+
+pre code {
+  /* Reset du code dans pre */
+  background: none;
+  padding: 0;
+}
+
+/* ======================
+       UTILITAIRES
+   ====================== */
+
+/* Éléments cachés */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  /* Accessibilité : masque visuellement mais garde pour les lecteurs d'écran */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Éléments focusables */
+.focusable:focus {
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* ===================
+    RESPONSIVE IMAGES
+   =================== */
+
+/* Images responsives */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ===================
+    ACCESSIBILITÉ
+   =================== */
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Contraste élevé */
+@media (prefers-contrast: high) {
+  * {
+    color: var(--couleur-texte-principal);
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ===================
+   PRINT STYLES
+   =================== */
+@media print {
+  * {
+    /* Supprime les couleurs en impression */
+    color: black !important;
+    background: white !important;
+  }
+  
+  a {
+    /* Affiche les URLs en impression */
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  /* Masque les éléments non essentiels */
+  .no-print {
+    display: none !important;
+  }
+}

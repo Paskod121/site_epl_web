@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="clair">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - École Polytechnique de Lomé</title>
+    <meta name="description" content="Contactez l'École Polytechnique de Lomé pour toute information.">
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/reset.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/components/cta.css">
+    <link rel="stylesheet" href="/css/components/nouveaux-composants.css">
+    <link rel="stylesheet" href="/css/layouts/main.css">
+    <link rel="stylesheet" href="/css/pages/dashboard.css">
+    <link rel="stylesheet" href="/css/pages/contact.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Skip link pour l'accessibilité -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Navbar (mobile uniquement) -->
+    <div id="navbar-container"></div>
+
+    <!-- Breadcrumb -->
+    <div id="breadcrumb-container"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <!-- Le contenu du sidebar sera chargé ici par JavaScript -->
+    </div>
+
+    <!-- Contenu principal -->
+    <main>
+
+  <!-- ===== SECTION 1 : CONTACTEZ-NOUS ===== -->
+  <section class="contact-section py-5">
+    <div class="container">
+      <div class="mb-5">
+        <h4 class="fw-bold">Contactez-nous</h4>
+        <p class="text-muted">Nous sommes à votre écoute pour toute question ou information</p>
+      </div>
+
+      <div class="row justify-content-center g-4">
+        
+        <!-- Adresse -->
+        <div class="col-md-4">
+          <div class="contact-card p-4 shadow-sm ">
+            <h6 class="fw-bold mb-2">
+                <i class="bi bi-geo-alt icon-contact"></i><b>Adresse</b>
+            </h6>
+            <p class="mb-0">BP 1515</p>
+            <p class="mb-0">Lomé, Togo</p>
+            <p>Quartier Administratif</p>
+          </div>
+        </div>
+
+        <!-- Téléphone -->
+        <div class="col-md-4">
+          <div class="contact-card p-4 shadow-sm">
+            
+            <h6 class="fw-bold mb-2">
+                <i class="bi bi-telephone icon-contact"></i>Téléphone
+            </h6>
+            <p class="mb-0">+228 22 21 36 75</p>
+            <p class="mb-0">+228 22 21 47 83</p>
+            <p>Fax: +228 22 21 85 95</p>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-4">
+          <div class="contact-card p-4 shadow-sm">
+            
+            <h6 class="fw-bold mb-3">
+                <i class="bi bi-envelope icon-contact"></i> Email
+            </h6>
+            <p class="mb-0">info@epl.tg</p>
+            <p class="mb-0">admissions@epl.tg</p>
+            <p>scolarite@epl.tg</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2 : ENVOYEZ-NOUS UN MESSAGE ===== -->
+  <section class="message-section py-5">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Formulaire -->
+        <div class="col-md-6">
+          <div class="card bg-light bg-opacity-100 shadow-sm border-2 p-4 rounded-4">
+            <h5 class="fw-bold mb-4">Envoyez-nous un message</h5>
+
+            <form class="needs-validation" novalidate>
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label text-end">Nom complet</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Votre nom" required>
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label text-end">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" placeholder="votre.email@example.com" required>
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label text-end">Téléphone</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="+228 XX XX XX XX">
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 col-form-label text-end">Sujet</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="Objet de votre message">
+                </div>
+              </div>
+
+              <div class="row mb-3 align-items-start">
+                <label class="col-sm-3 col-form-label text-end">Message</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" rows="4" placeholder="Écrivez votre message ici..."></textarea>
+                </div>
+              </div>
+
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary px-4">Envoyer le message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Informations administratives -->
+        <div class="col-md-6">
+          <div class="info-box p-4 shadow-sm mb-4">
+            <h6 class="fw-bold"><i class="bi bi-clock me-2 text-primary"></i>Horaires d'ouverture</h6>
+            <p class="mb-0">Lundi - Vendredi : 07h30 - 17h00</p>
+            <p class="mb-0">Samedi : 08h00 - 12h00</p>
+            <p class="text-danger">Dimanche : Fermé</p>
+          </div>
+
+          <div class="info-box p-4 shadow-sm mb-4">
+            <h6 class="fw-bold mb-3">Services administratifs</h6>
+            <p class="mb-1">Direction des Études<br><span class="text-muted">Ext. 101 - etudes@epl.tg</span></p>
+            <p class="mb-1">Service des Admissions<br><span class="text-muted">Ext. 102 - admissions@epl.tg</span></p>
+            <p class="mb-1">Service de la Scolarité<br><span class="text-muted">Ext. 103 - scolarite@epl.tg</span></p>
+            <p>Bibliothèque<br><span class="text-muted">Ext. 104 - bibliotheque@epl.tg</span></p>
+          </div>
+
+          <div class="info-box p-4 shadow-sm text-center">
+            <h6 class="fw-bold mb-3">Suivez-nous</h6>
+            <p class="text-muted">Restez connectés avec l'EPL sur les réseaux sociaux</p>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-facebook"></i> Facebook</a>
+              <a href="#" class="btn btn-outline-info btn-sm"><i class="bi bi-twitter"></i> Twitter</a>
+              <a href="#" class="btn btn-outline-secondary btn-sm"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+    <!-- Footer -->
+    <footer class="footer-principal" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 École Polytechnique de Lomé. Tous droits réservés.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/pages/mentions-legales.html" class="footer-link">Mentions légales</a>
+                    <a href="/pages/politique-confidentialite.html" class="footer-link">Politique de confidentialité</a>
+                    <a href="/pages/plan-du-site.html" class="footer-link">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="/js/utils/themes.js"></script>
+    <script src="/js/utils/theme-global.js"></script>
+    <script src="/js/utils/chargeur-composants.js"></script>
+    <script src="/js/utils/chargeur-pages.js"></script>
+    <script src="/js/utils/gestionnaire-animations.js"></script>
+    <script src="/js/utils/gestionnaire-navigation.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/components/cta.js"></script>
+    <script src="/js/pages/dashboard.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Script de gestion de la page Contact -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🚀 Page Contact chargée');
+
+            // Initialiser le système de pages avec breadcrumb
+            if (typeof chargeurPages !== 'undefined') {
+                chargeurPages.initialiser('contact');
+            }
+
+            // Forcer la synchronisation de la navigation
+            if (typeof gestionnaireNavigation !== 'undefined') {
+                setTimeout(() => {
+                    gestionnaireNavigation.forcerSynchronisation();
+                }, 100);
+            }
+
+            console.log('✅ Page Contact initialisée avec succès');
+        });
+    </script>
+</body>
+
+</html>
