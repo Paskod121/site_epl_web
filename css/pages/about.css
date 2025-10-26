@@ -158,15 +158,12 @@
   background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
 }
 
-/* État développé : retirer la limite (suffisante pour la plupart des contenus) */
 .about-hero__summary.expandable.expanded {
-  max-height: 2000px; /* assez grand pour contenir le contenu complet */
+  max-height: 2000px; 
 }
 .about-hero__summary.expandable.expanded::after {
   display: none; /* plus d'overlay quand tout est visible */
 }
-
-/* Bouton de bascule : style léger, utilisable tel quel ou personnalisé */
 .about-hero__controls {
   margin-top: 0.6rem;
 }
@@ -218,7 +215,6 @@ html[data-theme="sombre"] .about-hero__toggle {
     margin-top: 12px;
   }
   .about-pill {
-    /* deux colonnes potentielles : chaque pill prend ~50% moins le gap */
     flex: 1 1 calc(50% - 0.5rem);
     min-width: 220px;
     margin-bottom: 10px;
@@ -233,7 +229,6 @@ html[data-theme="sombre"] .about-hero__toggle {
   .about-highlight {
     flex-direction: column;
   }
-  /* Force une colonne pour les pills sur mobile */
   .about-pill-columns {
     gap: 0.5rem;
   }
